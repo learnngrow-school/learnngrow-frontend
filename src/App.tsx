@@ -3,7 +3,6 @@ import appRouter from './navigation/app.router.tsx'
 import { urls } from './navigation/app.urls'
 import {RouterProvider} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
 
 function App() {
   useEffect(() => {
