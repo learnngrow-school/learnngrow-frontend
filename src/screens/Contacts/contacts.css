@@ -1,0 +1,12 @@
+.heading-1{
+    color: var(--black);
+    text-align: left;
+    padding-bottom: 1px;
+}
+
+.heading-4{
+    color: var(--black);
+    text-align: left;
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
