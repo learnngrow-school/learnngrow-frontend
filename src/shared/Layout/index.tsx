@@ -1,19 +1,22 @@
 import { Outlet } from 'react-router-dom'
-import styles from './layout.module.css'
+import './layout.css'
 import Navbar from './Navbar'
 //import DarkLogo from '../../assets/icons/dark-logo.svg'
+import { Suspense } from 'react'
 
 
 const Layout = () => {
 
   return (
       <div >
-        <div className={styles.top}>
+        <div className="top">
           {/*<DarkLogo/>*/}
           <Navbar/>
         </div>
-        <div className={styles.pageContent}>
+        <div className="pageContent">
+          <Suspense fallback={<div>Загрузка...</div>}>
             <Outlet />
+          </Suspense>
         </div>
       </div>
   )

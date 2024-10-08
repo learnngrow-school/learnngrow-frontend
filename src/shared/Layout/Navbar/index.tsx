@@ -1,12 +1,12 @@
-import styles from '../layout.module.css'
-import { NavLink } from 'react-router-dom'
+import '../layout.css'
+import NavigationLink from '../NavigationLink'
 import { appLinks } from '../../../navigation/app.links'
 
 const Navbar = () => {
   return (
-    <div className={styles.navbar}>
+    <div className="navbar">
       {appLinks.map((link : any) => (
-        <NavLink key={link.path} to={link} />
+        <NavigationLink key={link.path} link={link} />
       ))}
     </div>
   )

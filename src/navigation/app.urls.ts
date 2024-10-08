@@ -1,6 +1,6 @@
 export const urls = {
   main: '/main',
-  subjects: '/courses',
+  subjects: '/',
   courses: '/courses',
   contacts: '/contacts',
 }
