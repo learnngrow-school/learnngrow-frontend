@@ -1,0 +1,19 @@
+.top {
+    z-index: 4;
+    padding: 20px 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+.navbar {
+    display: flex;
+    min-height: 40px;
+    gap: 8px;
+}
+  
+.pageContent {
+    z-index: 2;
+    flex: 1;
+}
