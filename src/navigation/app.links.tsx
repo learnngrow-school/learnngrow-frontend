@@ -10,7 +10,6 @@ export const appLinks: ILink[] = [
   {
     path: urls.subjects,
     name: 'Предметы',
-    //icon
   },
   {
     path: urls.courses,
@@ -20,6 +19,17 @@ export const appLinks: ILink[] = [
   {
     path: urls.contacts,
     name: 'Контакты',
-    //icon
+  },
+  {
+    path: urls.user,
+    name: 'Личный кабинет',
+  },
+  {
+    path: urls.auth,
+    name: 'Вход',
+  },
+  {
+    path: urls.registration,
+    name: 'Регистрация',
   },
 ]

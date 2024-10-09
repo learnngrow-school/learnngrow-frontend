@@ -3,7 +3,6 @@ import './layout.css'
 import Navbar from './Navbar'
 import { Suspense } from 'react'
 
-
 const Layout = () => {
 
   return (
