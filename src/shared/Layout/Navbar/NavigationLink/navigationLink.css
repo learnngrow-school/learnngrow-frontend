@@ -1,0 +1,13 @@
+.navlink {
+    display: flex;
+    position: relative;
+    color: var(--black);
+}
+  
+.navlink:hover {
+    color: var(--pink);
+}
+  
+.navlinkActive {
+    color: var(--pink);
+}

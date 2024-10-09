@@ -1,25 +1,46 @@
 import '../layout.css'
-import NavigationLink from '../NavigationLink'
+import NavigationLink from './NavigationLink'
 import { appLinks } from '../../../navigation/app.links'
 import { useNavigate } from 'react-router-dom'
 import { urls } from '../../../navigation/app.urls'
-import NavSubjects from '../../NavSubjects'
 import DarkLogo from '/src/assets/icons/darkLogo.svg'
 import '../../../styles/text.css'
+import DropDownButton from '../../Buttons/DropDownButton'
+import BaseButton from '../../Buttons/BaseButton'
 
 const Navbar = () => {
   const navigate = useNavigate()
+
+  const onSubjectClick = (evt: any) => {
+    localStorage.setItem('subject', evt.target.innerText)
+    navigate(urls.courses)
+  }
 
   return (
     <div className="navbar">
       <div className="logoBlock" onClick={() => navigate(urls.main)}>
         <img src={DarkLogo} alt="logo " className='logoImg'/>
-        <div className='text--body-s'>Learn & Grow</div>
       </div>
       <div className='navLinksBlock'>
-        <NavSubjects subjects={["Матан", "Психология семейной жизни", "Плетение фенечек", "Сисанал"]}/>
-        <NavigationLink key={appLinks[2].name} link={appLinks[2]} />
-        <NavigationLink key={appLinks[3].name} link={appLinks[3]} />
+        <DropDownButton text='Предметы' 
+          items={['Плетение фенечек', 'Зельеварение', 
+            'Психология семейной жизни', 'Эльфийский язык', 
+            'Блинчиковедение', 'Демонология']} 
+          theme='white'
+          className='subjectsContainer'
+          onClick={onSubjectClick}/>
+        {/*курсы */}
+        <NavigationLink key={appLinks[2].name} link={appLinks[2]}   
+          onClick={() => {
+            localStorage.clear()
+            console.log(localStorage.getItem('subject'))
+            navigate(urls.courses)
+          }}/>
+        {/*контакты*/}
+        <NavigationLink key={appLinks[3].name} link={appLinks[3]} 
+          onClick={() => navigate(urls.contacts)}/>
+        <BaseButton text='Войти в аккаунт' onClick={ () => navigate(urls.auth)}
+            className='userContainer' theme='dark-blue-primary'/>
       </div>
     </div>
   )

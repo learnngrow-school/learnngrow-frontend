@@ -102,20 +102,29 @@ h3 {
   font-size: 60px;
   line-height: 36px;
   white-space: normal;
+  padding-bottom: 30px;
 }
 
 .text--heading2 {
   font-size: 30px;
   line-height: 30px;
+  padding-bottom: 20px;
 }
 
 .text--heading3 {
   font-size: 30px;
   line-height: 26px;
+  padding-bottom: 20px;
 }
 
 .text--heading4 {
   font-size: 25px;
+  line-height: 26px;
+  padding-bottom: 10px;
+}
+
+.text--body-m {
+  font-size: 20px;
   line-height: 26px;
 }
 

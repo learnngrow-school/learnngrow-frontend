@@ -5,16 +5,14 @@ import { lazy } from 'react'
 const Main = lazy(() => import('../screens/Main'))
 const Courses = lazy(() => import('../screens/Courses'))
 const Contacts = lazy(() => import('../screens/Contacts'))
-const NavSubjects = lazy(() => import('../shared/NavSubjects'))
+const User = lazy(() => import('../screens/User'))
+const Auth = lazy(() => import('../screens/Auth'))
+const Registration = lazy(() => import('../screens/Registration'))
 
 const appRoutes: IRoute[] = [
   {
     path: urls.main,
     element: <Main />,
-  },
-  {
-    path: urls.subjects,
-    element: <NavSubjects subjects={["Матан", "Психология семейной жизни", "Плетение фенечек", "Сисанал"]}/>,
   },
   {
     path: urls.courses,
@@ -23,7 +21,19 @@ const appRoutes: IRoute[] = [
   {
     path: urls.contacts,
     element: <Contacts/>,
-  }
+  },
+  {
+    path: urls.user,
+    element: <User/>,
+  },
+  {
+    path: urls.auth,
+    element: <Auth/>,
+  },
+  {
+    path: urls.registration,
+    element: <Registration/>,
+  },
 ]
 
 export default appRoutes
