@@ -3,7 +3,6 @@ import { ILink } from '../../../../navigation/navigation.types.ts'
 import { matchRoutes, NavLink, useLocation } from 'react-router-dom'
 import appRoutes from '../../../../navigation/app.routes.tsx'
 import './navigationLink.css'
-import { useNavigate } from 'react-router-dom'
 import '../../../../styles/text.css'
 
 interface IProps {

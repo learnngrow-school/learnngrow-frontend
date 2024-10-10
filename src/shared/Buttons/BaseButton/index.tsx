@@ -1,6 +1,6 @@
 export interface IButtonProps {
     text: string
-    onClick: (arg: any) => void,
+    onClick?: (arg: any) => void,
     type?:
     | 'submit'
     | 'button'
@@ -18,7 +18,7 @@ export interface IButtonProps {
 }
 
 const BaseButton = (props: IButtonProps) => {
-    console.log(props.text, props.iconPath)
+
     const Icon = () => props.iconPath ? 
     <img src={props.iconPath} alt="icon" className={props.iconClassName}/> 
     : <p/>

@@ -30,14 +30,14 @@ const Navbar = () => {
           theme='white'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
-        {/*курсы */}
+        {/*Курсы*/}
         <NavigationLink key={appLinks[2].name} link={appLinks[2]}   
           onClick={() => {
             localStorage.clear()
             console.log(localStorage.getItem('subject'))
             navigate(urls.courses)
           }}/>
-        {/*контакты*/}
+        {/*Контакты*/}
         <NavigationLink key={appLinks[3].name} link={appLinks[3]} 
           onClick={() => navigate(urls.contacts)}/>
         <BaseButton text='Войти в аккаунт' onClick={ () => navigate(urls.auth)}
