@@ -12,15 +12,23 @@ export interface IButtonProps {
     | 'green'
     className?: string,
     logoPath?: string,
+    icon?: JSX.Element,
+    iconPath?: string,
+    iconClassName?: string
 }
 
 const BaseButton = (props: IButtonProps) => {
+    console.log(props.text, props.iconPath)
+    const Icon = () => props.iconPath ? 
+    <img src={props.iconPath} alt="icon" className={props.iconClassName}/> 
+    : <p/>
 
     return (
         <button type={props.type? props.type : 'button'}
             data-theme={props.theme ? props.theme : 'white'} 
             className={`button btn primary ${props.className}`} 
             onClick={props.onClick}>
+        <Icon/>        
         {props.text}
         </button>
     )

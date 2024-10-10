@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    background-color: var(--grey-light);
+    background-color: var(--white);
   }
 
 .pageContent {
@@ -77,8 +77,8 @@
 
 .logoImg {
     position: relative;
-    width: 300px;
-    height: 80px;
+    width: 250px;
+    height: 70px;
 }
 
 .navLinksBlock {
@@ -104,7 +104,12 @@
   display: flex;
   align-items: center;
   border-radius: 10px;
-  width: 200px;
+  width: 220px;
   height: 40px;
   font-size: 20px;
+  text-align: start;
+}
+
+.img.btn.userContainer :hover {
+  color: var(--blue-dark)
 }
