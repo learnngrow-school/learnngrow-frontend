@@ -5,7 +5,6 @@ import './auth.css'
 import '../../styles/text.css'
 import { useForm } from 'react-hook-form';
 import TextLink from "../../shared/Text/TextLink"
-import CryptoJS from 'crypto-js';
 
 const Auth = () => {
     const navigate = useNavigate()
@@ -13,14 +12,14 @@ const Auth = () => {
 
     const onSubmit = async (data :any) => {
         try {
-            const salt = CryptoJS.lib.WordArray.random(16);
-            const key = CryptoJS.SHA256(data.password.plainText + salt.toString()).toString();
+            // const salt = CryptoJS.lib.WordArray.random(16);
+            // const key = CryptoJS.SHA256(data.password.plainText + salt.toString()).toString();
             
-            // Шифрование пароля
-            const encrypted = CryptoJS.AES.encrypt(data.password.plainText, key);
-            console.log(`логин: ${data.username}`);
-            console.log(`соль: ${CryptoJS.enc.Base64.stringify(salt)}
-                 пароль:${encrypted}`);
+            // // Шифрование пароля
+            // const encrypted = CryptoJS.AES.encrypt(data.password.plainText, key);
+            // console.log(`логин: ${data.username}`);
+            // console.log(`соль: ${CryptoJS.enc.Base64.stringify(salt)}
+            //      пароль:${encrypted}`);
 
             navigate(urls.user)
         } catch (error) {
