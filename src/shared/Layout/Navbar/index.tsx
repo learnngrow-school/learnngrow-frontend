@@ -1,10 +1,12 @@
 import '../layout.css'
+import './navbar.css'
 import NavigationLink from './NavigationLink'
 import { appLinks } from '../../../navigation/app.links'
 import { useNavigate } from 'react-router-dom'
 import { urls } from '../../../navigation/app.urls'
 import DarkLogo from '/src/assets/icons/darkLogo.svg'
 import UserLogo from '/src/assets/icons/user.svg'
+import DarkUserLogo from '/src/assets/icons/userDark.svg'
 import '../../../styles/text.css'
 import DropDownButton from '../../Buttons/DropDownButton'
 import BaseButton from '../../Buttons/BaseButton'
@@ -42,7 +44,7 @@ const Navbar = () => {
           onClick={() => navigate(urls.contacts)}/>
         <BaseButton text='Войти в аккаунт' onClick={ () => navigate(urls.auth)}
             className='userContainer' theme='dark-blue-primary' 
-            iconPath={UserLogo}/>
+            iconPath={UserLogo} iconPathHover={DarkUserLogo}/>
       </div>
     </div>
   )

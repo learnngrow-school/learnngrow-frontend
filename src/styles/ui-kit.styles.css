@@ -13,20 +13,47 @@
   flex-direction: column;
 }
 
-.input--error {
-  position: absolute;
-  bottom: -25px;
+.checkbox-lng:enabled {
+  border: 1px solid var(--grey-medium);
+  border-width: 2.5px;
+  cursor: pointer;
+  box-shadow: none;
+  width: 20px;
+  height: 20px;
 }
 
-.text-input {
+.checkbox-lng:checked {
+  background-color: var(--pink);
+  color: var(--white);
+  border-color: var(--pink);
+  border-width: 2px;
+}
+
+.checkbox-lng:hover {
+  border-color: var(--pink);
+  border-width: 2.4px;
+}
+
+.input--error {
+  color: var(--error);
+}
+
+.text-input:enabled{
   padding: 13px 16px;
   border-radius: 9px;
   outline: none;
   border: 1px solid var(--border-color);
   font-size: 14px;
   line-height: 20px;
-  background: #f6f5fb;
+  background-color: #f6f5fb;
   transition: all 0.3s ease;
+} 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    background-color: var(--white) !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 .text-input:hover {
@@ -34,10 +61,8 @@
   background-color: var(--white);
 }
 
-.text-input:disabled {
-  background: #f3f1f7;
-  color: #adadad;
-  cursor: not-allowed;
+.text-input:visited {
+  background-color: var(--white);
 }
 
 /* Firefox */
@@ -52,7 +77,7 @@ hr {
 
 .button {
   box-shadow: 0 4px 19px 0 rgba(119, 147, 65, 0.3);
-  padding: 12px 16px;
+  padding: 12px 20px;
   text-align: center;
   border-radius: 10px;
   cursor: pointer;

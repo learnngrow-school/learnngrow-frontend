@@ -2,12 +2,15 @@
   --black: #000000;
   --blue-dark: rgba(3, 37, 77, 1);
   --pink: rgba(241, 120, 182, 1);
-  --white: #ffffff;
+  --error: red;
+  --white: rgba(255, 255, 255, 1);
   --pink-pale: rgb(255,242,249);
   --green-grass: rgba(155, 211, 98, 1);
   --grey-light: rgba(245, 245, 245, 1);
+  --grey-medium: rgba(0, 0, 0, 0.15);
   --grey: rgba(153, 153, 153, 1);
 
   --box-shadow-black: 1px 1px 5px rgba(0, 0, 0, 0.25);
   --box-shadow-pink: 1px 1px 5px var(--pink);
+  --checkbox-shadow: 1px 1px 5px var(var(--grey));
 }
