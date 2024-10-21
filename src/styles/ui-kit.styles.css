@@ -47,6 +47,13 @@
   line-height: 20px;
   background-color: #f6f5fb;
   transition: all 0.3s ease;
+} 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    background-color: var(--white) !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 .text-input:hover {
