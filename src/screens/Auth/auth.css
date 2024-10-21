@@ -45,3 +45,12 @@
     flex-direction: column;
     width: 400px;
 }
+
+.inputText {
+    padding: 10px 16px;
+}
+
+.inputText:focus {
+    box-shadow: none;
+    border-color: var(--pink);
+}

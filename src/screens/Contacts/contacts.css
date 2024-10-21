@@ -1,12 +1,18 @@
 .heading-1{
     color: var(--black);
     text-align: left;
-    padding-bottom: 1px;
+    padding-bottom: 30px;
+}
+
+.contactsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
 }
 
 .heading-4{
     color: var(--black);
     text-align: left;
-    margin-top: 30px;
-    padding-bottom: 30px;
+    font-size: 18px;
   }

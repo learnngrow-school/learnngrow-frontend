@@ -15,6 +15,7 @@
     z-index: 4;
     display: flex;
     width: 100vw;
+    max-width: 1400px;
     height: 80px;
     align-items: center;
     justify-content: center;
@@ -52,8 +53,8 @@
   display: flex;
   background-color: var(--white);
   border-radius: 10px;
-  padding: 5px 10px;
-  width: 120px;
+  padding: 5px 20px;
+  /* width: 120px; */
   height: 40px;
   align-items: center;
   justify-content: center;
@@ -78,8 +79,8 @@
 
 .logoImg {
     position: relative;
-    width: 250px;
-    height: 70px;
+    width: 200px;
+    height: 40px;
 }
 
 .navLinksBlock {
@@ -111,6 +112,6 @@
   text-align: start;
 }
 
-.img.btn.userContainer :hover {
+.svg.img.btn.userContainer :hover {
   color: var(--blue-dark)
 }

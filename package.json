@@ -11,16 +11,16 @@
   },
   "husky": {
     "hooks": {
-        "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged"
     }
-},
-"lint-staged": {
+  },
+  "lint-staged": {
     "./**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-        "prettier --write",
-        "npm lint",
-        "git add"
+      "prettier --write",
+      "npm lint",
+      "git add"
     ]
-},
+  },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",

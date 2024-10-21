@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 export interface IButtonProps {
     text: string
     onClick?: (arg: any) => void,
@@ -14,20 +16,24 @@ export interface IButtonProps {
     logoPath?: string,
     icon?: JSX.Element,
     iconPath?: string,
-    iconClassName?: string
+    iconPathHover?: string,
+    iconClassName?: string,
 }
 
 const BaseButton = (props: IButtonProps) => {
+    const [iconPath, setIconPath] = useState(props.iconPath)
 
     const Icon = () => props.iconPath ? 
-    <img src={props.iconPath} alt="icon" className={props.iconClassName}/> 
-    : <p/>
+    <img src={iconPath} alt="icon" className={props.iconClassName} /> 
+    : <div style={{marginLeft: '-5px'}}/>
 
     return (
         <button type={props.type? props.type : 'button'}
             data-theme={props.theme ? props.theme : 'white'} 
             className={`button btn primary ${props.className}`} 
-            onClick={props.onClick}>
+            onClick={props.onClick}
+            onMouseEnter={() => setIconPath(props.iconPathHover)}
+            onMouseLeave={() => setIconPath(props.iconPath)}>
         <Icon/>        
         {props.text}
         </button>
