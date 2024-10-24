@@ -1,7 +1,13 @@
 import '../../styles/text.css'
+import { useSelector } from 'react-redux';
 
 const User = () => {
+    const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
 
+    if (!isLoggedIn) {
+        return <div>Пожалуйста, войдите в систему</div>;
+      }
+    
     return (
         <div>
             <h1 className='text--heading1'>Личный кабинет</h1>

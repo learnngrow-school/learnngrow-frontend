@@ -1,65 +1,22 @@
-import { urls } from "../../navigation/app.urls"
-import { useNavigate } from "react-router-dom"
-import BaseButton from "../../shared/Buttons/BaseButton"
-import './auth.css'
-import '../../styles/text.css'
-import { useForm } from 'react-hook-form';
-import TextLink from "../../shared/Text/TextLink"
-import TextError from "../../shared/Errors/TextError"
+import { useDispatch } from 'react-redux';
+import { setToken } from '../../store/authSlice';
+import { useEffect } from 'react';
 
-const Auth = () => {
-    const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+interface IAuthProps {
+    children?: React.ReactNode;
+  }
 
-    const onSubmit = async (data: any) => {
-        try {
+const Auth = ({ children }: IAuthProps) => {
+    const dispatch = useDispatch();
 
-            console.log(`логин: ${data.username}`);
-
-            navigate(urls.user)
-        } catch (error) {
-          console.error(error);
+    useEffect(() => {
+        const token = localStorage.getItem('jwtToken');
+        if (token) {
+          dispatch(setToken(token));
         }
-      };
-      
+      }, []);
 
-    return (
-        <>
-        <form className="px-4 py-3 authForm" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text--heading2">Войти</h1>
-            <div className="mb-3">
-                <input type="text" className="form-control inputText" id="username"
-                placeholder="Введите имя пользователя или email"
-                {...register('username', { required: "Это поле не может быть пустым" })} />
-                {<TextError text={errors.username?.message?.toString() || ''}/>}
-            </div>
-            <div className="mb-3">
-                <input type="password" className="form-control inputText" id="inputPassword" 
-                placeholder="Введите пароль"
-                {...register('password', { required: "Это поле не может быть пустым" })}/>
-                {<TextError text={errors.username?.message?.toString() || ''}/>}
-            </div>
-            <div className="mb-3 rememberLoginContainer">
-                <div className="form-check">
-                    <input type="checkbox" className="form-check-input checkbox-lng" id="authFormCheck"/>
-                    <label className="form-check-label" htmlFor="authFormCheck">
-                    <div>Запомнить меня</div>
-                    </label>
-                </div>
-                <BaseButton text='Войти' theme='pink' className="loginButton"
-                    type='submit'/>
-            </div>
-            <hr/>
-            <div className="buttonsContainer">
-                <div className="registryContainer">
-                    <div className="text--body-l">Нет аккаунта?</div>
-                    <TextLink path={urls.registration} name='Зарегистрироваться'/>
-                </div>
-                <div className="text--body-l">Забыли пароль?</div>
-            </div>
-        </form>
-        </>
-    )
+    return <>{children}</>;
 }
 
 export default Auth
