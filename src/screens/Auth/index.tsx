@@ -37,7 +37,7 @@ const Auth = () => {
                 <input type="password" className="form-control inputText" id="inputPassword" 
                 placeholder="Введите пароль"
                 {...register('password', { required: "Это поле не может быть пустым" })}/>
-                {<TextError text={errors.username?.message?.toString() || ''}/>}
+                {<TextError text={errors.password?.message?.toString() || ''}/>}
             </div>
             <div className="mb-3 rememberLoginContainer">
                 <div className="form-check">
