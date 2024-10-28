@@ -22,13 +22,13 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logoBlock" onClick={() => navigate(urls.main)}>
-        <img src={DarkLogo} alt="logo " className='logoImg'/>
+        <img src={DarkLogo} alt="logo lng" className='logoImg'/>
       </div>
       <div className='navLinksBlock'>
         <DropDownButton text='Предметы' 
-          items={['Плетение фенечек', 'Зельеварение', 
-            'Психология семейной жизни', 'Эльфийский язык', 
-            'Блинчиковедение', 'Демонология']} 
+          items={['Вешание лапши на уши', 'История магии', 
+            'Астрология', 'Латынь', 'Анатомия оборотней',
+            'Готовка шаурмы' ]} 
           theme='white'
           className='subjectsContainer'
           onClick={onSubjectClick}/>

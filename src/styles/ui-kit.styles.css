@@ -65,6 +65,15 @@ input:-webkit-autofill:active{
   background-color: var(--white);
 }
 
+.inputText:focus {
+  box-shadow: none;
+  border-color: var(--pink);
+}
+
+.textInputContainer {
+  padding-bottom: 5px;
+}
+
 /* Firefox */
 .text-input[type='number'] {
   -moz-appearance: textfield;
@@ -138,7 +147,15 @@ hr {
 }
 
 .dropdown-menu[data-theme='white'] {
+  margin-top: 7px;
   background-color: var(--white);
   box-shadow: var(--box-shadow-pink);
   font-size: 20px;
+  border-radius: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: var(--white);
+  text-decoration: underline;
+  color: var(--grey);
 }

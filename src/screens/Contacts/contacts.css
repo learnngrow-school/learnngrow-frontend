@@ -1,18 +1,102 @@
+.content {
+    top: -60px;
+    width: 1160px;
+    position: relative;
+}
+
+.navBack {
+    position: relative;
+    z-index: 10;
+    width: 100vw;
+    background-color: var(--grey-light);
+    height: 38px;
+}
+
+.link {
+    color: var(--grey);
+}
+
+.link:hover {
+    opacity: 0.6;
+    color: var(--grey);
+}
+
+.miniNav {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    text-align: center;
+    padding: 10px 0px;
+    gap: 10px;
+    width: 100%;
+    color: var(--grey);
+}
+
+.contactsContainer {
+    padding-top: 40px;
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.hrContacts{
+    width: 100%;
+    border: 1px solid var(--grey-dark);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .heading-1{
     color: var(--black);
     text-align: left;
     padding-bottom: 30px;
 }
 
-.contactsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-}
-
 .heading-4{
-    color: var(--black);
+    color: var(--blue-dark);
     text-align: left;
     font-size: 18px;
-  }
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.phoneContainer{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 600px);
+    grid-template-rows: repeat(2, 80px);
+    justify-content: space-between;
+}
+
+.addressItem{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-self: space-between;
+    gap: 20px;
+    padding: 30px 0px 10px 0px;
+}
+
+.gridItem {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-self: space-between;
+    gap: 20px;
+    padding: 5px 0px 5px 0px;
+}
+
+.contactText:hover{
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.contactTitle:hover{
+    opacity: 0.7;
+}

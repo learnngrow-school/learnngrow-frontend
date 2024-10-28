@@ -11,11 +11,12 @@ const Main: FC = () => {
     return (
     <div>
         <div className="title-container">
-            <h1 className="text--heading1 heading-1">{"Учебный клуб"}</h1>
-            <h1 className="text--heading1 heading-1">{"Learn&Grow"}</h1>
-            <p className="text--heading2 heading-2">Самое комфортное место для учебы</p>
+            <h1 className="text--heading1 heading-1">
+                Учебный клуб<br />
+                Learn&Grow
+            </h1>
             <div className="button-text-container">
-                <p className="text--heading3 text-500 heading-3">Подготовка к ЕГЭ, ОГЭ, ВПР, олимпиадам</p>
+                <div className="text--heading3 heading-2">- самое комфортное место для учебы</div>
                 <BaseButton text="Начать обучение" theme="dark-blue-secondary" 
                     className="button-start-study text-400" onClick={onStudyStartClick}/>
             </div>

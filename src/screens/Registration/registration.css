@@ -1,31 +1,40 @@
-.registryContainer {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 5px;
-    padding-right: 5px;
+.title {
+    text-align: center;
 }
 
-.rememberLoginContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.authForm {
+.registryForm {
     display: flex;
     flex-direction: column;
     width: 400px;
 }
 
-.inputText {
-    padding: 10px 16px;
+.registryContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    padding: 10px 0px;
 }
 
-.inputText:focus {
-    box-shadow: none;
-    border-color: var(--pink);
+.button.registryButton{
+    height: 40px;
+    border-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center; 
+    margin: 0px 20%;    
+}
+
+.loginContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 30px;
 }

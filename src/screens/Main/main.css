@@ -1,26 +1,25 @@
 .title-container{
   display: flex;
   flex-direction: column;
-  height: 400px;
-  width: 1000px;
+  height: 276px;
+  width: 1160px;
   border-radius: 30px;
+  background: var(--background-pink);
   background-color: var(--pink-pale);
-  padding-left: 60px;
-  padding-top: 40px;
+  background-repeat: no-repeat;
+  padding: 60px;
 }
 
 .heading-1{
   color: var(--black);
   text-align: left;
-  padding-top: 20px;
   padding-bottom: 1px;
 }
 
 .heading-2{
   color: var(--black);
   text-align: left;
-  padding-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .button-text-container{
@@ -28,21 +27,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-top: 30px;
   padding-bottom: 20px;
-  padding-right: 30px;
-}
-
-.heading-3{
-  color: var(--black);
-  text-align: left;
-  padding-top: 20px;
-  padding-bottom: 10px;
 }
 
 .button-start-study{
-  width: 230px;
+  width: 400px;
   height: 50px;
-  border-radius: 20px;
+  border-radius: 7px;
   font-size: 20px;
   font-weight: 600;
 }
