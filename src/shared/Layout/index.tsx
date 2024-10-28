@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import './layout.css'
 import Navbar from './Navbar'
+import Footer from './Footer'
 import { Suspense } from 'react'
 
 const Layout = () => {
@@ -15,6 +16,9 @@ const Layout = () => {
           <Suspense fallback={<div>Загрузка...</div>}>
             <Outlet />
           </Suspense>
+        </div>
+        <div className="footer">
+          <Footer/>
         </div>
       </div>
       </>

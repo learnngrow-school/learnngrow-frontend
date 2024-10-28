@@ -26,19 +26,23 @@ const Auth = () => {
     return (
         <>
         <form className="px-4 py-3 authForm" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text--heading2">Войти</h1>
-            <div className="mb-3">
+
+            <h1 className="text--heading2 title">Войти</h1>
+
+            <div className="textInputContainer">
                 <input type="text" className="form-control inputText" id="username"
                 placeholder="Введите имя пользователя или email"
                 {...register('username', { required: "Это поле не может быть пустым" })} />
                 {<TextError text={errors.username?.message?.toString() || ''}/>}
             </div>
-            <div className="mb-3">
+            
+            <div className="textInputContainer">
                 <input type="password" className="form-control inputText" id="inputPassword" 
                 placeholder="Введите пароль"
                 {...register('password', { required: "Это поле не может быть пустым" })}/>
                 {<TextError text={errors.password?.message?.toString() || ''}/>}
             </div>
+
             <div className="mb-3 rememberLoginContainer">
                 <div className="form-check">
                     <input type="checkbox" className="form-check-input checkbox-lng" id="authFormCheck"/>
@@ -46,8 +50,7 @@ const Auth = () => {
                     <div>Запомнить меня</div>
                     </label>
                 </div>
-                <BaseButton text='Войти' theme='pink' className="loginButton"
-                    type='submit'/>
+                <BaseButton text='Войти' theme='pink' className="loginButton" type='submit'/>
             </div>
             <hr/>
             <div className="buttonsContainer">

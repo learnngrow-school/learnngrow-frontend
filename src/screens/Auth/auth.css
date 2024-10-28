@@ -1,11 +1,21 @@
+.title {
+    text-align: center;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
 .buttonsContainer{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
     align-items: center;
-    margin-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .loginButton{
@@ -34,23 +44,9 @@
 }
 
 .rememberLoginContainer {
+    padding-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.authForm {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-}
-
-.inputText {
-    padding: 10px 16px;
-}
-
-.inputText:focus {
-    box-shadow: none;
-    border-color: var(--pink);
 }

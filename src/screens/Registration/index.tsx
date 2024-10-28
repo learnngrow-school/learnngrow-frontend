@@ -24,42 +24,46 @@ const Registration = () => {
 
     return (
     <>
-        <form className="px-4 py-3 authForm" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text--heading2">Зарегистрироваться</h1>
-            <div className="mb-3">
+        <form className="px-4 py-3 registryForm" onSubmit={handleSubmit(onSubmit)}>
+            <h1 className="text--heading2 title">Зарегистрироваться</h1>
+
+            <div className="textInputContainer">
                 <input type="email" className="form-control inputText" id="email"
                 placeholder="Введите свой email"
                 {...register('email', { required: "Это поле не может быть пустым" })} />
                 {<TextError text={errors.email?.message?.toString() || ''}/>}
             </div>
-            <div className="mb-3">
+
+            <div className="textInputContainer">
                 <input type="text" className="form-control inputText" id="username"
                 placeholder="Введите имя пользователя"
                 {...register('username', { required: "Это поле не может быть пустым" })} />
                 {<TextError text={errors.username?.message?.toString() || ''}/>}
             </div>
-            <div className="mb-3">
+
+            <div className="textInputContainer">
                 <input type="password" className="form-control inputText" id="inputPassword" 
                 placeholder="Введите пароль"
                 {...register('password', { required: "Это поле не может быть пустым" })}/>
                 {<TextError text={errors.password?.message?.toString() || ''}/>}
             </div>
-            <div className="mb-3">
+
+            <div className="textInputContainer">
                 <input type="password" className="form-control inputText" id="inputPasswordCheck" 
                 placeholder="Повторите пароль"
                 {...register('passwordCheck', { required: "Это поле не может быть пустым" })}/>
                 {<TextError text={errors.passwordCheck?.message?.toString() || ''}/>}
             </div>
-            <div className="mb-3 rememberLoginContainer">
-                <BaseButton text='Зарегистрироваться' theme='pink' className="loginButton"
+            
+            <div className="registryContainer">
+            <BaseButton text='Зарегистрироваться' theme='pink' className="registryButton"
                     type='submit'/>
             </div>
+
             <hr/>
-            <div className="buttonsContainer">
-                <div className="registryContainer">
-                    <div className="text--body-l">Уже есть аккаунт?</div>
-                    <TextLink path={urls.auth} name='Войти'/>
-                </div>
+            <div className="loginContainer">
+                <div className="text--body-l">Уже есть аккаунт?</div>
+                <TextLink path={urls.auth} name='Войти'/>
             </div>
         </form>
     </>
