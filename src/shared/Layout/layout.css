@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* min-height: calc(100vh - 244px); */
     width: 100%;
     align-items: center;
     top: 0;
@@ -14,8 +13,8 @@
 .top {
     z-index: 4;
     display: flex;
-    width: 100vw;
-    max-width: 1400px;
+    /* width: 100vw; */
+    width: 1160px;
     height: 70px;
     align-items: center;
     justify-content: center;
@@ -60,8 +59,8 @@
     justify-content: space-between;
     flex-direction: row;
     width: 100vw;
-    margin-left: 100px;
-    margin-right: 100px;
+    /* margin-left: 100px;
+    margin-right: 100px; */
     margin-top: -50px;
 }
 
