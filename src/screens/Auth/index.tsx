@@ -6,19 +6,40 @@ import '../../styles/text.css'
 import { useForm } from 'react-hook-form';
 import TextLink from "../../shared/Text/TextLink"
 import TextError from "../../shared/Errors/TextError"
+import { useState } from "react"
+import { login } from "../../services/auth.service"
+import { useDispatch } from "react-redux"
+import { setToken } from "../../store/auth.slice"
+
+interface IAuthFormValues {
+    username: string;
+    password: string;
+  }
 
 const Auth = () => {
     const navigate = useNavigate()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const { register, handleSubmit, formState: { errors } } = useForm<IAuthFormValues>();
+    const dispatch = useDispatch();
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: IAuthFormValues) => {
+        console.log(`Login: ${data.username}, ${data.password}`);
+        setLoading(true);
+        setError(null);
         try {
-
-            console.log(`логин: ${data.username}`);
-
-            navigate(urls.user)
-        } catch (error) {
-          console.error(error);
+          const token = await login(data.username, data.password);
+          if (!token) throw new Error('Invalid credentials');
+          else {
+            localStorage.setItem('jwtToken', token);
+            dispatch(setToken(token));
+            navigate(urls.user);
+          }
+        
+        } catch (err) {
+          setError('Login failed');
+        } finally {
+          setLoading(false);
         }
       };
       
@@ -50,8 +71,12 @@ const Auth = () => {
                     <div>Запомнить меня</div>
                     </label>
                 </div>
-                <BaseButton text='Войти' theme='pink' className="loginButton" type='submit'/>
+                <BaseButton text={loading ? 'Выполняется вход...' : 'Войти'} theme='pink' className="loginButton" 
+                    type='submit'/>
             </div>
+
+            <div className="formError">{error && <TextError text={error}/>}</div>
+            
             <hr/>
             <div className="buttonsContainer">
                 <div className="registryContainer">

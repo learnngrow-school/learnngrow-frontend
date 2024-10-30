@@ -4,7 +4,11 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { Suspense } from 'react'
 
-const Layout = () => {
+interface ILayoutProps {
+  children?: React.ReactNode
+}
+
+const Layout = ({ children }: ILayoutProps = {}) => {
 
   return (
       <>
@@ -14,7 +18,7 @@ const Layout = () => {
         </div>
         <div className="pageContent">
           <Suspense fallback={<div>Загрузка...</div>}>
-            <Outlet />
+            <Outlet context={children}/>
           </Suspense>
         </div>
         <div className="footer">

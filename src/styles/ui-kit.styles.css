@@ -159,3 +159,9 @@ hr {
   text-decoration: underline;
   color: var(--grey);
 }
+
+.formError{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
