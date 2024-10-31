@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux"
 import { setToken } from "../../store/auth.slice"
 
 interface IAuthFormValues {
-    username: string;
+    email: string;
     password: string;
   }
 
@@ -24,11 +24,11 @@ const Auth = () => {
     const dispatch = useDispatch();
 
     const onSubmit = async (data: IAuthFormValues) => {
-        console.log(`Login: ${data.username}, ${data.password}`);
+        console.log(`Login: ${data.email}, ${data.password}`);
         setLoading(true);
         setError(null);
         try {
-          const token = await login(data.username, data.password);
+          const token = await login(data.email, data.password);
           if (!token) throw new Error('Invalid credentials');
           else {
             localStorage.setItem('jwtToken', token);
@@ -51,10 +51,10 @@ const Auth = () => {
             <h1 className="text--heading2 title">Войти</h1>
 
             <div className="textInputContainer">
-                <input type="text" className="form-control inputText" id="username"
-                placeholder="Введите имя пользователя или email"
-                {...register('username', { required: "Это поле не может быть пустым" })} />
-                {<TextError text={errors.username?.message?.toString() || ''}/>}
+                <input type="text" className="form-control inputText" id="email"
+                placeholder="Введите адрес электронной почты"
+                {...register('email', { required: "Это поле не может быть пустым" })} />
+                {<TextError text={errors.email?.message?.toString() || ''}/>}
             </div>
             
             <div className="textInputContainer">

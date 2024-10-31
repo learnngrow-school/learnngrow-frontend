@@ -57,7 +57,7 @@ const Contacts = () => {
                         </div>
                     </div>
 
-                    <div className="gridItem" onClick={() => window.open("https://t.me/whaletoy") }>
+                    <div className="gridItem" onClick={() => window.open("https://t.me/+79122587798") }>
                         <img src={Telegram} alt="telegramm" className="icon"/>
                         <div>
                             <div className="text--heading4 text-600 heading-4">Телеграмм:</div>

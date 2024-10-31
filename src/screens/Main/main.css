@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 276px;
   width: 1160px;
-  border-radius: 30px;
+  border-radius: 10px;
   background: var(--background-pink);
   background-color: var(--pink-pale);
   background-repeat: no-repeat;
