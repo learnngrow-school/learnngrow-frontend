@@ -5,7 +5,6 @@ export const appLinks: ILink[] = [
   {
     path: urls.main,
     name: 'Learn & Grow',
-    //icon
   },
   {
     path: urls.subjects,
@@ -14,7 +13,6 @@ export const appLinks: ILink[] = [
   {
     path: urls.courses,
     name: 'Курсы',
-    //icon
   },
   {
     path: urls.contacts,
