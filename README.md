@@ -16,7 +16,7 @@
         ├── enums/ - переиспользуемые enum
         ├── navigation/ - навигация
         ├── screens/ - страницы
-        ├── services/ - сервисы (HTTP, EventBus)
+        ├── services/ - сервисы (HTTP)
         ├── shared/ - Переиспользуемые компоненты, кастомные хуки
         ├── store/ - state
         ├── styles/ - глобальные стили
