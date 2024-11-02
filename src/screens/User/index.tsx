@@ -16,10 +16,10 @@ const User = () => {
     return (
         <div>
             <h1 className='text--heading1'>Личный кабинет</h1>
-            <h2 className='text--heading3 text-300'> 
-                {"Введите номер карты и 3 цифры с обратной стороны"}</h2>
+            {/* <h2 className='text--heading3 text-300'> 
+                {"Введите номер карты и 3 цифры с обратной стороны"}</h2> */}
                 <div>
-                    {token ? <p>You are logged in!</p> : <p>You are not logged in!</p>}
+                    {token ? <p>You are logged in!</p> : <p>You are not logged in {":("}</p>}
                 </div>
                
         </div>

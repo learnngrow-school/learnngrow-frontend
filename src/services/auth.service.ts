@@ -1,21 +1,27 @@
 import axios from 'axios';
+import { getToken } from './token.service';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'http://localhost:8080/api/v1',
+  headers: {
+    'accept': 'application/json',
+    'Content-Type': 'application/json; charset=UTF-8',
+    'content-length': '4',
+    Authorization: `Bearer ${getToken()}`, 
+  },
+  withCredentials: true,
 });
 
-export const login = async (email: string, password: string): Promise<string | null> => {
-  axios.get('http://localhost:8080/api/status')
-  .then(response => console.log(response.data))
-  .catch(error => console.error('Error:', error));
-
+export const login = async (email: string, password: string): Promise<any> => {
   try {
     const response = await api.post('/login', { email, password });
-    localStorage.setItem('token', response.data.token);
-    return response.data.token;
-  } catch (error) {
-    console.error('Login failed:', error);
-    return null;
+    
+    console.log('Login status:', response);
+    return response.data;
+    //return token;
+  } catch (error : any) {
+    // console.error('Login failed:', error.status);
+    return error.response?.data || error.message;
   }
 };
 

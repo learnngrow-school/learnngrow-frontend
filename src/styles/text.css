@@ -102,13 +102,13 @@ h3 {
   font-size: 40px;
   line-height: 40px;
   white-space: normal;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 .text--heading2 {
   font-size: 24px;
-  line-height: 24px;
-  padding-bottom: 20px;
+  line-height: 29.26px;
+  /* padding-bottom: 20px; */
 }
 
 .text--heading3 {
@@ -134,7 +134,7 @@ h3 {
 
 .text--body-s {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 19.5px;
 }
 
 .text--body-xs {
