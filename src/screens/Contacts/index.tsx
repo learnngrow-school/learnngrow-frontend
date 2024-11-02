@@ -11,15 +11,16 @@ import { urls } from '../../navigation/app.urls'
 const Contacts = () => {
 
     return (
-        <div className="content">
-
-            <div className="navBack">
-                <div className="miniNav">
-                    <NavLink to={urls.main} className="text--body-s link text-400">Главная</NavLink>
-                    <div>{">"}</div>
-                    <div className="text--body-s">Контакты</div>
-                </div>
+        <>
+        <div className="navBack">
+            <div className="miniNav">
+                <NavLink to={urls.main} className="text--body-s link text-400">Главная</NavLink>
+                <div>{">"}</div>
+                <div className="text--body-s">Контакты</div>
             </div>
+        </div>
+        
+        <div className="content">
 
             <div className="contactsContainer"> 
                 <div className="addressItem">
@@ -78,6 +79,7 @@ const Contacts = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
