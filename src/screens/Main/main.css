@@ -1,4 +1,5 @@
 .title-container{
+  margin-top: -30px;
   display: flex;
   flex-direction: column;
   height: 276px;
@@ -13,13 +14,11 @@
 .heading-1{
   color: var(--black);
   text-align: left;
-  padding-bottom: 1px;
 }
 
 .heading-2{
   color: var(--black);
   text-align: left;
-  padding-top: 20px;
 }
 
 .button-text-container{
@@ -27,8 +26,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  /* padding-top: 30px; */
+  padding-bottom: 30px;
 }
 
 .button-start-study{
@@ -37,4 +36,45 @@
   border-radius: 7px;
   font-size: 20px;
   font-weight: 600;
+}
+
+.grid-4{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 260px);
+  grid-column-gap: 40px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.study-type-card{
+  display: flex;
+  background: var(--background-green);
+  background-color: var(--green-pale);
+  border-radius: 10px;
+  height: 78px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px 0px 10px;
+  text-align: center;
+}
+
+.title-2{
+  color: var(--blue-dark);
+  text-align: center;
+  padding: 30px 0px 10px 0px;
+}
+
+.step-card{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-left: 10px;
+  align-items: center;
+}
+
+.step-text {
+  color: var(--black);
+  text-align: left;
+  justify-content: center;
 }

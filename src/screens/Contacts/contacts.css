@@ -1,15 +1,23 @@
-.content {
-    top: -60px;
-    width: 1160px;
-    position: relative;
-}
-
 .navBack {
+    top: -60px;
     position: relative;
-    z-index: 10;
     width: 100vw;
     background-color: var(--grey-light);
     height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.miniNav {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    text-align: center;
+    padding: 10px 0px;
+    gap: 10px;
+    width: 1160px;
+    color: var(--grey);
 }
 
 .link {
@@ -21,19 +29,13 @@
     color: var(--grey);
 }
 
-.miniNav {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    text-align: center;
-    padding: 10px 0px;
-    gap: 10px;
-    width: 100%;
-    color: var(--grey);
+.content {
+    top: -30px;
+    width: 1160px;
+    position: relative;
 }
 
 .contactsContainer {
-    padding-top: 40px;
     display: flex;
     position: relative;
     width: 100%;

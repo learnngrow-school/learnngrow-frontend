@@ -14,7 +14,7 @@ const Registration = () => {
     const onSubmit = async (data: any) => {
         try {
 
-            console.log(`Зарегистрирован пользователь: ${data.email}`);
+            console.log(`Зарегистрирован пользователь: ${data.firstname} ${data.lastname}`);
 
             navigate(urls.auth)
         } catch (error) {
@@ -28,17 +28,24 @@ const Registration = () => {
             <h1 className="text--heading2 title">Зарегистрироваться</h1>
 
             <div className="textInputContainer">
+                <input type="text" className="form-control inputText" id="firstname"
+                placeholder="Введите имя"
+                {...register('firstname', { required: "Это поле не может быть пустым" })} />
+                {<TextError text={errors.firstname?.message?.toString() || ''}/>}
+            </div>
+
+            <div className="textInputContainer">
+                <input type="text" className="form-control inputText" id="lastname"
+                placeholder="Введите фамилию"
+                {...register('lastname', { required: "Это поле не может быть пустым" })} />
+                {<TextError text={errors.lastname?.message?.toString() || ''}/>}
+            </div>
+
+            <div className="textInputContainer">
                 <input type="email" className="form-control inputText" id="email"
                 placeholder="Введите свой email"
                 {...register('email', { required: "Это поле не может быть пустым" })} />
                 {<TextError text={errors.email?.message?.toString() || ''}/>}
-            </div>
-
-            <div className="textInputContainer">
-                <input type="text" className="form-control inputText" id="username"
-                placeholder="Введите имя пользователя"
-                {...register('username', { required: "Это поле не может быть пустым" })} />
-                {<TextError text={errors.username?.message?.toString() || ''}/>}
             </div>
 
             <div className="textInputContainer">

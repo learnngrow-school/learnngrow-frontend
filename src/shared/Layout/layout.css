@@ -98,6 +98,10 @@
     height: 40px;
 }
 
+.logoImg:hover {
+    opacity: 0.7;
+}
+
 .navLinksBlock {
     display: flex;
     float: right;

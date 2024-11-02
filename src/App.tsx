@@ -30,7 +30,6 @@ import Main from './screens/Main';
 import Courses from './screens/Courses';
 import Contacts from './screens/Contacts';
 import Auth from './screens/Auth';
-import AuthProvider from './screens/Auth/AuthProvider';
 import Registration from './screens/Registration';
 import User from './screens/User';
 import { useEffect } from 'react';
@@ -58,9 +57,9 @@ const App: React.FC = () => {
               <Route path={urls.courses} element={<Courses />} />
               <Route path={urls.contacts} element={<Contacts />} />
               <Route path={urls.registration} element={<Registration />} />
-                <Route path={urls.auth} element={<Auth />} />
-                <Route path={urls.user} element={<User />} />
-              </Route>
+              <Route path={urls.auth} element={<Auth />} />
+              <Route path={urls.user} element={<User />} />
+            </Route>
         </Routes>
       </BrowserRouter>
     </Provider>
