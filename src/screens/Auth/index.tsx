@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import BaseButton from "../../shared/Buttons/BaseButton"
 import './auth.css'
 import '../../styles/text.css'
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import TextLink from "../../shared/Text/TextLink"
 import TextError from "../../shared/Errors/TextError"
 import { useState } from "react"
@@ -11,7 +11,7 @@ import { login } from "../../services/auth.service"
 import { useDispatch } from "react-redux"
 import { setToken } from "../../store/auth.slice"
 import { getToken } from "../../services/token.service"
-import { ERROR_CODES } from "../../shared/Errors/errorTypes"
+import { ERROR_RUS } from "../../shared/Errors/errorTypes"
 
 interface IAuthFormValues {
     email: string;
@@ -42,18 +42,28 @@ const Auth = () => {
 
         const token = getToken();
 
-        console.log('Token:', token);
+        console.log('response:', response['error']);
         
 
-        if (!token) throw new Error('Invalid credentials');
+        // if (!token) throw new Error('Invalid credentials');
+        if(response['error']) {
+            // if (response in ERROR_RUS) setError(ERROR_RUS[response]);
+            // else {
+            const parsedError = response['error'];
+            setError(ERROR_RUS[parsedError]);
+            //}
+            
+            throw new Error('Invalid credentials');
+        }
         else {
           console.log('Token:', token);
-          dispatch(setToken(token));
+          dispatch(setToken(response));
+        //   dispatch(setToken(token));
           navigate(urls.user);
         }
         } catch (err: any) {
             console.log(err);
-            setError('Ошибка авторизации');
+            // setError('Ошибка авторизации');
         } finally {
           setLoading(false);
         }
