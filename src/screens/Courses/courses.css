@@ -1,0 +1,109 @@
+.courses-page {
+    width: 1160px;
+    display: flex;
+    /*background-color: #32CD32;*/
+    margin-bottom: 50px;
+    margin-top: -30px;
+}
+
+.sections {
+    margin-top: -20px;
+    margin-left: auto;
+    /*background-color: aqua;*/
+}
+
+.courses-section {
+    width: 900px;
+    /*background-color: #000;*/
+}
+
+.section-title {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.section-title--green {
+    background: var(--background-green);
+    background-color: var(--green-pale);
+    padding: 5px 40px;
+    border-radius: 8px;
+}
+
+.section-title--pink {
+    background: var(--background-pink);
+    background-color: var(--pink-pale);
+    padding: 5px 40px;
+    border-radius: 8px;
+}
+
+.course-list {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+
+.course-card {
+    background: #eaeaea;
+    border-radius: 10px;
+    padding: 15px;
+    width: 230px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px #00000023;
+}
+
+.course-image {
+    background-color: #ffff;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-progress-bar {
+    position: absolute;
+    bottom: 0;
+    height: 5px;
+    width: 100%;
+}
+
+.course-progress {
+    background-color: #B4F178;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-size: 0.7em;
+}
+
+.course-progress-text {
+    background-color: #B4F178;
+    padding: 0px 5px;
+    border-top-left-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.course-title {
+    font-size: 1em;
+    margin: 10px 0 0px;
+}
+
+.course-level {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.course-price {
+    font-weight: bold;
+    font-size: 1em;
+    color: #000;
+    margin-bottom: 0px;
+}

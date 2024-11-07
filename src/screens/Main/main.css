@@ -1,3 +1,9 @@
+.content {
+  top: -30px;
+  width: 1160px;
+  position: relative;
+}
+
 .title-container{
   margin-top: -30px;
   display: flex;
@@ -26,7 +32,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* padding-top: 30px; */
   padding-bottom: 30px;
 }
 
@@ -62,7 +67,8 @@
 .title-2{
   color: var(--blue-dark);
   text-align: center;
-  padding: 30px 0px 10px 0px;
+  padding: 20px 0px 20px 0px;
+  position: relative;
 }
 
 .step-card{
@@ -77,4 +83,50 @@
   color: var(--black);
   text-align: left;
   justify-content: center;
+}
+
+.subjects-container{
+  background-color: var(--grey-light);
+  width: 100vw;
+  height: 354px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.subject-card{
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: var(--box-shadow-black);
+  padding: 10px 22px;
+}
+
+.subjects-cards{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 760px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: var(--grey-dark);
 }

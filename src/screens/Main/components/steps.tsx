@@ -13,6 +13,8 @@ const steps = [
 
 const Steps = () => {
     return (
+        <>
+        <div className="text--heading2 text-600 title-2">Как начать заниматься?</div>
         <div className="grid-4">
             {steps.map((step) => (
                 <div className="step-card" key={step.title}>
@@ -21,6 +23,7 @@ const Steps = () => {
                 </div>
             ))}
         </div>
+        </>
     )
 }
 

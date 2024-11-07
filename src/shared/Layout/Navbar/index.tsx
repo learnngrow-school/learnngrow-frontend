@@ -43,7 +43,7 @@ const Navbar = () => {
         <NavigationLink key={appLinks[3].name} link={appLinks[3]} 
           onClick={() => navigate(urls.contacts)}/>
         <BaseButton text='Войти в аккаунт' onClick={ () => navigate(urls.auth)}
-            className='userContainer' theme='dark-blue-primary' 
+            className='userContainer' theme='dark-blue-primary' iconFirst={true}
             iconPath={UserLogo} iconPathHover={DarkUserLogo}/>
       </div>
     </div>
