@@ -1,6 +1,5 @@
 import { FC } from "react";
 import "./main.css";
-import BaseButton from "../../shared/Buttons/BaseButton";
 import Steps from "./components/steps";
 import Subjects from "./components/subjects";
 import Teachers from "./components/Teachers";

@@ -2,7 +2,6 @@ import BaseButton from "../../../shared/Buttons/BaseButton";
 import ArrowRight from "../../../assets/icons/arrowRight.svg";
 import "../main.css";
 import { useState } from "react";
-import { set } from "react-hook-form";
 
 const Subjects = () => {
     const MAX_SUBJECTS = 5;

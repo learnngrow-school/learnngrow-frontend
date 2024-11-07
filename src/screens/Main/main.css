@@ -87,6 +87,7 @@
 
 .subjects-container{
   background-color: var(--grey-light);
+  padding-top: -30px;
   width: 100vw;
   height: 354px;
   display: flex;

@@ -1,5 +1,4 @@
 import "./teachers.css";
-import "../../main.css";
 import TeacherCard from "./teacher-card";
 import { ITeacherCardProps } from "./teacher-card";
 import Sonya from "../../../../assets/pictures/sonya.png"
