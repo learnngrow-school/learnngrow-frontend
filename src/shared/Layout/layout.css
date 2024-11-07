@@ -115,7 +115,7 @@
   height: 40px;
   border-color: var(--white);
   transition: all 0.3s ease;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .btn.userContainer {
@@ -124,7 +124,6 @@
   border-radius: 10px;
   width: 220px;
   height: 40px;
-  font-size: 20px;
   text-align: start;
 }
 

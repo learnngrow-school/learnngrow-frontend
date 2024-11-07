@@ -1,5 +1,4 @@
 import "./teachers.css";
-import "../../main.css";
 import TeacherCard from "./teacher-card";
 import { ITeacherCardProps } from "./teacher-card";
 import Sonya from "../../../../assets/pictures/sonya.png"
@@ -9,21 +8,25 @@ import Doctor from "../../../../assets/pictures/doctor.png"
 const Teachers = () => {
     const teachers : ITeacherCardProps[]= [
         {
+            id: "1",
             name: "Софья Павловна Кияткина",
             iconPath: Sonya,
             subjects: ["Математика", "Русский язык"]
         },
         {
+            id: "2",
             name: "Софья Павловна Кияткина",
             iconPath: Sonya,
             subjects: ["Математика", "Русский язык"]
         },
         {
+            id: "3",
             name: "Игорь Константинович Гром",
             iconPath: Grom,
             subjects: ["Физкультура", "Обществознание"]
         },
         {
+            id: "4",
             name: "Доктор Who",
             iconPath: Doctor,
             subjects: ["Биология"]
@@ -35,6 +38,7 @@ const Teachers = () => {
             <div className="teachers-cards">
                 {teachers.map((teacher) => (
                     <TeacherCard
+                        key={teacher.id}
                         name={teacher.name}
                         iconPath={teacher.iconPath}
                         subjects={teacher.subjects}
