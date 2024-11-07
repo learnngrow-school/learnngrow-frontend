@@ -1,7 +1,18 @@
+.main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  gap: 20px;
+}
+
 .content {
-  top: -30px;
+  /* top: -20px; */
   width: 1160px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .title-container{
@@ -87,7 +98,7 @@
 
 .subjects-container{
   background-color: var(--grey-light);
-  padding-top: -30px;
+  /* padding-top: -30px; */
   width: 100vw;
   height: 354px;
   display: flex;
@@ -96,7 +107,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .subject-card{
   background-color: var(--white);
@@ -114,10 +124,9 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
-  width: 760px;
+  width: 700px;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .about-test {

@@ -1,45 +1,45 @@
 /* @font-face {
   font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Light.ttf') format('truetype');
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Regular.ttf') format('truetype');
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Medium.ttf') format('truetype');
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Bold.ttf') format('truetype');
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 200;
   font-style: normal;
-}
-
+} */
+/*
 body {
   -webkit-font-smoothing: antialiased;
   font-family:
@@ -52,8 +52,11 @@ body {
   color: var(--black);
 } */
 
+
 * {
-  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, sans-serif !important;
 }
 
 span,
@@ -155,3 +158,5 @@ h3 {
 .text--center {
   text-align: center;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');

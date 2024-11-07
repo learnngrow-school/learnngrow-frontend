@@ -11,7 +11,7 @@ import StudyTypes from "./components/study-types";
 const Main: FC = () => {
 
     return (
-    <>
+    <div className="main-content">
         <div className="content">
             <Title />
             <StudyTypes />
@@ -23,7 +23,7 @@ const Main: FC = () => {
             <OrderLesson />
             <Reviews />
          </div>
-    </>
+    </div>
     );
 };
 

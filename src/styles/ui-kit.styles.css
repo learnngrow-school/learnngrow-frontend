@@ -96,6 +96,7 @@ hr {
   align-items: center;
   gap: 9px;
   transition: 0.3s;
+  font-size: 16px;
 }
 
 .button[data-theme='white'] {

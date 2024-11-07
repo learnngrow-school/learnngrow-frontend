@@ -1,12 +1,12 @@
 import axios from 'axios';
+import { DEV_API } from './api';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api/v1',
+  baseURL: DEV_API,
   headers: {
     'accept': 'application/json',
     'Content-Type': 'application/json; charset=UTF-8',
     'content-length': '4',
-    // Authorization: `Bearer ${getToken()}`, 
   },
   withCredentials: true,
 });
@@ -16,11 +16,11 @@ export const login = async (email: string, password: string): Promise<any> => {
     const response = await api.post('/auth/login', { email, password });
     
     console.log('Login status:', response);
-    return response.data;
-    //return token;
+
+    return response;
   } catch (error : any) {
-    // console.error('Login failed:', error.status);
-    return error.response?.data || error.message;
+    console.error('Login error:', error);
+    return error;
   }
 };
 

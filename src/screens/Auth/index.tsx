@@ -3,14 +3,12 @@ import { useNavigate } from "react-router-dom"
 import BaseButton from "../../shared/Buttons/BaseButton"
 import './auth.css'
 import '../../styles/text.css'
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import TextLink from "../../shared/Text/TextLink"
 import TextError from "../../shared/Errors/TextError"
 import { useState } from "react"
 import { login } from "../../services/auth.service"
 import { useDispatch } from "react-redux"
-import { setToken } from "../../store/auth.slice"
-import { getToken } from "../../services/token.service"
 import { ERROR_RUS } from "../../shared/Errors/errorTypes"
 
 interface IAuthFormValues {
@@ -23,26 +21,19 @@ const Auth = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const { register, handleSubmit, formState: { errors } } = useForm<IAuthFormValues>();
-    const dispatch = useDispatch();
 
     const onSubmit = async (data: IAuthFormValues) => {
         console.log(`Trying to login: ${data.email}, ${data.password}`);
         setLoading(true);
         setError(null);
         try {
-        //   const token = await login(data.email, data.password);
-        //   if (!token) throw new Error('Invalid credentials');
-        //   else {
-        //     dispatch(setToken(token));
-        //     navigate(urls.user);
-        //   }
         const response = await login(data.email, data.password);
 
         // setStatusResponce(status);
 
-        const token = getToken();
-
-        console.log('response:', response['error']);
+        
+        console.log('response:', response.data);
+        localStorage.setItem('user', JSON.stringify(response.data));
         
 
         // if (!token) throw new Error('Invalid credentials');
@@ -56,13 +47,11 @@ const Auth = () => {
             throw new Error('Invalid credentials');
         }
         else {
-          console.log('Token:', token);
-          dispatch(setToken(response));
-        //   dispatch(setToken(token));
           navigate(urls.user);
         }
         } catch (err: any) {
-            console.log(err);
+            console.log(err.message);
+            setError(ERROR_RUS[err.message]);
             // setError('Ошибка авторизации');
         } finally {
           setLoading(false);
