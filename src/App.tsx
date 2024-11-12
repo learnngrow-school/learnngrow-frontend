@@ -1,24 +1,3 @@
-// import { useEffect } from 'react'
-// import appRouter from './navigation/app.router.tsx'
-// import { urls } from './navigation/app.urls'
-// import {RouterProvider} from 'react-router-dom'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-// function App() {
-//   useEffect(() => {
-//     if(location.pathname == "/") {
-//       location.replace(urls.main)
-//     }
-//   })
-
-//   return (
-//     <>
-//       <RouterProvider router={appRouter} />
-//     </>
-//   )
-// }
-
-// export default App
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';

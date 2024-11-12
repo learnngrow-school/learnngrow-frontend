@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { IRoute } from '../navigation/navigation.types.ts'
 import { urls } from '../navigation/app.urls.ts'
 import { lazy } from 'react'
