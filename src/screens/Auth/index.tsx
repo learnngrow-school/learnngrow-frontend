@@ -8,7 +8,6 @@ import TextLink from "../../shared/Text/TextLink"
 import TextError from "../../shared/Errors/TextError"
 import { useState } from "react"
 import { login } from "../../services/auth.service"
-import { useDispatch } from "react-redux"
 import { ERROR_RUS } from "../../shared/Errors/errorTypes"
 
 interface IAuthFormValues {
