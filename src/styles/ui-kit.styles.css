@@ -76,6 +76,7 @@ input:-webkit-autofill:active{
 
 /* Firefox */
 .text-input[type='number'] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 
