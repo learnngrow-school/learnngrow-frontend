@@ -9,6 +9,7 @@ import TextError from "../../shared/Errors/TextError"
 import { useState } from "react"
 import { login } from "../../services/auth.service"
 import { ERROR_RUS } from "../../shared/Errors/errorTypes"
+import { AxiosError } from "axios"
 
 interface IAuthFormValues {
     email: string;
@@ -22,38 +23,26 @@ const Auth = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<IAuthFormValues>();
 
     const onSubmit = async (data: IAuthFormValues) => {
+
         console.log(`Trying to login: ${data.email}, ${data.password}`);
+
         setLoading(true);
         setError(null);
-        try {
+
         const response = await login(data.email, data.password);
 
-        // setStatusResponce(status);
+        if (!(response instanceof AxiosError)) {
+            console.log('response:', response);
+            localStorage.setItem('user', JSON.stringify(response.data));
+            navigate(urls.user);
+        }
+        else{
+            console.log('error response:', response);
+            setError(ERROR_RUS[response.message as string]);
 
-        
-        console.log('response:', response.data);
-        localStorage.setItem('user', JSON.stringify(response.data));
-        
-
-        // if (!token) throw new Error('Invalid credentials');
-        if(response['error']) {
-            // if (response in ERROR_RUS) setError(ERROR_RUS[response]);
-            // else {
-            const parsedError = response['error'];
-            setError(ERROR_RUS[parsedError]);
-            //}
-            
+            setLoading(false);
             throw new Error('Invalid credentials');
-        }
-        else {
-          navigate(urls.user);
-        }
-        } catch (err: any) {
-            console.log(err.message);
-            setError(ERROR_RUS[err.message]);
-            // setError('Ошибка авторизации');
-        } finally {
-          setLoading(false);
+            
         }
       };
       
