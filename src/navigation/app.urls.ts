@@ -3,7 +3,7 @@ export const urls = {
   subjects: '/',
   courses: '/courses',
   contacts: '/contacts',
-  user: '/user',
+  user: '/me',
   auth: '/auth',
   registration: '/registration',
 }

@@ -13,6 +13,7 @@ import BaseButton from '../../Buttons/BaseButton'
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const user = localStorage.getItem('user')
 
   const onSubjectClick = (evt: any) => {
     localStorage.setItem('subject', evt.target.innerText)
@@ -42,7 +43,16 @@ const Navbar = () => {
         {/*Контакты*/}
         <NavigationLink key={appLinks[3].name} link={appLinks[3]} 
           onClick={() => navigate(urls.contacts)}/>
-        <BaseButton text='Войти в аккаунт' onClick={ () => navigate(urls.auth)}
+        <BaseButton text={user !== null ? `Привет, ${JSON.parse(user).firstName}!` :'Войти в личный кабинет'
+          } 
+            onClick={ () => {
+              if (user !== null) {
+                navigate(urls.user);
+              }
+              else {
+                navigate(urls.auth);
+              }
+            }}
             className='userContainer text--body-s' theme='dark-blue-primary' iconFirst={true}
             iconPath={UserLogo} iconPathHover={DarkUserLogo}/>
       </div>

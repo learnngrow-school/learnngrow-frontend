@@ -1,19 +1,11 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
-import { DEV_API } from './api';
+import { AxiosError, AxiosResponse } from 'axios';
+import { authApi } from './api';
 
-const api = axios.create({
-  baseURL: DEV_API,
-  headers: {
-    'accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  withCredentials: true,
-});
 
 export const login = async (email: string, password: string): Promise<AxiosResponse | AxiosError> => {
   try {
 
-    const response = await api.post('/auth/login', { email, password });
+    const response = await authApi.post('/auth/login', { email, password });
     
     console.log('Login status:', response);
 
@@ -27,3 +19,5 @@ export const login = async (email: string, password: string): Promise<AxiosRespo
 export const logout = () => {
   localStorage.removeItem('user');
 };
+
+export const isAuthenticated = () => localStorage.getItem('user') !== null;

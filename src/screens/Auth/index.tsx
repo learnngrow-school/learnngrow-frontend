@@ -10,6 +10,7 @@ import { useState } from "react"
 import { login } from "../../services/auth.service"
 import { ERROR_RUS } from "../../shared/Errors/errorTypes"
 import { AxiosError } from "axios"
+import PasswordInput from "../../shared/Inputs/PasswordInput"
 
 interface IAuthFormValues {
     email: string;
@@ -32,13 +33,13 @@ const Auth = () => {
         const response = await login(data.email, data.password);
 
         if (!(response instanceof AxiosError)) {
-            console.log('response:', response);
+            
             localStorage.setItem('user', JSON.stringify(response.data));
             navigate(urls.user);
         }
         else{
-            console.log('error response:', response);
-            setError(ERROR_RUS[response.message as string]);
+            const errorRus = ERROR_RUS[response.message as string]
+            setError(errorRus ? errorRus : 'Неизвестная ошибка');
 
             setLoading(false);
             throw new Error('Invalid credentials');
@@ -61,9 +62,13 @@ const Auth = () => {
             </div>
             
             <div className="textInputContainer">
-                <input type="password" className="form-control inputText" id="inputPassword" 
-                placeholder="Введите пароль"
-                {...register('password', { required: "Это поле не может быть пустым" })}/>
+                <PasswordInput inputId="inputPassword" 
+                children={
+                    <input type="password" className="form-control inputText" id="inputPassword" 
+                    placeholder="Введите пароль"
+                    {...register('password', { required: "Это поле не может быть пустым" })}/>
+                }
+                />
                 {<TextError text={errors.password?.message?.toString() || ''}/>}
             </div>
 

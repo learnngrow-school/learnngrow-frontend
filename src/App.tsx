@@ -10,7 +10,7 @@ import Courses from './screens/Courses';
 import Contacts from './screens/Contacts';
 import Auth from './screens/Auth';
 import Registration from './screens/Registration';
-import User from './screens/User';
+import PersonalAccount from './screens/PersonalAccount';
 import { useEffect } from 'react';
 
 const store = createStore({
@@ -37,7 +37,7 @@ const App: React.FC = () => {
               <Route path={urls.contacts} element={<Contacts />} />
               <Route path={urls.registration} element={<Registration />} />
               <Route path={urls.auth} element={<Auth />} />
-              <Route path={urls.user} element={<User />} />
+              <Route path={urls.user} element={<PersonalAccount />} />
             </Route>
         </Routes>
       </BrowserRouter>
