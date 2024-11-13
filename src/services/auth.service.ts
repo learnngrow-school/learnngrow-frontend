@@ -1,18 +1,18 @@
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { DEV_API } from './api';
 
 const api = axios.create({
   baseURL: DEV_API,
   headers: {
     'accept': 'application/json',
-    'Content-Type': 'application/json; charset=UTF-8',
-    'content-length': '4',
+    'Content-Type': 'application/json',
   },
   withCredentials: true,
 });
 
-export const login = async (email: string, password: string): Promise<any> => {
+export const login = async (email: string, password: string): Promise<AxiosResponse | AxiosError> => {
   try {
+
     const response = await api.post('/auth/login', { email, password });
     
     console.log('Login status:', response);
@@ -20,10 +20,10 @@ export const login = async (email: string, password: string): Promise<any> => {
     return response;
   } catch (error : any) {
     console.error('Login error:', error);
-    return error;
+    return error as AxiosError;
   }
 };
 
 export const logout = () => {
-  localStorage.removeItem('token');
+  localStorage.removeItem('user');
 };
