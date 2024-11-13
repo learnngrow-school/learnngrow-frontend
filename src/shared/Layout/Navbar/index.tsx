@@ -27,9 +27,10 @@ const Navbar = () => {
       </div>
       <div className='navLinksBlock'>
         <DropDownButton text='Предметы' 
-          items={['Вешание лапши на уши', 'История магии', 
-            'Астрология', 'Латынь', 'Анатомия оборотней',
-            'Готовка шаурмы' ]} 
+          items={[ 'История радика', 'Защита от спама олимпиадами',
+            'Гадание на вкладках Ш. Д. Б', 'Вейпопарение', 
+            'Основы дресс-кода: как быть кошкодевочкой',
+            'Лепка пельмешек' ]} 
           theme='white'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
@@ -43,7 +44,7 @@ const Navbar = () => {
         {/*Контакты*/}
         <NavigationLink key={appLinks[3].name} link={appLinks[3]} 
           onClick={() => navigate(urls.contacts)}/>
-        <BaseButton text={user !== null ? `Привет, ${JSON.parse(user).firstName}!` :'Войти в личный кабинет'
+        <BaseButton text={user !== null ? `Привет, ${JSON.parse(user).firstName}!` :'Вход в аккаунт'
           } 
             onClick={ () => {
               if (user !== null) {

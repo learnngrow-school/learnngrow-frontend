@@ -26,7 +26,7 @@ const ShowPasswordButton = (props: IProps) => {
         setHidden(!hidden)
     }
     return (
-        <button onClick={onClick} className="password-button">
+        <button onClick={onClick} className="password-button" type="button">
             <img src={icon} alt="eye" className="img-eye"/>
         </button>
     )
