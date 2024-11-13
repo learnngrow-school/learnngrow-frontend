@@ -18,4 +18,6 @@
 
   --background-pink: url("../assets/pictures/pink-background.png");
   --background-green: url("../assets/pictures/green-background.png");
+  --input-width: 352px;
+  --eye-password-area: 30px;
 }

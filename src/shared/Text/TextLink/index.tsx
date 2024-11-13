@@ -7,7 +7,7 @@ const TextLink = (props: ILink) => {
     return (
         <>
         <NavLink
-            className={"textLink text--body-m text-400"}
+            className={"textLink text--body-l text-400"}
             to={props.path}>
             {props.icon} {props.name}
         </NavLink>

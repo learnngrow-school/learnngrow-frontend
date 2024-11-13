@@ -4,7 +4,7 @@ export interface ITextErrorProps {
 
 const TextError = (props: ITextErrorProps) => {
     return (
-        <p className="input--error">
+        <p className="input--error text--body-xs">
             {props.text}
         </p>
     )
