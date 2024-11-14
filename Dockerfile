@@ -4,10 +4,10 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Copy package.json and package-lock.json (if available) to install dependencies
-COPY package*.json ./
+COPY package.json ./
 
 # Install project dependencies
-RUN npm install --production
+RUN npm install #--production
 
 # Copy the rest of the application code
 COPY . .
@@ -20,6 +20,9 @@ FROM nginx:alpine
 
 # Copy the built application from the builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy an Nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80 (default for Nginx)
 EXPOSE 80
