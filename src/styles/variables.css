@@ -6,6 +6,7 @@
   --white: rgba(255, 255, 255, 1);
   --pink-pale: rgb(255,242,249);
   --green-grass: rgba(155, 211, 98, 1);
+  --green-light: rgba(180, 241, 120, 1);
   --green-pale: rgba(230, 255, 206, 1);
   --grey-light: rgba(245, 245, 245, 1);
   --grey-medium: rgba(0, 0, 0, 0.15);
@@ -18,4 +19,6 @@
 
   --background-pink: url("../assets/pictures/pink-background.png");
   --background-green: url("../assets/pictures/green-background.png");
+  --background-green-2: url("../assets/pictures/green-background-2.png");
+  --background-pink-2: url("../assets/pictures/pink-background-2.png");
 }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const Courses: FC = () => {
-    const selectedSubject = localStorage.getItem('subject');
+//    const selectedSubject = localStorage.getItem('subject');
 
     return (
         <div className="courses-page">

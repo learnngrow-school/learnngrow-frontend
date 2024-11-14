@@ -1,7 +1,6 @@
 .courses-page {
     width: 1160px;
     display: flex;
-    /*background-color: #32CD32;*/
     margin-bottom: 50px;
     margin-top: -30px;
 }
@@ -9,12 +8,10 @@
 .sections {
     margin-top: -20px;
     margin-left: auto;
-    /*background-color: aqua;*/
 }
 
 .courses-section {
     width: 900px;
-    /*background-color: #000;*/
 }
 
 .section-title {
@@ -23,14 +20,14 @@
 }
 
 .section-title--green {
-    background: var(--background-green);
+    background: var(--background-green-2);
     background-color: var(--green-pale);
     padding: 5px 40px;
     border-radius: 8px;
 }
 
 .section-title--pink {
-    background: var(--background-pink);
+    background: var(--background-pink-2);
     background-color: var(--pink-pale);
     padding: 5px 40px;
     border-radius: 8px;
@@ -40,11 +37,11 @@
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
-    margin-left: 40px;
+    margin: 25px 0px 26px 40px;
 }
 
 .course-card {
-    background: #eaeaea;
+    background:  var(--grey-light);
     border-radius: 10px;
     padding: 15px;
     width: 230px;
@@ -74,7 +71,7 @@
 }
 
 .course-progress {
-    background-color: #B4F178;
+    background-color: var(--green-light);
     height: 100%;
     display: flex;
     align-items: center;
@@ -84,7 +81,7 @@
 }
 
 .course-progress-text {
-    background-color: #B4F178;
+    background-color: var(--green-light);
     padding: 0px 5px;
     border-top-left-radius: 5px;
     font-weight: bold;
@@ -94,16 +91,18 @@
 .course-title {
     font-size: 1em;
     margin: 10px 0 0px;
+    color: var(--blue-dark);
 }
 
 .course-level {
     font-size: 1em;
     margin-bottom: 10px;
+    color: var(--blue-dark);
 }
 
 .course-price {
     font-weight: bold;
     font-size: 1em;
-    color: #000;
+    color: var(--blue-dark);
     margin-bottom: 0px;
 }
