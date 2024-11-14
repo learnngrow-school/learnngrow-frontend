@@ -62,7 +62,7 @@ const passwordSchema = yup.object().shape({
       .test({
         name: "matchPassword",
         message: () =>
-          `Пароли не совпадают.`,
+          `Пароли не совпадают`,
         test: (value : string, context : any) => value === context.parent.password
       }),
         
@@ -153,7 +153,7 @@ const Registration = () => {
             </div>
             
             <div className="registryContainer">
-            <BaseButton text={loading? 'Загрузка...' : 'Зарегистрироваться'} theme='pink' className="registryButton"
+            <BaseButton text={loading? 'Загрузка...' : 'Зарегистрироваться'} theme='pink-secondary' className="registryButton"
                     type='submit'/>
             </div>
 

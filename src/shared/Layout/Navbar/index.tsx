@@ -31,7 +31,7 @@ const Navbar = () => {
             'Гадание на вкладках Ш. Д. Б', 'Вейпопарение', 
             'Основы дресс-кода: как быть кошкодевочкой',
             'Лепка пельмешек' ]} 
-          theme='white'
+          theme='white-primary'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
         {/*Курсы*/}

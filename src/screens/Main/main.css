@@ -145,7 +145,8 @@
   background: var(--background-green-long);
   border-radius: 10px;
   height: 112px;
-  width: 1160px;
+  /* width: 1160px; */
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -86,7 +86,7 @@ hr {
 }
 
 .button {
-  box-shadow: 0 4px 19px 0 rgba(119, 147, 65, 0.3);
+  /* box-shadow: 0 4px 10px 0 rgba(119, 147, 65, 0.3); */
   padding: 10px 20px;
   text-align: center;
   border-radius: 10px;
@@ -100,21 +100,39 @@ hr {
   font-size: 16px;
 }
 
-.button[data-theme='white'] {
+.button[data-theme='white-primary'] {
   display: flex;
   background-color: var(--white);
   border-radius: 10px;
-  padding: 5px 10px;
+  padding: 10px 10px;
   align-items: center;
   justify-content: center;
   gap: 10px;
   box-shadow: var(--box-shadow-black)
 }
 
-.button[data-theme='white']:hover {
+.button[data-theme='white-primary']:hover {
   box-shadow: var(--box-shadow-pink);
   color: var(--pink);
 }
+
+.button[data-theme='white-secondary'] {
+  display: flex;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 10px 25px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pink);
+  color: var(--pink);
+}
+
+.button[data-theme='white-secondary']:hover {
+  border-color: var(--blue-dark);
+  color: var(--blue-dark);
+}
+
+
 
 .button[aria-expanded="true"]{
   box-shadow: var(--box-shadow-pink);
@@ -138,14 +156,26 @@ hr {
   color: var(--white);
 }
 
-.button[data-theme='pink'] {
+.button[data-theme='pink-primary'] {
   background-color: var(--pink);
   color: var(--white);
 }
 
-.button[data-theme='pink']:hover {
+.button[data-theme='pink-primary']:hover {
   opacity: 0.6;
   box-shadow: var(--box-shadow-black);
+}
+
+.button[data-theme='pink-secondary'] {
+  background-color: var(--pink);
+  color: var(--white);
+  box-shadow: none;
+}
+
+.button[data-theme='pink-secondary']:hover{
+  background-color: var(--white);
+  color: var(--pink);
+  border: 1px solid var(--pink);
 }
 
 .dropdown-menu[data-theme='white'] {

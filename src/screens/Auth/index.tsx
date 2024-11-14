@@ -25,8 +25,6 @@ const Auth = () => {
 
     const onSubmit = async (data: IAuthFormValues) => {
 
-        console.log(`Trying to login: ${data.email}, ${data.password}`);
-
         setLoading(true);
         setError(null);
 
@@ -73,13 +71,13 @@ const Auth = () => {
             </div>
 
             <div className="mb-3 rememberLoginContainer">
-                <div className="form-check">
+                {/* <div className="form-check">
                     <input type="checkbox" className="form-check-input checkbox-lng" id="authFormCheck"/>
                     <label className="form-check-label" htmlFor="authFormCheck">
                     <div>Запомнить меня</div>
                     </label>
-                </div>
-                <BaseButton text={loading ? 'Загрузка...' : 'Войти'} theme='pink' className="loginButton" 
+                </div> */}
+                <BaseButton text={loading ? 'Загрузка...' : 'Войти'} theme='pink-secondary' className="loginButton" 
                     type='submit'/>
             </div>
 
@@ -91,7 +89,7 @@ const Auth = () => {
                     <div className="text--body-l">Нет аккаунта?</div>
                     <TextLink path={urls.registration} name='Зарегистрироваться'/>
                 </div>
-                <div className="text--body-l">Забыли пароль?</div>
+                {/* <div className="text--body-l">Забыли пароль?</div> */}
             </div>
         </form>
         </>
