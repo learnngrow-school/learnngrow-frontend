@@ -79,7 +79,7 @@ const Auth = () => {
                     <div>Запомнить меня</div>
                     </label>
                 </div>
-                <BaseButton text={loading ? 'Загрузка...' : 'Войти'} theme='pink' className="loginButton" 
+                <BaseButton text={loading ? 'Загрузка...' : 'Войти'} theme='pink-primary' className="loginButton" 
                     type='submit'/>
             </div>
 

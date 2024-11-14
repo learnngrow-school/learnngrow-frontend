@@ -20,6 +20,11 @@
     gap: 10px;
 }
 
+.teacher-card:hover {
+    cursor: pointer;
+    box-shadow: var(--box-shadow-pink);
+}
+
 .photo {
     width: 185px;
     height: 221px;
@@ -49,4 +54,21 @@
     color: var(--blue-dark);
     text-align: center;
     padding: 20px;
+}
+
+.left-slider {
+    background: url("../../../../assets/icons/big-arrow-right.svg");
+    justify-content: center;
+    rotate: 180deg;
+}
+
+.right-slider {
+    justify-content: center;
+}
+
+.left-slider:hover, .right-slider:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    color: var(--blue-dark);
+    background: url("../../../../assets/icons/big-arrow-right-blue.svg");
 }

@@ -24,7 +24,7 @@ const Subjects = () => {
                 <br />
                 После тестирования можешь записаться на бесплатное пробное занятие
             </div>
-            <BaseButton text="Пройти тестирование" theme="pink" onClick={onTestClick}/>
+            <BaseButton text="Пройти тестирование" theme="pink-secondary" onClick={onTestClick}/>
         </div>
     );
 };

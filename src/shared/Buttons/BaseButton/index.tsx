@@ -7,13 +7,14 @@ export interface IButtonProps {
     | 'submit'
     | 'button'
     theme:
-    | 'white'
+    | 'white-primary'
+    | 'white-secondary'
     | 'dark-blue-primary'
     | 'dark-blue-secondary'
-    | 'pink'
+    | 'pink-primary'
+    | 'pink-secondary'
     | 'green'
     className?: string,
-    // logoPath?: string,
     iconFirst?: boolean,
     icon?: JSX.Element,
     iconPath?: string,

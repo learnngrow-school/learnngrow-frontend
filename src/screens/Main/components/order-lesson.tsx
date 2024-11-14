@@ -12,7 +12,7 @@ const OrderLesson = () => {
                 <div className="text--heading3 text-600">Хочу заниматься с преподавателем!</div>
                 <div>Запишись на бесплатный пробный урок</div>
             </div>
-            <BaseButton text="Оставить заявку" theme="pink" 
+            <BaseButton text="Оставить заявку" theme="pink-secondary" 
                 className="order-lesson-button text-400 text--body-s" 
                 onClick={onOrderClick}/>
         </div>
