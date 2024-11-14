@@ -153,7 +153,7 @@ const Registration = () => {
             </div>
             
             <div className="registryContainer">
-            <BaseButton text={loading? 'Загрузка...' : 'Зарегистрироваться'} theme='pink-primary' className="registryButton"
+            <BaseButton text={loading? 'Загрузка...' : 'Зарегистрироваться'} theme='pink-secondary' className="registryButton"
                     type='submit'/>
             </div>
 

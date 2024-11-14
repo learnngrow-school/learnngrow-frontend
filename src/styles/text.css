@@ -1,16 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
   font-family: Montserrat-Alternates;
   src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 200;
   font-style: normal;
 }
-
-/* @font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-} */
 
 @font-face {
   font-family: Montserrat-Alternates;
@@ -32,7 +27,7 @@
   src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 400;
   font-style: normal;
-} */
+}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -156,5 +151,3 @@ h3 {
 .text--center {
   text-align: center;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
