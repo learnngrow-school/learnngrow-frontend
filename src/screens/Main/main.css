@@ -29,12 +29,12 @@
 }
 
 .heading-1{
-  color: var(--black);
+  color: var(--blue-dark);
   text-align: left;
 }
 
 .heading-2{
-  color: var(--black);
+  color: var(--blue-dark);
   text-align: left;
 }
 
@@ -139,4 +139,21 @@
   padding-top: 20px;
   padding-bottom: 20px;
   color: var(--grey-dark);
+}
+
+.order-lesson-block {
+  background: var(--background-green-long);
+  border-radius: 10px;
+  height: 112px;
+  width: 1160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 60px 20px 60px;
+}
+
+.order-lesson-button {
+  width: 186px;
 }

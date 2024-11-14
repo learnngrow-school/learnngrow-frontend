@@ -4,7 +4,7 @@ import Steps from "./components/steps";
 import Subjects from "./components/subjects";
 import Teachers from "./components/Teachers";
 import OrderLesson from "./components/order-lesson";
-import Reviews from "./components/reviews";
+import Reviews from "./components/Reviews";
 import Title from "./components/title";
 import StudyTypes from "./components/study-types";
 

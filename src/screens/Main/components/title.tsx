@@ -10,12 +10,12 @@ const Title = () => {
     return (
         <>
          <div className="title-container">
-            <h1 className="text--heading1 heading-1">
+            <div className="text--heading1 heading-1 text-600">
                 Учебный клуб<br />
                 Learn&Grow
-            </h1>
+            </div>
             <div className="button-text-container">
-                <div className="text--heading2 heading-2">- самое комфортное место для учебы</div>
+                <div className="text--heading2 heading-2 text-400">- самое комфортное место для учебы</div>
                 <BaseButton text="Начать обучение" theme="dark-blue-secondary" 
                     className="button-start-study text-400" onClick={onStudyStartClick}/>
             </div>
