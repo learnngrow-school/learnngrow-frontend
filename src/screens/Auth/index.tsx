@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import BaseButton from "../../shared/Buttons/BaseButton"
 import './auth.css'
 import '../../styles/text.css'
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import TextLink from "../../shared/Text/TextLink"
 import TextError from "../../shared/Errors/TextError"
 import { useState } from "react"
