@@ -1,59 +1,51 @@
-/* @font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: Montserrat-Alternates;
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Light.ttf') format('truetype');
-  font-weight: 300;
+  font-family: Montserrat-Alternates;
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
+  font-weignt: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-family: Montserrat-Alternates;
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
+/*для шапки и кнопок*/
 @font-face {
-  font-family: Plus Jakarta Sans;
-  src: url('../assets/fonts/Jakarta/PlusJakartaSans-Bold.ttf') format('truetype');
-  font-weight: 200;
+  font-family: Montserrat;
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') format('truetype');
+  font-weight: 400;
   font-style: normal;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   font-family:
-    Plus Jakarta Sans,
+    Montserrat,
     sans-serif;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
   line-height: 24px;
   color: var(--black);
-} */
+}
+
 
 * {
-  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, sans-serif !important;
 }
 
 span,
@@ -76,6 +68,10 @@ h3 {
 
 .text--black {
   color: var(--black);
+}
+
+.text--blue {
+  color: var(--blue-dark);
 }
 
 .text--error {
@@ -113,8 +109,8 @@ h3 {
 
 .text--heading3 {
   font-size: 20px;
-  line-height: 20px;
-  padding-bottom: 20px;
+  line-height: 24.38px;
+  padding-bottom: 10px;
 }
 
 .text--heading4 {
@@ -125,7 +121,7 @@ h3 {
 
 .text--body-m {
   font-size: 20px;
-  line-height: 26px;
+  line-height: 24.38px;
 }
 
 .text--body-l {

@@ -1,24 +1,3 @@
-// import { useEffect } from 'react'
-// import appRouter from './navigation/app.router.tsx'
-// import { urls } from './navigation/app.urls'
-// import {RouterProvider} from 'react-router-dom'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-// function App() {
-//   useEffect(() => {
-//     if(location.pathname == "/") {
-//       location.replace(urls.main)
-//     }
-//   })
-
-//   return (
-//     <>
-//       <RouterProvider router={appRouter} />
-//     </>
-//   )
-// }
-
-// export default App
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -31,7 +10,7 @@ import Courses from './screens/Courses';
 import Contacts from './screens/Contacts';
 import Auth from './screens/Auth';
 import Registration from './screens/Registration';
-import User from './screens/User';
+import PersonalAccount from './screens/PersonalAccount';
 import { useEffect } from 'react';
 
 const store = createStore({
@@ -58,7 +37,7 @@ const App: React.FC = () => {
               <Route path={urls.contacts} element={<Contacts />} />
               <Route path={urls.registration} element={<Registration />} />
               <Route path={urls.auth} element={<Auth />} />
-              <Route path={urls.user} element={<User />} />
+              <Route path={urls.user} element={<PersonalAccount />} />
             </Route>
         </Routes>
       </BrowserRouter>

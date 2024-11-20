@@ -14,7 +14,7 @@
     flex-direction: row;
     align-items: start;
     text-align: center;
-    padding: 10px 0px;
+    padding: 7px 0px 0px 0px;
     gap: 10px;
     width: 1160px;
     color: var(--grey);
@@ -30,7 +30,7 @@
 }
 
 .content {
-    top: -30px;
+    top: -40px;
     width: 1160px;
     position: relative;
 }

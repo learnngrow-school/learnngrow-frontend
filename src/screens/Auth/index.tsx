@@ -8,10 +8,9 @@ import TextLink from "../../shared/Text/TextLink"
 import TextError from "../../shared/Errors/TextError"
 import { useState } from "react"
 import { login } from "../../services/auth.service"
-import { useDispatch } from "react-redux"
-import { setToken } from "../../store/auth.slice"
-import { getToken } from "../../services/token.service"
 import { ERROR_RUS } from "../../shared/Errors/errorTypes"
+import { AxiosError } from "axios"
+import PasswordInput from "../../shared/Inputs/PasswordInput"
 
 interface IAuthFormValues {
     email: string;
@@ -23,49 +22,26 @@ const Auth = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const { register, handleSubmit, formState: { errors } } = useForm<IAuthFormValues>();
-    const dispatch = useDispatch();
 
     const onSubmit = async (data: IAuthFormValues) => {
-        console.log(`Trying to login: ${data.email}, ${data.password}`);
+
         setLoading(true);
         setError(null);
-        try {
-        //   const token = await login(data.email, data.password);
-        //   if (!token) throw new Error('Invalid credentials');
-        //   else {
-        //     dispatch(setToken(token));
-        //     navigate(urls.user);
-        //   }
+
         const response = await login(data.email, data.password);
 
-        // setStatusResponce(status);
-
-        const token = getToken();
-
-        console.log('response:', response['error']);
-        
-
-        // if (!token) throw new Error('Invalid credentials');
-        if(response['error']) {
-            // if (response in ERROR_RUS) setError(ERROR_RUS[response]);
-            // else {
-            const parsedError = response['error'];
-            setError(ERROR_RUS[parsedError]);
-            //}
+        if (!(response instanceof AxiosError)) {
             
+            localStorage.setItem('user', JSON.stringify(response.data));
+            navigate(urls.user);
+        }
+        else{
+            const errorRus = ERROR_RUS[response.message as string]
+            setError(errorRus ? errorRus : 'Неизвестная ошибка');
+
+            setLoading(false);
             throw new Error('Invalid credentials');
-        }
-        else {
-          console.log('Token:', token);
-          dispatch(setToken(response));
-        //   dispatch(setToken(token));
-          navigate(urls.user);
-        }
-        } catch (err: any) {
-            console.log(err);
-            // setError('Ошибка авторизации');
-        } finally {
-          setLoading(false);
+            
         }
       };
       
@@ -84,20 +60,24 @@ const Auth = () => {
             </div>
             
             <div className="textInputContainer">
-                <input type="password" className="form-control inputText" id="inputPassword" 
-                placeholder="Введите пароль"
-                {...register('password', { required: "Это поле не может быть пустым" })}/>
+                <PasswordInput inputId="inputPassword" 
+                children={
+                    <input type="password" className="form-control inputText" id="inputPassword" 
+                    placeholder="Введите пароль"
+                    {...register('password', { required: "Это поле не может быть пустым" })}/>
+                }
+                />
                 {<TextError text={errors.password?.message?.toString() || ''}/>}
             </div>
 
             <div className="mb-3 rememberLoginContainer">
-                <div className="form-check">
+                {/* <div className="form-check">
                     <input type="checkbox" className="form-check-input checkbox-lng" id="authFormCheck"/>
                     <label className="form-check-label" htmlFor="authFormCheck">
                     <div>Запомнить меня</div>
                     </label>
-                </div>
-                <BaseButton text={loading ? 'Загрузка...' : 'Войти'} theme='pink' className="loginButton" 
+                </div> */}
+                <BaseButton text={loading ? 'Загрузка...' : 'Войти'} theme='pink-secondary' className="loginButton" 
                     type='submit'/>
             </div>
 
@@ -109,7 +89,7 @@ const Auth = () => {
                     <div className="text--body-l">Нет аккаунта?</div>
                     <TextLink path={urls.registration} name='Зарегистрироваться'/>
                 </div>
-                <div className="text--body-l">Забыли пароль?</div>
+                {/* <div className="text--body-l">Забыли пароль?</div> */}
             </div>
         </form>
         </>

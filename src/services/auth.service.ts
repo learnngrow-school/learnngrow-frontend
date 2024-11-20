@@ -1,30 +1,23 @@
-import axios from 'axios';
-import { getToken } from './token.service';
+import { AxiosError, AxiosResponse } from 'axios';
+import { authApi } from './api';
 
-const api = axios.create({
-  baseURL: 'http://localhost:8080/api/v1',
-  headers: {
-    'accept': 'application/json',
-    'Content-Type': 'application/json; charset=UTF-8',
-    'content-length': '4',
-    Authorization: `Bearer ${getToken()}`, 
-  },
-  withCredentials: true,
-});
 
-export const login = async (email: string, password: string): Promise<any> => {
+export const login = async (email: string, password: string): Promise<AxiosResponse | AxiosError> => {
   try {
-    const response = await api.post('/login', { email, password });
+
+    const response = await authApi.post('/auth/login', { email, password });
     
     console.log('Login status:', response);
-    return response.data;
-    //return token;
+
+    return response;
   } catch (error : any) {
-    // console.error('Login failed:', error.status);
-    return error.response?.data || error.message;
+    console.error('Login error:', error);
+    return error as AxiosError;
   }
 };
 
 export const logout = () => {
-  localStorage.removeItem('token');
+  localStorage.removeItem('user');
 };
+
+export const isAuthenticated = () => localStorage.getItem('user') !== null;

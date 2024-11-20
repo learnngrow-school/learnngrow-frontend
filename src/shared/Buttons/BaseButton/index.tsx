@@ -7,13 +7,15 @@ export interface IButtonProps {
     | 'submit'
     | 'button'
     theme:
-    | 'white'
+    | 'white-primary'
+    | 'white-secondary'
     | 'dark-blue-primary'
     | 'dark-blue-secondary'
-    | 'pink'
+    | 'pink-primary'
+    | 'pink-secondary'
     | 'green'
     className?: string,
-    logoPath?: string,
+    iconFirst?: boolean,
     icon?: JSX.Element,
     iconPath?: string,
     iconPathHover?: string,
@@ -27,6 +29,18 @@ const BaseButton = (props: IButtonProps) => {
     <img src={iconPath} alt="icon" className={props.iconClassName} /> 
     : <div style={{marginLeft: '-5px'}}/>
 
+    const IconPlusText = () => 
+        <>
+            <Icon/>        
+            {props.text}
+        </>
+
+    const TextPlusIcon = () => 
+        <>
+        {props.text}
+        <Icon/>        
+        </>
+
     return (
         <button type={props.type? props.type : 'button'}
             data-theme={props.theme ? props.theme : 'white'} 
@@ -34,8 +48,7 @@ const BaseButton = (props: IButtonProps) => {
             onClick={props.onClick}
             onMouseEnter={() => setIconPath(props.iconPathHover)}
             onMouseLeave={() => setIconPath(props.iconPath)}>
-        <Icon/>        
-        {props.text}
+            {props.iconFirst? <IconPlusText/> : <TextPlusIcon/>}
         </button>
     )
 }
