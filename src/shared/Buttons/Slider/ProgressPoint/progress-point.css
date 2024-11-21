@@ -1,0 +1,17 @@
+.points-container{
+    display: flex;
+}
+.point{
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--grey-dark);
+    background-color: transparent;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.point-active {
+    background-color: var(--pink);
+    border: var(--pink);
+}

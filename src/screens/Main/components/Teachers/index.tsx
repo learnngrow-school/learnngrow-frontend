@@ -5,12 +5,9 @@ import Sonya from "../../../../assets/pictures/sonya.png"
 import Grom from "../../../../assets/pictures/grom.png"
 import Doctor from "../../../../assets/pictures/doctor.png"
 import Jack from "../../../../assets/pictures/jack.png"
-import Slider from "../../../../assets/icons/big-arrow-right.svg"
 import { useState } from "react";
-// import DarkSlider from "../../../../assets/icons/big-arrow-right-blue.svg"
-// import { useState } from "react";
-
-const BLOCK_LENGTH = 5;
+import ProgressPoint from "../../../../shared/Buttons/Slider/ProgressPoint";
+import PointsSlider from "../PointsSlider";
 
 const teachers : ITeacherCardProps[]= [
     {
@@ -27,9 +24,9 @@ const teachers : ITeacherCardProps[]= [
     },
     {
         id: "2",
-        name: "Софья Павловна Кияткина",
+        name: "Королева Учебного Центра",
         iconPath: Sonya,
-        subjects: ["Математика", "Русский язык"]
+        subjects: ["Информатика", "Управление центром"]
     },
     {
         id: "3",
@@ -41,46 +38,74 @@ const teachers : ITeacherCardProps[]= [
         id: "4",
         name: "Доктор Who",
         iconPath: Doctor,
-        subjects: ["Биология"]
+        subjects: ["Биология", "Тардисмейкинг"]
     },
     {
         id: "5",
-        name: "Софья Павловна Кияткина",
+        name: "Женщина Моей Мечты",
         iconPath: Sonya,
-        subjects: ["Математика", "Русский язык"]
+        subjects: ["Основы грации", "Искусство обольщения"]
     },
     {
         id: "6",
-        name: "Игорь Константинович Гром",
+        name: "Мент",
         iconPath: Grom,
-        subjects: ["Физкультура", "Обществознание"]
+        subjects: ["Бег с препятствиями", "Правоведение"]
+    },
+    {
+        id: "7",
+        name: "Джонни Депп",
+        subjects: ["Пиратопритворство"],
+        iconPath: Jack
+    },
+    {
+        id: "8",
+        name: "Доктор Пепси",
+        iconPath: Doctor,
+        subjects: ["Исцеление медицинским спиртом"]
+    },
+    {
+        id: "8",
+        name: "Доктор Пепси",
+        iconPath: Doctor,
+        subjects: ["Исцеление медицинским спиртом"]
     },
 ]
 
-const Teachers = () => {
+const BLOCK_LENGTH = teachers.length % 2 == 0 ? 4 : 5;
+const STEP = Math.floor(BLOCK_LENGTH / 2);
 
-    const [start, setStart] = useState(0);
-    const [end, setEnd] = useState(BLOCK_LENGTH);
-    const [smallList, setSmallList] = useState(teachers.slice(start, end));
+const Teachers = () => {
+    
+    const initialStart = Math.floor(teachers.length / 2) - STEP;
+    console.log(initialStart)
+    const [start, setStart] = useState(initialStart);
+    const [end, setEnd] = useState(initialStart + BLOCK_LENGTH);
+    const initialList = teachers.slice(start, end);
+    console.log(end)
+    const [smallList, setSmallList] = useState(initialList);
     
     const onRightSliderClick = () => {
-        if ( end <= teachers.length) 
+        if ( end < teachers.length) 
         {
-            setStart(start + 1);
-            setEnd(end + 1);
-            console.log(`start: ${start}, end: ${end}`)
-            setSmallList(teachers.slice(start, end));
-            console.log(smallList[0].name)
+            setStart(currentStart => currentStart + 1);
+            setEnd((end) => end + 1);
+            const slice = smallList.slice();
+            slice.push(teachers[end]);
+            slice.shift();
+            setSmallList(slice);
         }
     }
 
     const onLeftSliderClick = () => {
         if (start > 0) 
         {
-            setStart(start - 1);
-            setEnd(end - 1);
-            setSmallList(teachers.slice(start, end));
-            console.log(smallList[0].name)
+            const slice = smallList.slice(0, BLOCK_LENGTH - 1);
+            slice.unshift(teachers[start - 1]);
+            setSmallList(slice);
+
+            setStart(currentStart => currentStart - 1);
+            setEnd(currentEnd => currentEnd - 1);
         }
     }
 
@@ -88,8 +113,6 @@ const Teachers = () => {
         <div className="content">
             <div className="text--heading2 text-600 title">Наши преподаватели</div>
             <div className="teachers-cards">
-                {teachers.length > BLOCK_LENGTH && start > 0  && 
-                    <img className="left-slider" src={Slider} alt="slider" onClick={onLeftSliderClick}/>}
                 {smallList.map((teacher) => (
                     <TeacherCard
                         id={teacher.id}
@@ -99,9 +122,18 @@ const Teachers = () => {
                         subjects={teacher.subjects}
                     />
                 ))}
-                {teachers.length > BLOCK_LENGTH && end < teachers.length && 
-                    <img className="right-slider" src={Slider} alt="slider" onClick={onRightSliderClick}/>}
             </div>
+            {teachers.length > BLOCK_LENGTH && (
+                <PointsSlider 
+                    onRightClick={onRightSliderClick} 
+                    onLeftClick={onLeftSliderClick}
+                    children={
+                        teachers.map((teacher) => 
+                            (<ProgressPoint key={teacher.id} 
+                                isActive={Number(teacher.id) >= start && Number(teacher.id) < end}/>))
+                    }/>
+                )
+            }
         </div>
     );
 };
