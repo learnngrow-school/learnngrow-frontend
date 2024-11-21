@@ -64,12 +64,6 @@ const teachers : ITeacherCardProps[]= [
         iconPath: Doctor,
         subjects: ["Исцеление медицинским спиртом"]
     },
-    {
-        id: "8",
-        name: "Доктор Пепси",
-        iconPath: Doctor,
-        subjects: ["Исцеление медицинским спиртом"]
-    },
 ]
 
 const BLOCK_LENGTH = teachers.length % 2 == 0 ? 4 : 5;
