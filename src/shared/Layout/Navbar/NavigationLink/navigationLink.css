@@ -2,10 +2,12 @@
     display: flex;
     position: relative;
     color: var(--black);
+    cursor: pointer;
 }
   
 .navlink:hover {
     color: var(--pink);
+    cursor: pointer;
 }
   
 .navlinkActive {

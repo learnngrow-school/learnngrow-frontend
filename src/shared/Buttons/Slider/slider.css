@@ -1,0 +1,23 @@
+.slider {
+    width: 64px;
+    height: 28px;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark);
+    cursor: pointer;
+    background-color: var(--white);
+    align-items: center;
+    justify-content: center;
+    padding: 1px 0px 2px 0px;
+}
+
+.slider-img {
+    position: relative;
+    width: 52px;
+    height: 14px;
+
+}
+
+.slider:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}

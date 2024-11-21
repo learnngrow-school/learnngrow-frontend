@@ -22,7 +22,7 @@ const NavigationLink = (props: IProps) => {
 
   return (
     <div className={'navlinkContainer' + (isActive ? ' navlinkContainerActive' : '')} 
-      key={props.link.name} onClick={ () => props.onClick()}>  
+      key={props.link.name} onClick={props.onClick}>  
       <NavLink
         className={"navlink text--body-s text-400" + (isActive ? ' navlinkActive' : '')}
         to={props.link.path}>

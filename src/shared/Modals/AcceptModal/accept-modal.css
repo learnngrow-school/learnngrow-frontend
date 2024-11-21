@@ -1,0 +1,29 @@
+.mod-header {
+    display: flex;
+    padding: 20px;
+    justify-content: flex-end;
+}
+
+.mod-body{
+    padding: 20px;
+    text-align: center;
+}
+
+.cross-button{
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+}
+
+.mod-footer{    
+    display: flex;
+    float: right;
+    padding: 20px;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.mod-footer button{
+    width: 100px;
+    height: 40px;
+}
