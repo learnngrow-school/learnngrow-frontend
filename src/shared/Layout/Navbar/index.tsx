@@ -37,7 +37,7 @@ const Navbar = () => {
         {/*Курсы*/}
         <NavigationLink key={appLinks[2].name} link={appLinks[2]}   
           onClick={() => {
-            localStorage.clear()
+
             console.log(localStorage.getItem('subject'))
             navigate(urls.courses)
           }}/>

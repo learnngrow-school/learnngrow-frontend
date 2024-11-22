@@ -1,0 +1,57 @@
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+
+.custom-checkbox-input {
+  display: none;
+}
+
+
+.custom-checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--grey-dark);
+  border-radius: 3px;
+  background-color: var(--grey-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin: 0px 10px 0px 0px;
+}
+
+
+.custom-checkbox-box::after {
+  content: '';
+  width: 12px;
+  height: 8px;
+  background-image: url('../../../assets/icons/check-mark.svg');
+  background-size: cover;
+  top: 3px;
+  left: 6px;
+  opacity: 0;
+}
+  
+.custom-checkbox-label {
+  font-size: 16px;
+  color: #333;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+
+.custom-checkbox-input:checked + .custom-checkbox-label .custom-checkbox-box {
+  background-color: var(--green-pale);
+  border-color: var(--blue-dark);
+}
+
+
+.custom-checkbox-input:checked + .custom-checkbox-label .custom-checkbox-box::after {
+  opacity: 1;
+}
+  
