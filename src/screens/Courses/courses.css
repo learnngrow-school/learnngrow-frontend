@@ -2,7 +2,7 @@
     width: 1160px;
     display: flex;
     margin-bottom: 50px;
-    margin-top: -30px;
+    margin-top: -35px;
 }
 
 .sections {
@@ -35,74 +35,57 @@
 
 .course-list {
     display: flex;
-    gap: 40px;
+    gap: 25px 40px;
     flex-wrap: wrap;
     margin: 25px 0px 26px 40px;
 }
 
-.course-card {
-    background:  var(--grey-light);
-    border-radius: 10px;
-    padding: 15px;
-    width: 230px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.course-list-fullpage {
+    display: flex;
+    gap: 25px 40px;
+    flex-wrap: wrap;
 }
 
-.course-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px #00000023;
-}
-
-.course-image {
-    background-color: #ffff;
-    height: 120px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-    position: relative;
-    overflow: hidden;
-}
-
-.course-progress-bar {
-    position: absolute;
-    bottom: 0;
-    height: 5px;
-    width: 100%;
-}
-
-.course-progress {
-    background-color: var(--green-light);
-    height: 100%;
+.search-and-filter-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    color: white;
-    font-size: 0.7em;
+    gap: 40px;
+    width: 1160px;
+    margin: -35px 0px 60px;
 }
 
-.course-progress-text {
-    background-color: var(--green-light);
-    padding: 0px 5px;
-    border-top-left-radius: 5px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 860px;
 }
 
-.course-title {
-    font-size: 1em;
-    margin: 10px 0 0px;
-    color: var(--blue-dark);
+.search-input {
+    border-radius: 10px;
+    padding: 15px 40px 15px 15px;
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-.course-level {
-    font-size: 1em;
-    margin-bottom: 10px;
-    color: var(--blue-dark);
+.search-icon{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
-.course-price {
-    font-weight: bold;
-    font-size: 1em;
-    color: var(--blue-dark);
-    margin-bottom: 0px;
+.btn-filter{
+    width: 260px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
