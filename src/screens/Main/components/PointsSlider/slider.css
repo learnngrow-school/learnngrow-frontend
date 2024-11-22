@@ -19,6 +19,24 @@
     justify-content: center;
     gap: 5px;
 }
+
+.review-cards {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.teachers-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
 /* .left-slider:hover, .right-slider:hover {
     cursor: pointer;
     opacity: 0.6;

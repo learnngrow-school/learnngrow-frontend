@@ -14,10 +14,19 @@
     position: relative;
     width: 52px;
     height: 14px;
-
 }
 
 .slider:hover {
     cursor: pointer;
     opacity: 0.6;
+}
+
+.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    opacity: 0.4;
+    cursor: not-allowed;
 }

@@ -20,14 +20,6 @@
     text-align: center;
     padding: 50px 0px 20px 0px;
 }
-.cards {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
 
 .review-card {
     display: flex;

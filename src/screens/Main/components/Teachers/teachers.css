@@ -31,14 +31,6 @@
     border-radius: 7px;
 }
 
-.teachers-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    width: 100%;
-    justify-content: center;
-}
-
 .name{
     padding: 10px 0px;
     color: var(--blue-dark);
