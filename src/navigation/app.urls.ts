@@ -6,4 +6,12 @@ export const urls = {
   user: '/me',
   auth: '/auth',
   registration: '/registration',
+  mainPersonal: '/me/mainPersonal',
+  schedule: '/me/schedule',
+  news: '/me/news',
+  myData: '/me/myData',
+  homework: '/me/homework',
+  pupils: '/me/pupils',
+  shop: '/me/shop',
+  myCourses: '/me/courses',
 }

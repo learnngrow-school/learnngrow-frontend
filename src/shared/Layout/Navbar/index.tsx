@@ -48,7 +48,7 @@ const Navbar = () => {
           } 
             onClick={ () => {
               if (user !== null) {
-                navigate(urls.user);
+                navigate(urls.mainPersonal);
               }
               else {
                 navigate(urls.auth);

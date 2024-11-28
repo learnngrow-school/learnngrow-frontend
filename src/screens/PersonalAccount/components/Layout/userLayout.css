@@ -1,0 +1,23 @@
+.layout-user{
+  position: relative;
+  display: flex; 
+  width: 100vw;
+  padding-left: 140px;
+  margin-top: -40px;
+  padding-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 60px;
+}
+
+.menu {
+    width: 200px;
+}
+
+.user-content {  
+    width: 860px;
+}
