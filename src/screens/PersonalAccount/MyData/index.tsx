@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import '../../styles/text.css'
-import { User } from '../../types/user';
-import { getUser } from '../../services/user.service';
+import '../../../styles/text.css'
+import { User } from '../../../types/user';
+import { getUser } from '../../../services/user.service';
 import { AxiosError } from 'axios';
-import BaseButton from '../../shared/Buttons/BaseButton';
-import { logout } from '../../services/auth.service';
-import AcceptModal from '../../shared/Modals/AcceptModal';
-import { urls } from '../../navigation/app.urls';
+import BaseButton from '../../../shared/Buttons/BaseButton';
+import { logout } from '../../../services/auth.service';
+import AcceptModal from '../../../shared/Modals/AcceptModal';
+import { urls } from '../../../navigation/app.urls';
 import { useNavigate } from 'react-router-dom';
 
-const PersonalAccount = () => {
+const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
     const navigate = useNavigate();
 
@@ -81,4 +81,4 @@ const PersonalAccount = () => {
     )
 }
 
-export default PersonalAccount
+export default MyData

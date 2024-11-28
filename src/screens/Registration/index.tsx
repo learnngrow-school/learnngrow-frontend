@@ -82,7 +82,7 @@ const Registration = () => {
 
         if (!(response instanceof AxiosError)) {
             localStorage.setItem('user', JSON.stringify(response.data));
-            navigate(urls.user);
+            navigate(urls.mainPersonal);
         }
         else{
             const errorRus = ERROR_RUS[response.message as string]

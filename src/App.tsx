@@ -10,7 +10,12 @@ import Courses from './screens/Courses';
 import Contacts from './screens/Contacts';
 import Auth from './screens/Auth';
 import Registration from './screens/Registration';
-import PersonalAccount from './screens/PersonalAccount';
+import MyData from './screens/PersonalAccount/MyData';
+import MainPersonal from './screens/PersonalAccount/Main';
+import Homework from './screens/PersonalAccount/Homework';
+import Schedule from './screens/PersonalAccount/Schedule';
+import News from './screens/PersonalAccount/News';
+import UserLayout from './screens/PersonalAccount/components/Layout';
 import { useEffect } from 'react';
 
 const store = createStore({
@@ -37,7 +42,16 @@ const App: React.FC = () => {
               <Route path={urls.contacts} element={<Contacts />} />
               <Route path={urls.registration} element={<Registration />} />
               <Route path={urls.auth} element={<Auth />} />
-              <Route path={urls.user} element={<PersonalAccount />} />
+
+              <Route path={urls.user} element={<UserLayout />}>
+                <Route path={urls.myData} element={<MyData />} />
+                <Route path={urls.mainPersonal} element={<MainPersonal />} />
+                <Route path={urls.schedule} element={<Schedule />} />
+                <Route path={urls.news} element={<News />} />
+                <Route path={urls.homework} element={<Homework />} />
+                <Route path={urls.myCourses} element={<Courses/>} />
+                <Route path={urls.shop} element={<Courses/>} />
+              </Route>
             </Route>
         </Routes>
       </BrowserRouter>
