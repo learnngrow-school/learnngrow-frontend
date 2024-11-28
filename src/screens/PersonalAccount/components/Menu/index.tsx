@@ -25,7 +25,7 @@ const Menu = () => {
     return (
         <div className="menu-container">
             {items.map((item, index) => (
-                <BaseButton theme="white-primary" key={index} 
+                <BaseButton theme="white-without-shadow" key={index} 
                     className="menu-button" onClick={item.onClick} text={item.title}/>
             ))}
         </div>
