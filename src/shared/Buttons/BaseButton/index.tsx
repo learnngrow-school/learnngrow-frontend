@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { forwardRef, useState } from "react"
 
 export interface IButtonProps {
     text: string
@@ -22,7 +22,7 @@ export interface IButtonProps {
     iconClassName?: string,
 }
 
-const BaseButton = (props: IButtonProps) => {
+const BaseButton = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
     const [iconPath, setIconPath] = useState(props.iconPath)
 
     const Icon = () => props.iconPath ? 
@@ -42,7 +42,9 @@ const BaseButton = (props: IButtonProps) => {
         </>
 
     return (
-        <button type={props.type? props.type : 'button'}
+        <button 
+            ref={ref}
+            type={props.type? props.type : 'button'}
             data-theme={props.theme ? props.theme : 'white'} 
             className={`button btn primary ${props.className}`} 
             onClick={props.onClick}
@@ -50,7 +52,7 @@ const BaseButton = (props: IButtonProps) => {
             onMouseLeave={() => setIconPath(props.iconPath)}>
             {props.iconFirst? <IconPlusText/> : <TextPlusIcon/>}
         </button>
-    )
-}
+    );
+});
 
 export default BaseButton
