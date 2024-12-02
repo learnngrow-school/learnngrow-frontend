@@ -1,11 +1,8 @@
 import "../../main.css";
 import { Review } from "../../../../types/review";
-import ReviewCard from "./review-card";
-import ProgressPoint from "../../../../shared/Buttons/Slider/ProgressPoint";
 import PointsSlider from "../PointsSlider";
-import { useState } from "react";
 
-const data: Review[]= [
+const reviews: Review[]= [
     {
         id: '0',
         author: "Людмила - мама, ЕГЭ",
@@ -21,45 +18,35 @@ const data: Review[]= [
         id: '2',
         author: "Сергей - папа ученика, ОГЭ",
         text: "У Сергея по русскому за ОГЭ четвёрка. Спасибо вам за помощь, Ксения, надеемся на дальнее сотрудничество)))."
+    },
+    {
+        id: '3',
+        author: "Петунья - тётя ученика, История магии",
+        text:"Предмет 3/10, преподавание 0/10.\n"+ 
+        "Преподаватель что-то бубнит себе под нос - ничего не слышно и не понятно.\n"+
+        "И вообще он привидение😳"
+    },
+    {
+        id: '4',
+        author: "Гермиона - ученица, прорицания",
+        text: "Ноги моей больше не будет на этом предмете!👺"
     }
 ]
 
-const BLOCK_LENGTH = 3;
-
 const Reviews = () => {
-    const [start] = useState(0);
-    // const [end, setEnd] = useState(BLOCK_LENGTH);
 
     return (
         <div className="reviews-container">
             <div className="text--heading2 text-600 title-2">Отзывы</div>
-            <div className="text--body-s text-400 about">Что о нас говорят наши студенты и их родители</div>
-            <div className="cards">
-                {data.map((review) => (
-                    <ReviewCard key={review.author} author={review.author} text={review.text}/>
-                ))}
+            <div className="text--body-s text-400 about">
+                Что о нас говорят наши студенты и их родители
             </div>
-            {data.length >= BLOCK_LENGTH && 
             <PointsSlider 
-                onRightClick={() =>{}}
-                onLeftClick={() =>{}}
-                children={
-                data.map((review) => (<ProgressPoint key={review.author} 
-                    isActive={Number(review.id) === start}/>))
-                }
-            />}
-            {/* { (
-                    <div className="slider-points-container">
-                       <Slider imagePath={Arrow}
-                            onClick={() =>{}} imgClassName="left-slider"/>
-                        {data.map((review) => (
-                            <ProgressPoint key={review.author} isActive={false}/>
-                        ))}
-                       <Slider
-                            imagePath={Arrow}
-                            onClick={() =>{}} imgClassName="right-slider"/>
-                    </div>)
-                } */}
+                dataType="reviews" 
+                data={reviews} 
+                dataClassName="review-cards"
+                oddBlockLength={3} evenBlockLength={3}
+            />
         </div>
     );
 };

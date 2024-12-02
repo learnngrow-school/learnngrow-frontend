@@ -9,6 +9,7 @@ export interface IButtonProps {
     theme:
     | 'white-primary'
     | 'white-secondary'
+    | 'white-without-shadow'
     | 'dark-blue-primary'
     | 'dark-blue-secondary'
     | 'pink-primary'

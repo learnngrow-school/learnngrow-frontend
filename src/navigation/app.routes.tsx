@@ -6,9 +6,13 @@ import { lazy } from 'react'
 const Main = lazy(() => import('../screens/Main'))
 const Courses = lazy(() => import('../screens/Courses'))
 const Contacts = lazy(() => import('../screens/Contacts'))
-const User = lazy(() => import('../screens/PersonalAccount/index.tsx'))
+const MyData = lazy(() => import('../screens/PersonalAccount/MyData/index.tsx'))
 const Auth = lazy(() => import('../screens/Auth'))
 const Registration = lazy(() => import('../screens/Registration'))
+const MainPersonal = lazy(() => import('../screens/PersonalAccount/Main/index.tsx'))
+const Schedule = lazy(() => import('../screens/PersonalAccount/Schedule/index.tsx'))
+const News = lazy(() => import('../screens/PersonalAccount/News/index.tsx'))
+const Homework = lazy(() => import('../screens/PersonalAccount/Homework/index.tsx'))
 
 const appRoutes: IRoute[] = [
   {
@@ -24,8 +28,8 @@ const appRoutes: IRoute[] = [
     element: <Contacts/>,
   },
   {
-    path: urls.user,
-    element: <User/>,
+    path: urls.myData,
+    element: <MyData/>,
   },
   {
     path: urls.auth,
@@ -34,6 +38,22 @@ const appRoutes: IRoute[] = [
   {
     path: urls.registration,
     element: <Registration/>,
+  },
+  {
+    path: urls.mainPersonal,
+    element: <MainPersonal/>,
+  },
+  {
+    path: urls.schedule,
+    element: <Schedule/>,
+  },
+  {
+    path: urls.news,
+    element: <News/>,
+  },
+  {
+    path: urls.homework,
+    element: <Homework/>,
   },
 ]
 

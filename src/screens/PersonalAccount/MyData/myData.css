@@ -1,0 +1,55 @@
+.my-data-content {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 160px 360px 260px;
+    gap: 40px;
+}
+
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    background-color: var(--grey-light);
+    border-radius: 10px;
+    border: 1px solid var(--blue-dark);
+}
+
+.avatar-img{
+    width: 160px;
+    height: 160px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: transparent;
+    color: var(--grey-dark);
+    text-decoration: underline;
+    padding: 5px 10px;
+    border: none;
+  }
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

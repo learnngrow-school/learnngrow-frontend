@@ -132,7 +132,23 @@ hr {
   color: var(--blue-dark);
 }
 
+.button[data-theme='white-without-shadow'] {
+  display: flex;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--grey-dark);
+  color: var(--grey-dark);
+  box-shadow: none;
+  /* width: 100%; */
+}
 
+.button[data-theme='white-without-shadow']:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
 
 .button[aria-expanded="true"]{
   box-shadow: var(--box-shadow-pink);

@@ -1,0 +1,135 @@
+import { useEffect, useState } from 'react';
+import '../../../styles/text.css'
+import "./myData.css"
+import { User } from '../../../types/user';
+import { getUser } from '../../../services/user.service';
+import { AxiosError } from 'axios';
+import BaseButton from '../../../shared/Buttons/BaseButton';
+import { logout } from '../../../services/auth.service';
+import AcceptModal from '../../../shared/Modals/AcceptModal';
+import { urls } from '../../../navigation/app.urls';
+import { useNavigate } from 'react-router-dom';
+import TextInput from '../../../shared/Inputs/TextInput';
+
+const MyData = () => {
+    const [acceptModalVisible, setAcceptModalVisible] = useState(false);
+    const [editDisabled, setEditDisabled] = useState(true);
+    const [editText, setEditText] = useState('Изменить данные');
+    const navigate = useNavigate();
+    const [avatar, setAvatar] = useState('');
+
+    useEffect(() => {
+        if(!localStorage.getItem('user'))
+            fetchUser();
+    }, [acceptModalVisible])
+
+    const fetchUser = async () => {
+        const response = await getUser();
+        if (!(response instanceof AxiosError)) {
+            localStorage.setItem('user', JSON.stringify(response.data));
+        }
+        else{
+            return (
+                <div>
+                    <h1 className='text--heading2'>Личный кабинет</h1>
+                    <p>Вы не авторизованы {":("}</p>
+                </div>
+            )
+        }
+    }
+
+    const onAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            setAvatar(URL.createObjectURL(file));
+        }
+      };
+
+    const showAcceptModal = () => {
+        setAcceptModalVisible(true);
+    }
+
+    const onLogout = () => {
+        logout();
+        navigate(urls.main);
+    }
+
+    const onLogoutCancel = () => {
+        setAcceptModalVisible(false);
+    }
+
+    const onEditModeChange = () => {
+        if(editDisabled)
+        {
+            setEditText('Отменить изменения');
+            setEditDisabled(false);
+        } 
+        else 
+        {
+            setEditText('Изменить данные');
+            setEditDisabled(true);
+        }
+    }
+
+    const parsedUser = JSON.parse(localStorage.getItem('user') || '') as User;
+
+    return (
+        <div>
+            <h1 className='text--heading2 text--blue text-600'>Мои данные</h1>
+                <div className='my-data-content'>
+                    <div className='avatar-container'>
+                        <div className='avatar'>
+                            {avatar && <img src={avatar} alt="avatar" className='avatar'/>}
+                        </div>
+                        <input type='file' accept='image/*' id="fileInput"
+                        className=' file-input'onChange={onAvatarChange}/>
+                        <label htmlFor="fileInput" className='text--body-s file-label'>
+                            Загрузить фото
+                        </label>
+                    </div>
+                    
+                    <div className='inputs-container'>
+                        <div className="input-container">
+                            <div className='text--body-s text--blue text-600'>Имя</div>
+                            <TextInput defaultValue={parsedUser.firstName} 
+                                disabled={editDisabled} 
+                                type='text' id='firstName' placeholder='Имя'/>
+                        </div>
+                        <div className="input-container">
+                            <div className='text--body-s text--blue text-600'>Фамилия</div>
+                            <TextInput defaultValue={parsedUser.lastName} 
+                                disabled={editDisabled} 
+                                type='text' id='lastName' placeholder='Фамилия'/>
+                        </div>
+                        <div className="input-container">
+                            <div className='text--body-s text--blue text-600'>Отчество (если есть)</div>
+                            <TextInput defaultValue={parsedUser.middleName || '-'} 
+                                disabled={editDisabled} 
+                                type='text' id='middleName' placeholder='Отчество'/>
+                        </div>
+                        <div className="input-container">
+                            <div className='text--body-s text--blue text-600'>Почта</div>
+                            <TextInput defaultValue={parsedUser.email || '-'} 
+                                disabled={editDisabled} 
+                                type='text' id='email' placeholder='Почта'/>
+                        </div>
+                    </div>
+
+                    <div className='buttons-container'>
+                        <BaseButton
+                            theme="pink-primary" text={editText}
+                            onClick={onEditModeChange}/>
+                        <BaseButton data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
+                            theme="white-secondary" text="Выйти из аккаунта" className="text--body-s" 
+                            onClick={showAcceptModal}/>
+                    </div>
+                </div>
+            <AcceptModal id="staticBackdrop"
+                isOpen={acceptModalVisible}
+                content="Вы точно хотите выйти из аккаунта?" 
+                okText='Выход' onOk={onLogout} onCancel={onLogoutCancel}/>
+        </div>
+    )
+}
+
+export default MyData
