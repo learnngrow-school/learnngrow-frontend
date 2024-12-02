@@ -11,11 +11,12 @@ const Authorized: FC<{ courses: any[] }> = ({ courses }) => {
                     <div className="course-list">
                         {courses.map((courseData) => {
                             const { title, price } = courseData.course || {};
+                            const subject = courseData.subject?.title || "Предмет не указан";
                             return (
                                 <CourseCard
                                     key={courseData.id}
                                     title={title || 'Не указано'}
-                                    description="Профильный уровень ЕГЭ"
+                                    subject={subject}
                                     price={(price != null ? price.toString() : '0')}
                                     progress={75}
                                 />
@@ -27,8 +28,8 @@ const Authorized: FC<{ courses: any[] }> = ({ courses }) => {
                 <section className="courses-section">
                     <h2 className="section-title section-title--pink">Похожие курсы</h2>
                     <div className="course-list">
-                        <CourseCard title="Математика" description="Профильный уровень ЕГЭ" price="4000" />
-                        <CourseCard title="Математика" description="Профильный уровень ЕГЭ" price="0" />
+                        <CourseCard title="Математика" subject="Профильный уровень ЕГЭ" price="4000" />
+                        <CourseCard title="Математика" subject="Профильный уровень ЕГЭ" price="0" />
                     </div>
                 </section>
             </section>

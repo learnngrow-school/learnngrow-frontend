@@ -7,6 +7,7 @@ import { urls } from './navigation/app.urls';
 import Layout from './shared/Layout';
 import Main from './screens/Main';
 import Courses from './screens/Courses';
+import CourseDetails from './screens/CourseDetails';
 import Contacts from './screens/Contacts';
 import Auth from './screens/Auth';
 import Registration from './screens/Registration';
@@ -34,6 +35,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Layout/>}>
               <Route path={urls.main} element={<Main />} />
               <Route path={urls.courses} element={<Courses />} />
+              <Route path={`${urls.courses}/:id`} element={<CourseDetails />} />
               <Route path={urls.contacts} element={<Contacts />} />
               <Route path={urls.registration} element={<Registration />} />
               <Route path={urls.auth} element={<Auth />} />

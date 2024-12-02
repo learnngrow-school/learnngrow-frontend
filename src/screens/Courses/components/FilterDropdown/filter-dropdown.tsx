@@ -1,14 +1,17 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import CustomCheckbox from "../../../../shared/Buttons/CheckBox/checkbox";
 import "./filter-dropdown.css";
 
 interface FilterDropdownProps {
     isOpen: boolean;
     onClose: () => void;
-    onFilterChange?: (filters: { [key: string]: boolean }) => void; // Для передачи фильтров в родительский компонент
+    buttonRef: React.RefObject<HTMLButtonElement>;
+    onFilterChange?: (filters: { [key: string]: boolean }) => void;
 }
 
-const FilterDropdown: FC<FilterDropdownProps> = ({ isOpen, onClose, onFilterChange }) => {
+const FilterDropdown: FC<FilterDropdownProps> = ({ isOpen, onClose, buttonRef, onFilterChange }) => {
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
     const [filters, setFilters] = useState<{ [key: string]: boolean }>({
         math: false,
         informatics: false,
@@ -21,16 +24,26 @@ const FilterDropdown: FC<FilterDropdownProps> = ({ isOpen, onClose, onFilterChan
         const updatedFilters = { ...filters, [key]: value };
         setFilters(updatedFilters);
 
-        // Вызываем onFilterChange, если передано
         if (onFilterChange) {
             onFilterChange(updatedFilters);
         }
     };
 
+    // Позиционирование относительно кнопки
+    useEffect(() => {
+        if (isOpen && buttonRef.current && dropdownRef.current) {
+            const buttonRect = buttonRef.current.getBoundingClientRect();
+            const dropdown = dropdownRef.current;
+
+            dropdown.style.top = `${buttonRect.bottom + window.scrollY}px`;
+            dropdown.style.left = `${buttonRect.left + window.scrollX}px`;
+        }
+    }, [isOpen, buttonRef]);
+
     if (!isOpen) return null;
 
     return (
-        <div className="filter-dropdown-overlay">
+        <div ref={dropdownRef} className="filter-dropdown-overlay">
             <div className="filter-dropdown-content">
                 <div className="first-block">
                     <div className="label">Рубрика</div>

@@ -1,17 +1,15 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import "./course-card.css";
 
 interface CourseCardProps {
     title: string;
-    description: string;
+    subject: string;
     price: string;
     progress?: number;
 }
 
-const CourseCard: FC<CourseCardProps> = ({ title, description, price, progress }) => {
+const CourseCard: FC<CourseCardProps> = ({ title, subject, price, progress }) => {
     return (
-        <Link to={"#"} className="course-card-link">
             <div className="course-card">
                 <div className="course-image"> {/*изображение*/ }
                     {progress !== undefined && (
@@ -22,13 +20,12 @@ const CourseCard: FC<CourseCardProps> = ({ title, description, price, progress }
                         </div>
                     )}
                 </div>
+                <p className="course-subject">{subject}</p>
                 <p className="course-title">{title}</p>
-                <p className="course-description">{description}</p>
                 <p className="course-price">
                     {price === "0" ? "Бесплатно" : `${price} р/мес`}
                 </p>
             </div>
-        </Link>
     );
 };
 
