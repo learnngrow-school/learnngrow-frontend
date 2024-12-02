@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import { authApi } from "./api";
-
-export interface Course {
-    id: number;
-    category: { title: string };
-    course: { title: string; description: string; price: number; grade: number };
-    subject: { title: string };
-  }
+import { Course } from "../types/course";
 
 export const useCourses = () => {
     const [courses, setCourses] = useState<Course[]>([]);
