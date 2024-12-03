@@ -7,4 +7,5 @@ export type User = {
     password: string;
     isTeacher?: boolean
     isSuperuser?: boolean
+    iconPath?: string
 }
