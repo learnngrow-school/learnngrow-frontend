@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import '../../../styles/text.css'
 import "./myData.css"
 import { User } from '../../../types/user';
@@ -10,6 +10,8 @@ import AcceptModal from '../../../shared/Modals/AcceptModal';
 import { urls } from '../../../navigation/app.urls';
 import { useNavigate } from 'react-router-dom';
 import TextInput from '../../../shared/Inputs/TextInput';
+import ToastPopup, { INotify } from '../../../shared/ToastPopup';
+import { ToastType } from '../../../enums/popup';
 
 const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
@@ -18,10 +20,20 @@ const MyData = () => {
     const navigate = useNavigate();
     const [avatar, setAvatar] = useState('');
 
+    const toastRef = useRef<INotify>(null);
+
     useEffect(() => {
         if(!localStorage.getItem('user'))
             fetchUser();
     }, [acceptModalVisible])
+
+    
+
+    const showNotification = (message: string, type: ToastType) => {
+      if (toastRef.current) {
+        toastRef.current.notify(message, type);
+      }
+    };
 
     const fetchUser = async () => {
         const response = await getUser();
@@ -49,9 +61,17 @@ const MyData = () => {
         setAcceptModalVisible(true);
     }
 
-    const onLogout = () => {
-        logout();
-        navigate(urls.main);
+    const onLogout = async () => {
+        const response = await logout();
+        if(!(response instanceof AxiosError) && response.status === 200)
+        {
+            navigate(urls.main);
+            showNotification("Вы успешно вышли из аккаунта", ToastType.success);
+        }
+        else {
+            setAcceptModalVisible(false);
+            showNotification("Не удалось выйти из аккаунта", ToastType.error);
+        } 
     }
 
     const onLogoutCancel = () => {
@@ -75,6 +95,7 @@ const MyData = () => {
 
     return (
         <div>
+            <ToastPopup ref={toastRef} />
             <h1 className='text--heading2 text--blue text-600'>Мои данные</h1>
                 <div className='my-data-content'>
                     <div className='avatar-container'>

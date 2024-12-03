@@ -6,18 +6,23 @@ export const login = async (email: string, password: string): Promise<AxiosRespo
   try {
 
     const response = await authApi.post('/auth/login', { email, password });
-    
-    console.log('Login status:', response);
-
     return response;
   } catch (error : any) {
-    console.error('Login error:', error);
     return error as AxiosError;
   }
 };
 
-export const logout = () => {
-  localStorage.removeItem('user');
+export const logout = async () : Promise<AxiosResponse | AxiosError> => {
+  try{
+
+    const response = await authApi.post('/auth/logout');
+    localStorage.removeItem('user');
+
+    return response;
+  }
+  catch(error : any){
+    return error as AxiosError;
+  }
 };
 
 export const isAuthenticated = () => localStorage.getItem('user') !== null;
