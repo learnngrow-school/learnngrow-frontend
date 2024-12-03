@@ -11,7 +11,7 @@ import { urls } from '../../../navigation/app.urls';
 import { useNavigate } from 'react-router-dom';
 import TextInput from '../../../shared/Inputs/TextInput';
 import ToastPopup, { INotify } from '../../../shared/ToastPopup';
-import { ToastType } from '../../../enums/popup';
+import { ToastTypeEnum } from '../../../enums/popup';
 
 const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
@@ -29,7 +29,7 @@ const MyData = () => {
 
     
 
-    const showNotification = (message: string, type: ToastType) => {
+    const showNotification = (message: string, type: ToastTypeEnum) => {
       if (toastRef.current) {
         toastRef.current.notify(message, type);
       }
@@ -66,11 +66,11 @@ const MyData = () => {
         if(!(response instanceof AxiosError) && response.status === 200)
         {
             navigate(urls.main);
-            showNotification("Вы успешно вышли из аккаунта", ToastType.success);
+            showNotification("Вы успешно вышли из аккаунта", ToastTypeEnum.success);
         }
         else {
             setAcceptModalVisible(false);
-            showNotification("Не удалось выйти из аккаунта", ToastType.error);
+            showNotification("Не удалось выйти из аккаунта", ToastTypeEnum.error);
         } 
     }
 
@@ -129,10 +129,10 @@ const MyData = () => {
                                 type='text' id='middleName' placeholder='Отчество'/>
                         </div>
                         <div className="input-container">
-                            <div className='text--body-s text--blue text-600'>Почта</div>
-                            <TextInput defaultValue={parsedUser.email || '-'} 
+                            <div className='text--body-s text--blue text-600'>Номер телефона</div>
+                            <TextInput defaultValue={parsedUser.phone || '-'} 
                                 disabled={editDisabled} 
-                                type='text' id='email' placeholder='Почта'/>
+                                type='text' id='phone' placeholder='Почта'/>
                         </div>
                     </div>
 

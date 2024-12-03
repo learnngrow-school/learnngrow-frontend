@@ -15,10 +15,9 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Цвета всплывающих сообщений toasts*/
-  --toastify-color-info: var(--grey-dark);
+  --toastify-color-info: var(--pink);
   --toastify-color-success: var(--green);
-  --toastify-color-warning: var(--yellow);
-  --toastify-color-error: #e74c3c;
+  --toastify-color-error: var(--error);
 }
 
 a {

@@ -18,6 +18,7 @@ import Schedule from './screens/PersonalAccount/Schedule';
 import News from './screens/PersonalAccount/News';
 import UserLayout from './screens/PersonalAccount/components/Layout';
 import { useEffect } from 'react';
+import Pupils from './screens/PersonalAccount/Pupils';
 
 const store = createStore({
   reducer: {
@@ -53,6 +54,7 @@ const App: React.FC = () => {
                 <Route path={urls.homework} element={<Homework />} />
                 <Route path={urls.myCourses} element={<Courses/>} />
                 <Route path={urls.shop} element={<Courses/>} />
+                <Route path={urls.pupils} element={<Pupils/>} />
               </Route>
             </Route>
         </Routes>

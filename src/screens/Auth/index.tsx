@@ -13,7 +13,7 @@ import { AxiosError } from "axios"
 import PasswordInput from "../../shared/Inputs/PasswordInput"
 
 interface IAuthFormValues {
-    email: string;
+    phone: string;
     password: string;
   }
 
@@ -28,7 +28,7 @@ const Auth = () => {
         setLoading(true);
         setError(null);
 
-        const response = await login(data.email, data.password);
+        const response = await login(data.phone, data.password);
 
         if (!(response instanceof AxiosError)) {
             
@@ -40,8 +40,6 @@ const Auth = () => {
             setError(errorRus ? errorRus : 'Неизвестная ошибка');
 
             setLoading(false);
-            throw new Error('Invalid credentials');
-            
         }
       };
       
@@ -53,10 +51,10 @@ const Auth = () => {
             <h1 className="text--heading2 title">Войти</h1>
 
             <div className="textInputContainer">
-                <input type="email" className="form-control inputText" id="email"
-                placeholder="Введите адрес электронной почты"
-                {...register('email', { required: "Это поле не может быть пустым" })} />
-                {<TextError text={errors.email?.message?.toString() || ''}/>}
+                <input type="phone" className="form-control inputText" id="phone"
+                placeholder="Введите свой номер телефона"
+                {...register('phone', { required: "Это поле не может быть пустым" })} />
+                {<TextError text={errors.phone?.message?.toString() || ''}/>}
             </div>
             
             <div className="textInputContainer">

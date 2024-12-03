@@ -14,22 +14,22 @@ interface ModalProps {
 }
 
 const AcceptModal: React.FC<ModalProps> = (
-    { isOpen, onCancel, onOk, title, content, okText}) => {
+    { isOpen, onCancel, onOk, content, okText}) => {
     
     const bsModalRef = React.useRef(null);
 
     return (
         <>
         <Modal show={isOpen} onHide={onCancel} ref={bsModalRef} 
-        keyboard={false} backdrop='static' enforceFocus={false}>
+        keyboard={false} backdrop='static' enforceFocus={false} className="mod-container">
             <div className="modal-content">
-                <div className="mod-header">
+                {/* <div className="mod-header">
                      <h5 className="modal-title" id="staticBackdropLabel">{title}</h5>
                      <button type="button" className="btn-close cross-button" 
                      data-bs-dismiss="modal" 
                      aria-label="Close" onClick={onCancel}/>
-                </div>
-                 <div className="mod-body text--body-l text-600 text--blue">
+                </div> */}
+                 <div className="mod-body text--heading2 text-600 text--blue">
                      {content}
                  </div>
                  <div className="mod-footer">

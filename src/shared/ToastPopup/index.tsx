@@ -2,22 +2,22 @@ import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
 import "./toast.css"
 import { forwardRef, useImperativeHandle } from "react";
-import { ToastType } from "../../enums/popup";
+import { ToastTypeEnum } from "../../enums/popup";
 
 export interface INotify {
-    notify: (message: string, type: ToastType) => void;
+    notify: (message: string, type: ToastTypeEnum) => void;
 }
 
 const ToastPopup = forwardRef<INotify>((_, ref) => {
-    const notify = (message: string, type: ToastType) => {
+    const notify = (message: string, type: ToastTypeEnum) => {
         switch (type) {
-            case ToastType.success:
+            case ToastTypeEnum.success:
                 toast.success(message);
                 break;
-            case ToastType.error:
+            case ToastTypeEnum.error:
                 toast.error(message);
                 break;
-            case ToastType.info:
+            case ToastTypeEnum.info:
                 toast.info(message);
                 break;
             default:

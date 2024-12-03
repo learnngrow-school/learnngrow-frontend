@@ -1,3 +1,9 @@
+.mod-container {
+    border-radius: 10px;
+    width: 560px;
+    height: 173px;
+}
+
 .mod-header {
     display: flex;
     padding: 20px;
@@ -24,6 +30,6 @@
 }
 
 .mod-footer button{
-    width: 100px;
+    width: 235px;
     height: 40px;
 }
