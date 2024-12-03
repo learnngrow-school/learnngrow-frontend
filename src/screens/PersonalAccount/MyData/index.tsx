@@ -65,8 +65,9 @@ const MyData = () => {
         const response = await logout();
         if(!(response instanceof AxiosError) && response.status === 200)
         {
-            navigate(urls.main);
+            
             showNotification("Вы успешно вышли из аккаунта", ToastTypeEnum.success);
+            navigate(urls.main);
         }
         else {
             setAcceptModalVisible(false);
@@ -147,8 +148,9 @@ const MyData = () => {
                 </div>
             <AcceptModal id="staticBackdrop"
                 isOpen={acceptModalVisible}
-                content="Вы точно хотите выйти из аккаунта?" 
-                okText='Выход' onOk={onLogout} onCancel={onLogoutCancel}/>
+                content={<div>Вы точно хотите выйти<br />из аккаунта?</div>} 
+                okText='Да, выйти' onOk={onLogout} 
+                cancelText='Нет, остаться' onCancel={onLogoutCancel}/>
         </div>
     )
 }
