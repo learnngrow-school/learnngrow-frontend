@@ -1,6 +1,6 @@
 .filter-dropdown-overlay {
     position: absolute;
-    margin: 26px 8px;
+    margin: 17px 0px;
     z-index: 1000;
     background: white;
     border: 1px solid var(--blue-dark);
