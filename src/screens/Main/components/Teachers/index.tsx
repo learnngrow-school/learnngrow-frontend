@@ -69,6 +69,8 @@ interface IProps {
 }
 
 const Teachers = ({ data }: IProps) => {
+    
+
     const teachers = data.map((teacher, index) => ({
         id: teacher.userData.id || index,
         name: teacher.userData.firstName + " " + teacher.userData.middleName + " " + teacher.userData.lastName ,
