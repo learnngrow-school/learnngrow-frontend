@@ -27,10 +27,8 @@ const Navbar = () => {
       </div>
       <div className='navLinksBlock'>
         <DropDownButton text='Предметы' 
-          items={[ 'История радика', 'Защита от спама олимпиадами',
-            'Гадание на вкладках Ш. Д. Б', 'Вейпопарение', 
-            'Основы дресс-кода: как быть кошкодевочкой',
-            'Лепка пельмешек' ]} 
+          items={[ 'История', 'Математика', 'Русский язык',
+            'Информатика' ]} 
           theme='white-primary'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
