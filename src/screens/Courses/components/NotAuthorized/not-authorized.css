@@ -1,19 +1,17 @@
-.courses-page {
+.courses-page-not-auth {
     position: relative;
-    /* width: 1160px; */
+    width: 1160px;
     display: flex;
     margin-bottom: 50px;
-    /* margin-top: -35px; */
+    margin-top: -35px;
 }
 
 .sections {
     margin-top: -20px;
-    /* margin-left: auto; */
 }
 
 .courses-section {
     width: 900px;
-    position: relative;
 }
 
 .section-title {
@@ -49,6 +47,7 @@
 }
 
 .search-and-filter-container {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 40px;
@@ -61,17 +60,6 @@
     align-items: center;
     position: relative;
     width: 860px;
-}
-
-.search-input {
-    border-radius: 10px;
-    padding: 15px 40px 15px 15px;
-    font-size: 16px;
-    width: 100%;
-    height: 40px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-icon{
@@ -93,8 +81,13 @@
 }
 
 .error-container {
-    position: static;
-    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
 }
 
 .sad-icon {

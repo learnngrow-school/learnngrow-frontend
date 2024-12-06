@@ -1,0 +1,120 @@
+.container-info-detail-na {
+    display: flex;
+    justify-content: space-between;
+    width: 64%;
+    margin-left: 0px;
+    color: var(--blue-dark);
+    margin-top: -30px;
+}
+
+.title-info-detail {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.subject-info-detail {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.details {
+    font-size: 16px;
+    font-weight: 600;
+    width: 180px;
+    height: 105px;
+    margin-bottom: 26px;
+}
+
+.details-info {
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.5px;
+}
+
+.info-bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.price {
+    position: relative;
+    margin: 0px 0px 0px 19px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btn-buy {
+    position: relative;
+    height: 40px;
+}
+
+.course-image-info-detail {
+    background-color: var(--grey-light);
+    width: 360px;
+    height: 230px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.back-to-courses {
+    margin: 0px 0px 25px 37px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--grey-dark);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-arrow {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.course-progress-bar-detail {
+    position: absolute;
+    bottom: 0;
+    height: 25px;
+    width: 100%;
+    background-color: var(--grey-light);
+}
+
+.course-progress-detail {
+    background-color: var(--green-light);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 13px;
+    color: white;
+    font-size: 13px;
+}
+
+.course-progress-text-detail {
+    background-color: var(--green-light);
+    padding: 0px 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--blue-dark);
+}
+
+.similar-detail {
+    display: flex;
+    width: 64%;
+    margin-left: 0px;
+    color: var(--blue-dark);
+    margin-top: 50px;
+}
+
+.text-similar-detail {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: -8px;
+}
+

@@ -1,15 +1,23 @@
-import { FC } from "react";
-import { useCourses } from "../../services/courses.service";
+import { FC, useEffect } from "react";
 import NotAuthorized from "./components/NotAuthorized/not-authorized";
-import Authorized from "./components/Authorized/authorized";
+import { urls } from "../../navigation/app.urls";
+import { useNavigate } from "react-router-dom";
 
 const Courses: FC = () => {
     const user = localStorage.getItem('user');
-    const { courses } = useCourses();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+          navigate(urls.myCourses);
+        }
+      }, [user, navigate]);
+    
 
     if (!user) {
-        return <NotAuthorized courses={courses} />;
+        return <NotAuthorized />;
     }
-    return <Authorized courses={courses} />;
+
+    return null;
 };
 export default Courses;
