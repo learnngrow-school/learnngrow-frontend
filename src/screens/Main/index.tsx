@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import "./main.css";
 import Steps from "./components/steps";
 import Subjects from "./components/subjects";
@@ -7,8 +7,33 @@ import OrderLesson from "./components/order-lesson";
 import Reviews from "./components/Reviews";
 import Title from "./components/title";
 import StudyTypes from "./components/study-types";
+import { getReviews } from "../../services/review.service";
+import { getTeachers } from "../../services/teacher.service";
+import { Review } from "../../types/review";
+import {Teacher} from "../../types/teacher";
+import { AxiosError } from "axios";
 
 const Main: FC = () => {
+    const [reviews, setReviews] = useState<Review[]>()
+    const [teachers, setTeachers] = useState<Teacher[]>([]);
+
+    useEffect(() => {
+
+        getReviews().then((response : any) => {
+            if (! (response instanceof AxiosError) && response.status === 200) {
+                setReviews(response.data);
+                console.log(reviews);
+            }
+        });
+        
+        getTeachers().then((response : any) => {
+            if (! (response instanceof AxiosError) && response.status === 200) {
+                setTeachers(response.data);
+                console.log(teachers);
+            }
+        });
+    },[]);
+    //localStorage.clear();
 
     return (
     <div className="main-content">
@@ -19,9 +44,9 @@ const Main: FC = () => {
         </div>
         <Subjects />
         <div className="content">
-            <Teachers />
+            {teachers.length > 0 && <Teachers  data={teachers}/>}
             <OrderLesson />
-            <Reviews />
+            {reviews && reviews.length > 0 && <Reviews data={reviews}/>}
          </div>
     </div>
     );

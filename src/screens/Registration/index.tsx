@@ -19,7 +19,7 @@ interface IUser{
     firstName?: string,
     lastName?: string,
     middleName?: string,
-    email?: string,
+    phone?: string,
     password: string
     passwordCheck: string
 }
@@ -49,7 +49,7 @@ const passwordSchema = yup.object().shape({
             /^[a-zA-ZА-ЯЁа-яё-’—]+$/,
             "Текст содержит недопустимые символы"
         ),
-    email: yup.string().email("Некорректный email").required("Это поле не может быть пустым"),
+    phone: yup.string().required("Это поле не может быть пустым"),
     password: yup.string()
         .required("Это поле не может быть пустым")
         .min(8, "Минимальная длина пароля 8 символов")
@@ -121,10 +121,10 @@ const Registration = () => {
             </div>
 
             <div className="textInputContainer">
-                <input type="email" className="form-control inputText" id="email"
-                placeholder="Введите свой email"
-                {...register('email')} />
-                {<TextError text={errors.email?.message?.toString() || ''}/>}
+                <input type="phone" className="form-control inputText" id="phone"
+                placeholder="Введите свой номер телефона"
+                {...register('phone')} />
+                {<TextError text={errors.phone?.message?.toString() || ''}/>}
             </div>
 
             <div className="textInputContainer">

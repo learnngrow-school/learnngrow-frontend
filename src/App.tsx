@@ -7,7 +7,6 @@ import { urls } from './navigation/app.urls';
 import Layout from './shared/Layout';
 import Main from './screens/Main';
 import Courses from './screens/Courses';
-import CourseDetails from './screens/CourseDetails';
 import Contacts from './screens/Contacts';
 import Auth from './screens/Auth';
 import Registration from './screens/Registration';
@@ -18,6 +17,11 @@ import Schedule from './screens/PersonalAccount/Schedule';
 import News from './screens/PersonalAccount/News';
 import UserLayout from './screens/PersonalAccount/components/Layout';
 import { useEffect } from 'react';
+import Pupils from './screens/PersonalAccount/Pupils';
+import Authorized from './screens/Courses/components/Authorized/authorized';
+import Shop from './screens/Shop';
+import CourseDetailAuthorized from './screens/CourseDetails/Authorized/course-detail-a';
+import CourseDetailNotAuthorized from './screens/CourseDetails/NotAuthorized/course-detail-na';
 
 const store = createStore({
   reducer: {
@@ -40,7 +44,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Layout/>}>
               <Route path={urls.main} element={<Main />} />
               <Route path={urls.courses} element={<Courses />} />
-              <Route path={`${urls.courses}/:id`} element={<CourseDetails />} />
+              <Route path={`${urls.courses}/:id`} element={<CourseDetailNotAuthorized />} />
               <Route path={urls.contacts} element={<Contacts />} />
               <Route path={urls.registration} element={<Registration />} />
               <Route path={urls.auth} element={<Auth />} />
@@ -51,8 +55,12 @@ const App: React.FC = () => {
                 <Route path={urls.schedule} element={<Schedule />} />
                 <Route path={urls.news} element={<News />} />
                 <Route path={urls.homework} element={<Homework />} />
-                <Route path={urls.myCourses} element={<Courses/>} />
-                <Route path={urls.shop} element={<Courses/>} />
+
+                <Route path={urls.pupils} element={<Pupils/>} />
+
+                <Route path={urls.myCourses} element={<Authorized />} />
+                <Route path={`${urls.myCourses}/:id`} element={<CourseDetailAuthorized />} />
+                <Route path={urls.shop} element={<Shop/>} />
               </Route>
             </Route>
         </Routes>

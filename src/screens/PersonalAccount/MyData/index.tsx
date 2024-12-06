@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import '../../../styles/text.css'
 import "./myData.css"
 import { User } from '../../../types/user';
@@ -10,6 +10,8 @@ import AcceptModal from '../../../shared/Modals/AcceptModal';
 import { urls } from '../../../navigation/app.urls';
 import { useNavigate } from 'react-router-dom';
 import TextInput from '../../../shared/Inputs/TextInput';
+import ToastPopup, { INotify } from '../../../shared/ToastPopup';
+import { ToastTypeEnum } from '../../../enums/popup';
 
 const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
@@ -18,10 +20,20 @@ const MyData = () => {
     const navigate = useNavigate();
     const [avatar, setAvatar] = useState('');
 
+    const toastRef = useRef<INotify>(null);
+
     useEffect(() => {
         if(!localStorage.getItem('user'))
             fetchUser();
     }, [acceptModalVisible])
+
+    
+
+    const showNotification = (message: string, type: ToastTypeEnum) => {
+      if (toastRef.current) {
+        toastRef.current.notify(message, type);
+      }
+    };
 
     const fetchUser = async () => {
         const response = await getUser();
@@ -49,9 +61,18 @@ const MyData = () => {
         setAcceptModalVisible(true);
     }
 
-    const onLogout = () => {
-        logout();
-        navigate(urls.main);
+    const onLogout = async () => {
+        const response = await logout();
+        if(!(response instanceof AxiosError) && response.status === 200)
+        {
+            
+            showNotification("Вы успешно вышли из аккаунта", ToastTypeEnum.success);
+            navigate(urls.main);
+        }
+        else {
+            setAcceptModalVisible(false);
+            showNotification("Не удалось выйти из аккаунта", ToastTypeEnum.error);
+        } 
     }
 
     const onLogoutCancel = () => {
@@ -75,6 +96,7 @@ const MyData = () => {
 
     return (
         <div>
+            <ToastPopup ref={toastRef} />
             <h1 className='text--heading2 text--blue text-600'>Мои данные</h1>
                 <div className='my-data-content'>
                     <div className='avatar-container'>
@@ -108,10 +130,10 @@ const MyData = () => {
                                 type='text' id='middleName' placeholder='Отчество'/>
                         </div>
                         <div className="input-container">
-                            <div className='text--body-s text--blue text-600'>Почта</div>
-                            <TextInput defaultValue={parsedUser.email || '-'} 
+                            <div className='text--body-s text--blue text-600'>Номер телефона</div>
+                            <TextInput defaultValue={parsedUser.phone || '-'} 
                                 disabled={editDisabled} 
-                                type='text' id='email' placeholder='Почта'/>
+                                type='text' id='phone' placeholder='Почта'/>
                         </div>
                     </div>
 
@@ -126,8 +148,9 @@ const MyData = () => {
                 </div>
             <AcceptModal id="staticBackdrop"
                 isOpen={acceptModalVisible}
-                content="Вы точно хотите выйти из аккаунта?" 
-                okText='Выход' onOk={onLogout} onCancel={onLogoutCancel}/>
+                content={<div>Вы точно хотите выйти<br />из аккаунта?</div>} 
+                okText='Да, выйти' onOk={onLogout} 
+                cancelText='Нет, остаться' onCancel={onLogoutCancel}/>
         </div>
     )
 }

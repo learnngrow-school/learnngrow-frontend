@@ -7,7 +7,7 @@ export const createUser = async (user : User) : Promise<AxiosResponse | AxiosErr
 
         const response = await authApi.post('/auth/register', user);
         
-        console.log('Register status:', response);
+        //console.log('Register status:', response);
     
         return response;
     }
@@ -22,7 +22,7 @@ export const getUser = async () : Promise<AxiosResponse | AxiosError> => {
 
         const response = await authApi.get('/auth/me');
         
-        console.log('Get user status:', response);
+        //console.log('Get user status:', response);
         localStorage.setItem('user', JSON.stringify(response.data));
     
         return response;

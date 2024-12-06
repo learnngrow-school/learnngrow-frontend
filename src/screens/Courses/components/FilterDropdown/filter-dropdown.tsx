@@ -6,15 +6,23 @@ interface FilterDropdownProps {
     isOpen: boolean;
     onClose: () => void;
     buttonRef: React.RefObject<HTMLButtonElement>;
+    pageRef?: React.RefObject<HTMLDivElement>;
     onFilterChange?: (filters: { [key: string]: boolean }) => void;
 }
 
-const FilterDropdown: FC<FilterDropdownProps> = ({ isOpen, onClose, buttonRef, onFilterChange }) => {
+const FilterDropdown: FC<FilterDropdownProps> = ({
+    isOpen,
+    onClose,
+    buttonRef,
+    pageRef,
+    onFilterChange,
+}) => {
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const [filters, setFilters] = useState<{ [key: string]: boolean }>({
         math: false,
         informatics: false,
+        russianlang: false,
         beginner: false,
         intermediate: false,
         advanced: false,
@@ -29,16 +37,29 @@ const FilterDropdown: FC<FilterDropdownProps> = ({ isOpen, onClose, buttonRef, o
         }
     };
 
-    // Позиционирование относительно кнопки
+    // Универсальное позиционирование для кнопки
     useEffect(() => {
         if (isOpen && buttonRef.current && dropdownRef.current) {
             const buttonRect = buttonRef.current.getBoundingClientRect();
             const dropdown = dropdownRef.current;
 
-            dropdown.style.top = `${buttonRect.bottom + window.scrollY}px`;
-            dropdown.style.left = `${buttonRect.left + window.scrollX}px`;
+            if (pageRef?.current) {
+                const pageRect = pageRef.current.getBoundingClientRect();
+                const top = buttonRect.bottom - pageRect.top + 8;
+                let left = buttonRect.left - pageRect.left;
+
+                if (left + dropdown.offsetWidth > window.innerWidth) {
+                    left = window.innerWidth - dropdown.offsetWidth - 10;
+                }
+
+                dropdown.style.top = `${top}px`;
+                dropdown.style.left = `${left}px`;
+            } else {
+                dropdown.style.top = `${buttonRect.bottom + window.scrollY}px`;
+                dropdown.style.left = `${buttonRect.left + window.scrollX}px`;
+            }
         }
-    }, [isOpen, buttonRef]);
+    }, [isOpen, buttonRef, pageRef]);
 
     if (!isOpen) return null;
 
@@ -61,6 +82,14 @@ const FilterDropdown: FC<FilterDropdownProps> = ({ isOpen, onClose, buttonRef, o
                             label="Информатика"
                             checked={filters.informatics}
                             onChange={(value) => handleCheckboxChange("informatics", value)}
+                        />
+                    </div>
+                    <div className="filter-option">
+                        <CustomCheckbox
+                            id="russianlang"
+                            label="Русский язык"
+                            checked={filters.russianlang}
+                            onChange={(value) => handleCheckboxChange("russianlang", value)}
                         />
                     </div>
                 </div>

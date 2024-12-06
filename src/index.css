@@ -13,6 +13,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Цвета всплывающих сообщений toasts*/
+  --toastify-color-info: var(--pink);
+  --toastify-color-success: var(--green);
+  --toastify-color-error: var(--error);
 }
 
 a {

@@ -9,3 +9,11 @@ export const authApi = axios.create({
     },
     withCredentials: true,
 });
+
+export const publicApi = axios.create({
+    baseURL: DEV_API,
+    headers: {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+});

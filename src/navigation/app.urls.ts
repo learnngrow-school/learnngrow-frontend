@@ -9,9 +9,10 @@ export const urls = {
   mainPersonal: '/me/mainPersonal',
   schedule: '/me/schedule',
   news: '/me/news',
-  myData: '/me/myData',
+  myData: '/me/mydata',
   homework: '/me/homework',
   pupils: '/me/pupils',
   shop: '/me/shop',
   myCourses: '/me/courses',
+  myCoursesDeatil: '/me/courses',
 }

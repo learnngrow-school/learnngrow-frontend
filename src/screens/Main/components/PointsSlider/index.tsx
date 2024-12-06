@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ArrowRight from "../../../../assets/icons/long-arrow-right.svg"
 import ArrowLeft from "../../../../assets/icons/long-arrow-left.svg"
 import Slider from "../../../../shared/Buttons/Slider";
@@ -59,7 +59,7 @@ const PointsSlider = (
         <div className={dataClassName}>
         { dataType === 'reviews' ?
             smallList.map((review) => (
-                <ReviewCard key={review.author} author={review.author} text={review.text}/>
+                <ReviewCard key={review.id} author={review.authorName} text={review.details}/>
             ))
         :   smallList.map((teacher) => (
                 <TeacherCard

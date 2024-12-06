@@ -9,32 +9,27 @@ interface ModalProps {
     onOk: () => void;
     onCancel?: () => void;
     okText: string;
+    cancelText?: string;
     title?: string;
     content: React.ReactNode;
 }
 
 const AcceptModal: React.FC<ModalProps> = (
-    { isOpen, onCancel, onOk, title, content, okText}) => {
+    { isOpen, onCancel, onOk, content, okText, cancelText}) => {
     
     const bsModalRef = React.useRef(null);
 
     return (
         <>
         <Modal show={isOpen} onHide={onCancel} ref={bsModalRef} 
-        keyboard={false} backdrop='static' enforceFocus={false}>
-            <div className="modal-content">
-                <div className="mod-header">
-                     <h5 className="modal-title" id="staticBackdropLabel">{title}</h5>
-                     <button type="button" className="btn-close cross-button" 
-                     data-bs-dismiss="modal" 
-                     aria-label="Close" onClick={onCancel}/>
-                </div>
-                 <div className="mod-body text--body-l text-600 text--blue">
-                     {content}
+        keyboard={false} backdrop='static' enforceFocus={false} className="mod-container">
+            <div className="mod-content">
+                 <div className="mod-text text--body-m text-600 text--blue">
+                    {content}
                  </div>
                  <div className="mod-footer">
-                    <BaseButton text="Отмена" onClick={onCancel} theme="dark-blue-primary"/>
-                     <BaseButton text={okText} onClick={onOk} theme="pink-secondary"/>
+                    <BaseButton text={cancelText ? cancelText : "Отмена"} onClick={onCancel} theme="white-secondary"/>
+                    <BaseButton text={okText} onClick={onOk} theme="pink-secondary"/>
                  </div>
             </div>
         </Modal>

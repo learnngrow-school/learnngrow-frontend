@@ -1,29 +1,37 @@
-.mod-header {
+.mod-container {
+    border-radius: 10px;
+    padding-top: 150px;
+}
+
+.mod-content{
     display: flex;
-    padding: 20px;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    width: 560px;
+    height: 173px;
+    align-self: center;
+    justify-content: center;
 }
 
-.mod-body{
-    padding: 20px;
+.mod-text{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    width: 400px;
     text-align: center;
-}
-
-.cross-button{
-    box-shadow: none;
-    border: none;
-    background-color: transparent;
 }
 
 .mod-footer{    
     display: flex;
     float: right;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     justify-content: flex-end;
     gap: 20px;
 }
 
 .mod-footer button{
-    width: 100px;
+    width: 210px;
     height: 40px;
 }
