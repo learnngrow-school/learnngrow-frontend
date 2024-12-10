@@ -80,7 +80,7 @@
     align-items: center;
 }
 
-.error-container {
+.error-container-na {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +90,6 @@
     transform: translate(-50%, 10%);
 }
 
-.sad-icon {
+.sad-icon-na {
     margin-bottom: 25px;
 }
