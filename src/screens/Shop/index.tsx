@@ -68,16 +68,16 @@ const Shop: FC = () => {
 
                     <div className="course-list">
                         {filteredCourses.map((courseData) => {
-                            const { title, price, id } = courseData.course || {};
+                            const { title, price, string } = courseData.course || {};
                             const subject = courseData.subject?.title || "Предмет не указан";
                             return (
                                 <div
-                                    key={id}
-                                    onClick={() => handleCourseClick(id)}
+                                    key={string}
+                                    onClick={() => handleCourseClick(string)}
                                     style={{ cursor: "pointer" }}
                                 >
                                     <CourseCard
-                                        key={id}
+                                        key={string}
                                         title={title || "Не указано"}
                                         subject={subject}
                                         price={price != null ? price.toString() : "0"}

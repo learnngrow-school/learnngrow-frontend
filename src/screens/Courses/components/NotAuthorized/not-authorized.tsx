@@ -77,22 +77,22 @@ const NotAuthorized: FC = () => {
 
             <div className="courses-page-not-auth">
                 {error ? ( 
-                    <div className="error-container">
-                        <img src={Sad} alt="sad" className="sad-icon"/>
+                    <div className="error-container-na">
+                        <img src={Sad} alt="sad" className="sad-icon-na"/>
                         <p className="text-error">Данных пока нет...</p>
                     </div>
                     ) : (<div className="course-list-fullpage">
                         {filteredCourses.map((courseData) => {
-                            const { title, price, id } = courseData.course || {};
+                            const { title, price, string } = courseData.course || {};
                             const subject = courseData.subject?.title || "Предмет не указан";
                             return (
                                 <div
-                                    key={id}
-                                    onClick={() => handleCourseClick(id)}
+                                    key={string}
+                                    onClick={() => handleCourseClick(string)}
                                     style={{ cursor: "pointer" }}
                                 >
                                     <CourseCard
-                                        key={id}
+                                        key={string}
                                         title={title || "Не указано"}
                                         subject={subject}
                                         price={price != null ? price.toString() : "0"}
