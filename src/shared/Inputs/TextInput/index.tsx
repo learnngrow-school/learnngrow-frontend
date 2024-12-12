@@ -9,8 +9,8 @@ export interface ITextInputProps {
     placeholder: string
     type: string
     id: string
-    children?: JSX.Element
     error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
+    register?: any
 }
 
 const TextInput = (props: ITextInputProps) => {
@@ -20,6 +20,7 @@ const TextInput = (props: ITextInputProps) => {
                 id={props.id}
                 placeholder={props.placeholder}
                 value={props.defaultValue}
+                {...props.register}
                 disabled={props.disabled}
             />
             <TextError text={props.error?.message?.toString() || ''}/>

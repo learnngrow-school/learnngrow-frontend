@@ -1,4 +1,4 @@
-import { PupilPages, TeacherPages } from "../../../../enums/userNav"
+import { PupilPages, TeacherPages, AdminPages } from "../../../../enums/userNav"
 import { urls} from "../../../../navigation/app.urls"
 import BaseButton from "../../../../shared/Buttons/BaseButton"
 import { useNavigate } from "react-router-dom"
@@ -13,7 +13,18 @@ const Menu = () => {
     const navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem('user') || '')
 
-    const items: IMenuProps[] = user.isTeacher ? 
+    const items: IMenuProps[] = user.firstName == "Admin"?
+    [
+        {title: AdminPages.MAIN, onClick: () => navigate(urls.mainPersonal)},
+        {title: AdminPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
+        {title: AdminPages.HOMEWORK, onClick: () => navigate(urls.homework)},
+        {title: AdminPages.COURSES, onClick: () => navigate(urls.myCourses)},
+        {title: AdminPages.PUPILS, onClick: () => navigate(urls.pupils)},
+        {title: AdminPages.TEACHERS, onClick: () => navigate(urls.teachers)},
+        {title: AdminPages.MYDATA, onClick: () => navigate(urls.myData)},
+    ] 
+    :
+    user.isTeacher ? 
     [
         {title: TeacherPages.MAIN, onClick: () => navigate(urls.mainPersonal)},
         {title: TeacherPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
@@ -22,7 +33,8 @@ const Menu = () => {
         {title: TeacherPages.PUPILS, onClick: () => navigate(urls.pupils)},
         {title: TeacherPages.MYDATA, onClick: () => navigate(urls.myData)},
     ] 
-    : [
+    :
+    [
         {title: PupilPages.MAIN, onClick: () => navigate(urls.mainPersonal)},
         {title: PupilPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
         {title: PupilPages.HOMEWORK, onClick: () => navigate(urls.homework)},

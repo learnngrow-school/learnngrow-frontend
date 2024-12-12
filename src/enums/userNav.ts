@@ -17,4 +17,14 @@ enum TeacherPages {
     MYDATA = "Мои данные",
 }
 
-export { PupilPages, TeacherPages }
+enum AdminPages {
+    MAIN = "Главная",
+    SCHEDULE = "Расписание",
+    HOMEWORK = "Домашняя работа",
+    COURSES ="Курсы",
+    PUPILS =  "Ученики",
+    TEACHERS = "Преподаватели",
+    MYDATA = "Мои данные",
+}
+
+export { PupilPages, TeacherPages, AdminPages }

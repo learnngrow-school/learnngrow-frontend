@@ -22,6 +22,8 @@ import Authorized from './screens/Courses/components/Authorized/authorized';
 import Shop from './screens/Shop';
 import CourseDetailAuthorized from './screens/CourseDetails/Authorized/course-detail-a';
 import CourseDetailNotAuthorized from './screens/CourseDetails/NotAuthorized/course-detail-na';
+import Teachers from './screens/PersonalAccount/Teachers';
+import TeacherCreation from "./screens/PersonalAccount/Teachers/Creation";
 
 const store = createStore({
   reducer: {
@@ -61,6 +63,8 @@ const App: React.FC = () => {
                 <Route path={urls.myCourses} element={<Authorized />} />
                 <Route path={`${urls.myCourses}/:id`} element={<CourseDetailAuthorized />} />
                 <Route path={urls.shop} element={<Shop/>} />
+                <Route path={urls.teachers} element={<Teachers/>}/>
+                <Route path={urls.teacherCreation} element={<TeacherCreation/>}/>
               </Route>
             </Route>
         </Routes>
