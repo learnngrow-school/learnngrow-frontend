@@ -29,7 +29,7 @@ const Main: FC = () => {
         getTeachers().then((response : any) => {
             if (! (response instanceof AxiosError) && response.status === 200) {
                 setTeachers(response.data);
-                console.log(teachers);
+                //console.log(teachers);
             }
         });
     },[]);

@@ -15,4 +15,6 @@ export const urls = {
   shop: '/me/shop',
   myCourses: '/me/courses',
   myCoursesDeatil: '/me/courses',
+  teachers: '/me/teachers',
+  teacherCreation: '/me/teachers/create'
 }
