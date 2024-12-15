@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom'
 import { urls } from '../../navigation/app.urls'
 
 const Contacts = () => {
-
     return (
         <>
         <div className="navBack">
