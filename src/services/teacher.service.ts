@@ -15,7 +15,7 @@ export const getTeachers = async () : Promise<AxiosResponse | AxiosError> => {
 
 export const createTeacher = async (teacher: User) : Promise<AxiosResponse | AxiosError> => {
     try{
-        const response = await authApi.post('/teachers', teacher);
+        const response = await authApi.post('/teachers/', teacher);
             
         console.log('Teacher creation status:', response);
         
