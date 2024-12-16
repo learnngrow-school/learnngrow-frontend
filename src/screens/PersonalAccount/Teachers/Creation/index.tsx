@@ -49,23 +49,23 @@ const TeacherCreation = () => {
         <div className="text--heading3 text-600">Добавление преподавателя</div>
         
         <TextInput placeholder={"Введите фамилию"} type="text" id={"lastName"} 
-            register={{...register('lastName',{required: "Введите фамилию"}) }}/>
-        <TextError text={errors.lastName?.message?.toString() || ''}/>
+            register={{...register('lastName',{required: "Введите фамилию"}) }}
+            error={errors.lastName}/>
 
         <TextInput placeholder={"Введите имя"} type="text" id={"firstName"} 
-            register={{...register('firstName',{required: "Введите имя"})}}/>
-        <TextError text={errors.firstName?.message?.toString() || ''}/>
+            register={{...register('firstName',{required: "Введите имя"})}}
+            error={errors.firstName}/>
 
         <TextInput placeholder={"Введите отчество"} type="text" id={"middleName"} 
             register={register('middleName')}/>
 
         <TextInput placeholder={"Введите номер телефона"} type="phone" id={"phone"} 
-            register={register('phone', {required: "Введите номер телефона"})}/>
-        <TextError text={errors.phone?.message?.toString() || ''}/>
+            register={register('phone', {required: "Введите номер телефона"})}
+            error={errors.phone}/>
 
         <TextInput placeholder={"Введите пароль"} type="phone" id={"password"} 
-            register={register('password',{required: "Введите пароль"})}/>
-        <TextError text={errors.password?.message?.toString() || ''}/>
+            register={register('password',{required: "Введите пароль"})}
+            error={errors.password}/>
 
         <BaseButton theme="pink-primary" text={loading ? "Добавление..." : "Добавить"} type='submit'/>
         <BaseButton theme="white-primary" text={"Вернуться назад"} onClick={onCancelClick}/>

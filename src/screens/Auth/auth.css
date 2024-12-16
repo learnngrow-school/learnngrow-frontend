@@ -1,13 +1,15 @@
 .title {
     text-align: center;
     padding-bottom: 20px;
-    /* color: var(--blue-dark); */
 }
 
 .authForm {
+    margin-top: -30px;
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 400px;
+    min-height: 500px;
 }
 
 .buttonsContainer{

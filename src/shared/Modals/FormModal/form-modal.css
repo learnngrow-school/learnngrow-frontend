@@ -1,9 +1,3 @@
-.mod-container {
-    position: fixed;
-    border-radius: 10px;
-    padding-top: 10px;
-}
-
 .mod-content{
     display: flex;
     flex-direction: column;
@@ -12,4 +6,5 @@
     width: 100%;
     align-self: center;
     justify-content: center;
+    padding: 10px;
 }

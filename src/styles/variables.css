@@ -14,6 +14,7 @@
   --grey-dark: rgba(140, 140, 140, 1);
 
   --box-shadow-black: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  --box-inner-shadow-black: inset 0 0 2px rgba(0, 0, 0, 0.25);
   --box-shadow-pink: 1px 1px 5px var(--pink);
   --checkbox-shadow: 1px 1px 5px var(var(--grey));
 

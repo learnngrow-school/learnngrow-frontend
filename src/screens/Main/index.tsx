@@ -33,7 +33,6 @@ const Main: FC = () => {
             }
         });
     },[]);
-    //localStorage.clear();
 
     return (
     <div className="main-content">
