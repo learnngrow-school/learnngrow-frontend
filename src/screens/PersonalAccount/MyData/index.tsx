@@ -109,19 +109,19 @@ const MyData = () => {
                             Загрузить фото
                         </label>
                     </div>
-                    
                     <div className='inputs-container'>
-                        <div className="input-container">
-                            <div className='text--body-s text--blue text-600'>Имя</div>
-                            <TextInput defaultValue={parsedUser.firstName} 
-                                disabled={editDisabled} 
-                                type='text' id='firstName' placeholder='Имя'/>
-                        </div>
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Фамилия</div>
                             <TextInput defaultValue={parsedUser.lastName} 
                                 disabled={editDisabled} 
                                 type='text' id='lastName' placeholder='Фамилия'/>
+                        </div>
+
+                        <div className="input-container">
+                            <div className='text--body-s text--blue text-600'>Имя</div>
+                            <TextInput defaultValue={parsedUser.firstName} 
+                                disabled={editDisabled} 
+                                type='text' id='firstName' placeholder='Имя'/>
                         </div>
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Отчество (если есть)</div>

@@ -1,0 +1,26 @@
+.creation-form {
+    width: 400px;
+    margin-top: -40px;
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+}
+
+.row-block{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 15px 0 10px 0;
+    justify-content: space-between;
+}
+
+/*стиль для дочерних элементов */
+.row-block > * {
+    height: 40px;
+}
+
+.cancel-btn{
+    width: 140px;
+}

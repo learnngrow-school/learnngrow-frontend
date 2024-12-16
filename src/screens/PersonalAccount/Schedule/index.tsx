@@ -47,10 +47,11 @@ const Schedule = () => {
                 <BaseButton data-bs-toggle="modal" data-bs-target="#creationModal"
                     text="Добавить урок" onClick={showModal} theme="dark-blue-primary"/>
                 <FormModal id="creationModal" 
-                    title="Добавление урока" 
-                    content={<LessonCreation onSubmit={onLessonCreateClick}/>} 
+                    content={
+                    <LessonCreation onSubmit={onLessonCreateClick} onCancel={hideModal}/>
+                    } 
                     isOpen={modalVisible} 
-                    onCancel={hideModal}/>
+                />
             </>
             : null}
         </>

@@ -11,6 +11,7 @@ import { login } from "../../services/auth.service"
 import { ERROR_RUS } from "../../shared/Errors/errorTypes"
 import { AxiosError } from "axios"
 import PasswordInput from "../../shared/Inputs/PasswordInput"
+import TextInput from "../../shared/Inputs/TextInput"
 
 interface IAuthFormValues {
     phone: string;
@@ -48,25 +49,16 @@ const Auth = () => {
         <>
         <form className="px-4 py-3 authForm" onSubmit={handleSubmit(onSubmit)}>
 
-            <h1 className="text--heading2 title">Войти</h1>
+            <h1 className="text--heading2 title text-600">Войти</h1>
 
-            <div className="textInputContainer">
-                <input type="phone" className="form-control inputText" id="phone"
-                placeholder="Введите свой номер телефона"
-                {...register('phone', { required: "Это поле не может быть пустым" })} />
-                {<TextError text={errors.phone?.message?.toString() || ''}/>}
-            </div>
-            
-            <div className="textInputContainer">
-                <PasswordInput inputId="inputPassword" 
-                children={
-                    <input type="password" className="form-control inputText" id="inputPassword" 
-                    placeholder="Введите пароль"
-                    {...register('password', { required: "Это поле не может быть пустым" })}/>
-                }
-                />
-                {<TextError text={errors.password?.message?.toString() || ''}/>}
-            </div>
+            <TextInput placeholder={"Введите номер телефона"} type="phone" id={"phone"} 
+                register={register('phone', { required: "Это поле не может быть пустым" })} 
+                error={errors.phone}/>
+
+            <PasswordInput id="inputPassword"
+                placeholder="Введите пароль"
+                register={register('password', { required: "Это поле не может быть пустым" })}
+                error={errors.password}/>
 
             <div className="mb-3 rememberLoginContainer">
                 {/* <div className="form-check">

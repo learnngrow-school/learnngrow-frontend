@@ -12,6 +12,7 @@ import { User } from '../../types/user'
 import { ERROR_RUS } from '../../shared/Errors/errorTypes'
 import { useState } from 'react'
 import PasswordInput from '../../shared/Inputs/PasswordInput'
+import TextInput from '../../shared/Inputs/TextInput'
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -89,68 +90,34 @@ const Registration = () => {
             setError(errorRus ? errorRus : 'Неизвестная ошибка');
 
             setLoading(false);
-            throw new Error('Invalid credentials');
-            
         }
       };
 
     return (
     <>
         <form className="px-4 py-3 registryForm" onSubmit={handleSubmit(onSubmit)}>
-            <h1 className="text--heading2 title">Зарегистрироваться</h1>
+            <h1 className="text--heading2 title text-600">Зарегистрироваться</h1>
+            <TextInput placeholder={"Введите фамилию"} type="text" id={"lastname"}
+            register={register('lastName')} error={errors.lastName}/>
 
-            <div className="textInputContainer">
-                <input type="text" className="form-control inputText" id="lastname"
-                placeholder="Введите фамилию"
-                {...register('lastName')} />
-                {<TextError text={errors.lastName?.message?.toString() || ''}/>}
-            </div>
+            <TextInput placeholder={"Введите имя"} type="text" id={"firstname"}
+             register={register('firstName')} error={errors.firstName}/>
 
-            <div className="textInputContainer">
-                <input type="text" className="form-control inputText" id="firstname"
-                placeholder="Введите имя"
-                {...register('firstName')} />
-                {<TextError text={errors.firstName?.message?.toString() || ''}/>}
-            </div>
+            <TextInput placeholder={"Введите отчество"} type="text" id={"middlename"}
+             register={register('middleName')} error={errors.middleName}/>
 
-            <div className="textInputContainer">
-                <input type="text" className="form-control inputText" id="middlename"
-                placeholder="Введите отчество"
-                {...register('middleName')} />
-                {<TextError text={errors.middleName?.message?.toString() || ''}/>}
-            </div>
+            <TextInput placeholder='Введите номер телефона' type='phone' id='phone'
+             register={register('phone')} error={errors.phone}/>
 
-            <div className="textInputContainer">
-                <input type="phone" className="form-control inputText" id="phone"
-                placeholder="Введите свой номер телефона"
-                {...register('phone')} />
-                {<TextError text={errors.phone?.message?.toString() || ''}/>}
-            </div>
+            <PasswordInput 
+                id="inputPassword"
+                placeholder="Введите пароль"
+                register={register('password')} error={errors.password}/>
 
-            <div className="textInputContainer">
-                <PasswordInput 
-                    inputId="inputPassword"
-                    children={
-                    <input type="password" className="form-control inputText" id="inputPassword" 
-                        placeholder="Введите пароль"
-                        {...register('password')}>
-                    </input>}/>
-                
-                {<TextError text={errors.password?.message?.toString() || ''}/>}
-            </div>
-
-            <div className="textInputContainer">
-                <PasswordInput 
-                    inputId="inputPasswordCheck"
-                    children={
-                    <input type="password" className="form-control inputText" id="inputPasswordCheck" 
-                    placeholder="Повторите пароль"
-                    {...register('passwordCheck', 
-                    )
-                    }/>}
-                />
-                {<TextError text={errors.passwordCheck?.message?.toString() || ''}/>}
-            </div>
+            <PasswordInput 
+                id="inputPasswordCheck"
+                placeholder="Повторите пароль"
+                register={register('passwordCheck')} error={errors.passwordCheck}/>
             
             <div className="registryContainer">
             <BaseButton text={loading? 'Загрузка...' : 'Зарегистрироваться'} theme='pink-secondary' className="registryButton"

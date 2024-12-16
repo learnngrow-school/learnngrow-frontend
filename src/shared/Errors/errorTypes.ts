@@ -9,6 +9,6 @@ export const ERROR_RUS : IStringToString = {
     'Request failed with status code 401': 'Пользователь не найден', // 401 - Unauthorized
     '403': 'Доступ запрещен',
     '404': 'Страница не найдена',
-
+    'You should be a teacher': 'Вы не являетесь преподавателем',
     'Request failed with status code 500': 'Неверный пароль',
 }
