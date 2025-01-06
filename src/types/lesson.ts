@@ -3,7 +3,7 @@ export type Lesson = {
     studentSlug: string;
     teacherNotes: string;
     teacherSlug: string;
-    timestamp: number | Date | string;
+    timestamp: number | string | Date;
 }
 
 export default Lesson
