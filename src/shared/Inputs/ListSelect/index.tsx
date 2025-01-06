@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const ListSelect = ({data, placeholder, register} :IProps) => {
-    console.log(data);
+    //console.log(data);
     return (
         <div className="form-floating select-container">
             <select className="form-select" id="floatingSelect">
