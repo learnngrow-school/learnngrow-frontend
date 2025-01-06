@@ -18,9 +18,9 @@ const DateTimeInput: React.FC<IProps> = ({register, minDate, placeholder, id}) =
       id={id}
       value={value} 
       onChange={(e) => setValue(new Date(e.target.value))}
-      min={minDate}
+      min={minDate && minDate.setMinutes(0)}
       placeholder={placeholder}
-      step={"5"}
+      step={"60"}
       {...register}
     />
   );

@@ -29,6 +29,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-datetime-picker": "^2.4.4",
     "crypto-js": "^4.2.0",
+    "date-fns": "^4.1.0",
     "datetimepicker": "^0.1.39",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",

@@ -12,7 +12,6 @@ interface FilterDropdownProps {
 
 const FilterDropdown: FC<FilterDropdownProps> = ({
     isOpen,
-    onClose,
     buttonRef,
     pageRef,
     onFilterChange,

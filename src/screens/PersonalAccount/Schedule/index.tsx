@@ -17,8 +17,8 @@ const Schedule = () => {
 
         const date = new Date(lesson.timestamp);
         lesson.timestamp = date.getTime();
+        console.log('Добавлен урок на ',new Date(lesson.timestamp));
         
-        console.log(lesson.timestamp, typeof lesson.timestamp);
         const response = await createLesson(lesson);
 
         if (!(response instanceof AxiosError)) {
