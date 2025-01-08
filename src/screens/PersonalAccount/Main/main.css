@@ -1,0 +1,66 @@
+.lessons-page {
+    position: relative;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.sections {
+    margin-top: -20px;
+}
+
+.lessons-section {
+    width: 900px;
+    position: relative;
+}
+
+.section-title--green {
+    background: var(--background-green-2);
+    background-color: var(--green-pale);
+    padding: 5px 40px;
+    border-radius: 8px;
+}
+
+.section-title--pink {
+    background: var(--background-pink-2);
+    background-color: var(--pink-pale);
+    padding: 5px 40px;
+    border-radius: 8px;
+}
+
+.lessons-list {
+    display: flex;
+    gap: 25px 40px;
+    flex-wrap: wrap;
+    margin: 25px 0px 26px 40px;
+}
+
+.course-list-fullpage {
+    display: flex;
+    gap: 25px 40px;
+    flex-wrap: wrap;
+}
+
+.error-container-pam {
+    position: static;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sad-icon-pam {
+    margin-bottom: 25px;
+}
+
+.sections .button-container {
+    width: 259px;
+    height: 40px;
+    margin-top: 30px;
+    transform: translateX(-50%); 
+    left: 50%;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px 0px 0px 20px;
+    white-space: nowrap;
+}
