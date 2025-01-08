@@ -1,0 +1,25 @@
+.title-teachers-container{
+    display: flex;
+    width: 900px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--background-green-2);
+    background-color: var(--green-pale);
+    align-items: center;
+    padding-left: 40px;
+}
+
+.btn-add-teacher{
+    margin: 25px 0px 15px 40px;
+}
+
+.teachers-block{ 
+    width: 900px;
+    border: 1px solid var(--grey-dark);
+    border-radius: 10px;
+    padding: 15px 0px 15px 40px;
+}
+
+.fio{
+    padding-bottom: 0px;
+}

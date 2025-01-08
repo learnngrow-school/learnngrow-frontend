@@ -6,6 +6,7 @@ import { createLesson } from "../../../services/lesson.service";
 import { ERROR_RUS } from "../../../shared/Errors/errorTypes";
 import Lesson from "../../../types/lesson";
 import LessonCreation from "./LessonCreation";
+import "./schedule.css"
 
 const Schedule = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -41,10 +42,10 @@ const Schedule = () => {
 
     return (
         <>
-            <div>Расписание</div>
+            <div className="text--heading2 text-600 text--blue">Расписание</div>
             {user.isTeacher  || user.isSuperuser ?  
             <>
-                <BaseButton data-bs-toggle="modal" data-bs-target="#creationModal"
+                <BaseButton data-bs-toggle="modal" data-bs-target="#creationModal" className="add-lesson-btn"
                     text="Добавить урок" onClick={showModal} theme="dark-blue-primary"/>
                 <FormModal id="creationModal" 
                     content={

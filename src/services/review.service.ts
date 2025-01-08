@@ -1,5 +1,5 @@
 import { AxiosResponse, AxiosError } from "axios"
-import { publicApi } from "./api"
+import { authApi, publicApi } from "./api"
 
 export const getReviews = async () : Promise<AxiosResponse | AxiosError> => {
     try {
@@ -13,3 +13,17 @@ export const getReviews = async () : Promise<AxiosResponse | AxiosError> => {
         return error as AxiosError;
     }
 };
+
+export const createReview = async (review: any) : Promise<AxiosResponse | AxiosError> => {
+    try{
+        const response = await authApi.post('/reviews', review);
+            
+        console.log('Review creation status:', response);
+        
+        return response;
+    }
+    catch(error : any){
+        console.error('Review creation error:', error);
+        return error as AxiosError;
+    }
+}
