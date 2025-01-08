@@ -11,15 +11,16 @@ import "./reviews.css"
 const Reviews = () => {
    const [modalVisible, setModalVisible] = useState(false);
    const [reviews, setReviews] = useState<Review[]>([]);
+   const [count, setItemsCount] = useState(0);
 
-   useEffect(() => {
-    getReviews().then((response : any) => {
-        if (!(response instanceof AxiosError)) {
+    useEffect(() => {
+        getReviews().then((response : any) => {
+            if (!(response instanceof AxiosError)) {
             setReviews(response.data);
-        }
-    });
-    }, 
-    [])
+            }
+        });
+    }, [ count]);
+  
 
    
     const onReviewCreateClick = async (review: Review)  => {
@@ -29,6 +30,7 @@ const Reviews = () => {
    
         if (!(response instanceof AxiosError)) {
             hideModal();
+            setItemsCount(count + 1);
         }
         else {
             const errorRus = ERROR_RUS[response.message as string]
@@ -47,7 +49,7 @@ const Reviews = () => {
     
     return (
         <>
-            <div className="text--heading2 text-600 text--blue">Отзывы</div>
+            <div className="text--heading2 text-600 text--blue reviews-page-title">Отзывы</div>
 
                 <div className="review-item-container">
                     <div className="text--body-s text-600 text--blue">Автор</div>
@@ -64,7 +66,7 @@ const Reviews = () => {
                     }
                 </div>
                 <BaseButton data-bs-toggle="modal" data-bs-target="#reviewCreationModal" 
-                    text="Добавить отзыв" onClick={showModal} theme="pink-primary"/>
+                    text="Добавить отзыв" onClick={showModal} theme="pink-primary" className="add-review-btn"/>
                 <FormModal id="reviewCreationModal" 
                     content={
                     <ReviewCreation onSubmit={onReviewCreateClick} onCancel={hideModal}/>

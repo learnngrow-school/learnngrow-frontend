@@ -49,7 +49,7 @@ const Reviews = ({data}: IProps) => {
                 dataType="reviews" 
                 data={data} 
                 dataClassName="review-cards"
-                oddBlockLength={3} evenBlockLength={3}
+                oddBlockLength={3} evenBlockLength={data.length < 4? 2 : 3}
             />
         </div>
     );

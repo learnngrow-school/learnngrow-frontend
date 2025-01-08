@@ -57,7 +57,7 @@ const PointsSlider = (
     return (
         <>
         <div className={dataClassName}>
-        { dataType === 'reviews' ?
+        { dataType == 'reviews' ?
             smallList.map((review) => (
                 <ReviewCard key={review.id} author={review.authorName} text={review.details}/>
             ))
@@ -74,9 +74,9 @@ const PointsSlider = (
             <Slider imagePath={ArrowLeft} onClick={onLeftClick} 
                 disabled={start <= 0} imgClassName="slider-button"/>
             <div className="points">
-                {data.map((item) => (
+                {data.map((item, index) => (
                     <ProgressPoint key={item.id} 
-                    isActive={Number(item.id) >= start && Number(item.id) < end}/>))
+                    isActive={Number(index) >= start && Number(index) < end}/>))
                 }
             </div>
             <Slider imagePath={ArrowRight} onClick={onRightClick} 

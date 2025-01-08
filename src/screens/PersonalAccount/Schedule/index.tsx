@@ -43,7 +43,7 @@ const Schedule = () => {
     return (
         <>
             <div className="text--heading2 text-600 text--blue">Расписание</div>
-            {user.isTeacher  || user.isSuperuser ?  
+            {user.isTeacher || user.isSuperuser ?  
             <>
                 <BaseButton data-bs-toggle="modal" data-bs-target="#creationModal" className="add-lesson-btn"
                     text="Добавить урок" onClick={showModal} theme="dark-blue-primary"/>

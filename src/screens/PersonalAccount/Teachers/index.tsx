@@ -19,7 +19,7 @@ const Teachers = () => {
                 setTeachers(response.data);
             }
         });
-    }, [])
+    }, [teachers])
 
     const onTeacherAddClick = () => {
         navigate(urls.teacherCreation);
