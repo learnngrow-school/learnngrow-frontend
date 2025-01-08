@@ -1,0 +1,10 @@
+.review-creation-form{
+    display: flex;
+    margin-top: 50px;
+}
+
+.review-input-label{
+    display: flex;
+    align-self: self-start;
+    padding: 10px 0px;
+}

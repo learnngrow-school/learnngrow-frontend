@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import TextInput from '../../../shared/Inputs/TextInput';
 import ToastPopup, { INotify } from '../../../shared/ToastPopup';
 import { ToastTypeEnum } from '../../../enums/popup';
+import AvatarInput from '../../../shared/Inputs/AvatarInput';
 
 const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
@@ -99,16 +100,7 @@ const MyData = () => {
             <ToastPopup ref={toastRef} />
             <h1 className='text--heading2 text--blue text-600'>Мои данные</h1>
                 <div className='my-data-content'>
-                    <div className='avatar-container'>
-                        <div className='avatar'>
-                            {avatar && <img src={avatar} alt="avatar" className='avatar'/>}
-                        </div>
-                        <input type='file' accept='image/*' id="fileInput"
-                        className=' file-input'onChange={onAvatarChange}/>
-                        <label htmlFor="fileInput" className='text--body-s file-label'>
-                            Загрузить фото
-                        </label>
-                    </div>
+                    <AvatarInput avatar={avatar} onAvatarChange={onAvatarChange} />
                     <div className='inputs-container'>
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Фамилия</div>

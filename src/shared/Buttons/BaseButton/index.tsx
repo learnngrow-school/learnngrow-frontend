@@ -17,7 +17,6 @@ export interface IButtonProps {
     | 'green'
     className?: string,
     iconFirst?: boolean,
-    icon?: JSX.Element,
     iconPath?: string,
     iconPathHover?: string,
     iconClassName?: string,
@@ -49,7 +48,7 @@ const BaseButton = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
             data-theme={props.theme ? props.theme : 'white'} 
             className={`button btn primary ${props.className}`} 
             onClick={props.onClick}
-            onMouseEnter={() => setIconPath(props.iconPathHover)}
+            onMouseEnter={() => setIconPath(props.iconPathHover? props.iconPathHover : props.iconPath)}
             onMouseLeave={() => setIconPath(props.iconPath)}>
             {props.iconFirst? <IconPlusText/> : <TextPlusIcon/>}
         </button>

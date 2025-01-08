@@ -1,0 +1,47 @@
+.teacher-creation-form{
+    display: flex;
+    margin-top: -10px;
+    flex-direction: column;
+}
+
+.back-all-teachers-block{
+    display: flex;
+    flex-direction: row;
+    color: var(--grey-dark);
+    gap: 5px;
+    padding: 0px 0px 25px 0px;
+}
+
+.back-all-teachers-block:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.teachers-creation-grid{
+    display: grid;
+    grid-template-columns: 500px 320px auto;
+}
+
+.teacher-grid-second-column{
+    /* display: grid;
+    grid-template-rows: 250px 10px 100px; */
+    padding-top: 10px;
+}
+
+.teacher-add-title{
+    padding-bottom: 25px;
+}
+
+.teacher-input-label{
+    padding-bottom: 10px;
+}
+
+.teacher-info-input-container{
+    width: 300px;
+}
+
+.teacher-add-btn{
+    margin-top: 30px;
+    height: 40px;
+    width: 300px;
+}
