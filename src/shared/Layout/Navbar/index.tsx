@@ -42,7 +42,7 @@ const Navbar = () => {
         {/*Контакты*/}
         <NavigationLink key={appLinks[3].name} link={appLinks[3]} 
           onClick={() => navigate(urls.contacts)}/>
-        <BaseButton text={user !== null ? `Привет, ${JSON.parse(user).firstName}!` :'Вход в аккаунт'
+        <BaseButton text={user !== null ? `Личный кабинет` :'Вход в аккаунт'
           } 
             onClick={ () => {
               if (user !== null) {

@@ -23,7 +23,7 @@ import Shop from './screens/Shop';
 import CourseDetailAuthorized from './screens/CourseDetails/Authorized/course-detail-a';
 import CourseDetailNotAuthorized from './screens/CourseDetails/NotAuthorized/course-detail-na';
 import Teachers from './screens/PersonalAccount/Teachers';
-import TeacherCreation from "./screens/PersonalAccount/Teachers/Creation";
+import TeacherCreation from "./screens/PersonalAccount/Teachers/components/creation";
 
 const store = createStore({
   reducer: {

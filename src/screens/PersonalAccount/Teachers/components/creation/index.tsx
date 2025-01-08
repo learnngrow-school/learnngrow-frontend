@@ -1,14 +1,14 @@
-import TextInput from "../../../../shared/Inputs/TextInput"
-import BaseButton from "../../../../shared/Buttons/BaseButton"
+import TextInput from "../../../../../shared/Inputs/TextInput"
+import BaseButton from "../../../../../shared/Buttons/BaseButton"
 import { useNavigate} from "react-router-dom"
-import {urls} from "../../../../navigation/app.urls"
+import {urls} from "../../../../../navigation/app.urls"
 import {useForm } from "react-hook-form"
-import { createTeacher } from "../../../../services/teacher.service"
-import { User } from "../../../../types/user"
+import { createTeacher } from "../../../../../services/teacher.service"
+import { User } from "../../../../../types/user"
 import { useState } from "react"
-import TextError from "../../../../shared/Errors/TextError"
+import TextError from "../../../../../shared/Errors/TextError"
 import { AxiosError } from "axios"
-import { ERROR_RUS } from "../../../../shared/Errors/errorTypes"
+import { ERROR_RUS } from "../../../../../shared/Errors/errorTypes"
 
 interface ITeacher{
     firstName?: string,
