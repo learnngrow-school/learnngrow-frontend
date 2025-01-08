@@ -24,6 +24,7 @@ enum AdminPages {
     COURSES ="Курсы",
     PUPILS =  "Ученики",
     TEACHERS = "Преподаватели",
+    REVIEWS = "Отзывы",
     MYDATA = "Мои данные",
 }
 

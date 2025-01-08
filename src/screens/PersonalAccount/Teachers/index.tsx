@@ -34,11 +34,11 @@ const Teachers = () => {
         <BaseButton theme="pink-primary" onClick={onTeacherAddClick} text="Добавить преподавателя" className="btn-add-teacher" iconPath={Plus}/>
         <div className="teachers-block">
             {teachers && <div className="text--heading3 text-600 text--blue fio">ФИО</div>}
-            {teachers ? teachers.map((t :Teacher, index) => (
+            {teachers.length > 0 ? teachers.map((t :Teacher, index) => (
                 <TeacherItem teacher={t} index={index + 1}/>
             ))
             :
-            <div >Данных пока нет</div>
+            <div>Данных пока нет</div>
             }
         </div>
     </div>

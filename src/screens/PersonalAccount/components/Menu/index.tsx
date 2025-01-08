@@ -22,6 +22,7 @@ const Menu = () => {
         {title: AdminPages.PUPILS, onClick: () => navigate(urls.pupils)},
         {title: AdminPages.TEACHERS, onClick: () => navigate(urls.teachers)},
         {title: AdminPages.MYDATA, onClick: () => navigate(urls.myData)},
+        {title: AdminPages.REVIEWS, onClick: () => navigate(urls.reviews)},
     ] 
     :
     user.isTeacher ? 
