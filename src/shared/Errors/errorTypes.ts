@@ -10,5 +10,5 @@ export const ERROR_RUS : IStringToString = {
     '403': 'Доступ запрещен',
     '404': 'Страница не найдена',
     'You should be a teacher': 'Вы не являетесь преподавателем',
-    'Request failed with status code 500': 'Неверный пароль',
+    'Request failed with status code 500': 'Ошибка сервера',
 }
