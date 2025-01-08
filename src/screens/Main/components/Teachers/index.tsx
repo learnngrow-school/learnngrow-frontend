@@ -77,7 +77,6 @@ const Teachers = ({ data }: IProps) => {
         iconPath: teacher.userData?.iconPath || Sonya,
         subjects: teacher.teacherData.subjectIds.map((subjectId) => subjectId.toString())
     }))
-    console.log(teachers);
 
     return (
         <div className="content">

@@ -17,7 +17,6 @@ const Teachers = () => {
         getTeachers().then((response : any) => {
             if (! (response instanceof AxiosError) && response.status === 200) {
                 setTeachers(response.data);
-                console.log(teachers);
             }
         });
     }, [])
@@ -35,7 +34,7 @@ const Teachers = () => {
         <div className="teachers-block">
             {teachers && <div className="text--heading3 text-600 text--blue fio">ФИО</div>}
             {teachers.length > 0 ? teachers.map((t :Teacher, index) => (
-                <TeacherItem teacher={t} index={index + 1}/>
+                <TeacherItem teacher={t} index={index + 1} key={t.userData.slug?.toString()}/>
             ))
             :
             <div>Данных пока нет</div>
