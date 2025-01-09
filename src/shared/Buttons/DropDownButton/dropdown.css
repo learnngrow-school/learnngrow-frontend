@@ -1,0 +1,21 @@
+.dropdown-menu-container {
+    position: fixed;
+    z-index: 1000;
+
+}
+
+.dropdown-menu[data-theme='white'] {
+    /* position: absolute; */
+    z-index: 1000;
+    margin-top: 7px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow-pink);
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--white);
+    text-decoration: underline;
+    color: var(--grey);
+  }

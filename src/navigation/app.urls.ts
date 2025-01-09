@@ -8,7 +8,7 @@ export const urls = {
   registration: '/registration',
   mainPersonal: '/me/mainPersonal',
   schedule: '/me/schedule',
-  news: '/me/news',
+  news: '/news',
   myData: '/me/mydata',
   homework: '/me/homework',
   pupils: '/me/pupils',

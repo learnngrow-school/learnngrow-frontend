@@ -46,6 +46,7 @@ const App: React.FC = () => {
         <Routes>
             <Route path="/" element={<Layout/>}>
               <Route path={urls.main} element={<Main />} />
+              <Route path={urls.news} element={<News />} />
               <Route path={urls.courses} element={<Courses />} />
               <Route path={`${urls.courses}/:id`} element={<CourseDetailNotAuthorized />} />
               <Route path={urls.contacts} element={<Contacts />} />
@@ -56,7 +57,6 @@ const App: React.FC = () => {
                 <Route path={urls.myData} element={<MyData />} />
                 <Route path={urls.mainPersonal} element={<MainPersonal />} />
                 <Route path={urls.schedule} element={<Schedule />} />
-                <Route path={urls.news} element={<News />} />
                 <Route path={urls.homework} element={<Homework />} />
                 <Route path={urls.reviews} element={<Reviews />} />
 
