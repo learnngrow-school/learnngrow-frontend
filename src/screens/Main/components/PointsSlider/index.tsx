@@ -24,7 +24,8 @@ const PointsSlider = (
     const BLOCK_LENGTH = data.length % 2 == 0 ? evenBlockLength : oddBlockLength;
     const STEP = Math.floor(BLOCK_LENGTH / 2);
 
-    const initialStart = Math.floor(data.length / 2) - STEP;
+    const deltaLength = dataType == "reviews" && data.length%2 == 0 ? 1 : 0;
+    const initialStart = Math.floor(data.length / 2) - STEP - deltaLength;
     const [start, setStart] = useState(initialStart);
     const [end, setEnd] = useState(initialStart + BLOCK_LENGTH);
     const initialList = data.slice(start, end);
