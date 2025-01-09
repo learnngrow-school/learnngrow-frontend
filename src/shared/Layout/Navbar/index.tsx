@@ -32,12 +32,12 @@ const Navbar = () => {
           theme='white-primary'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
-        {/*Курсы*/}
+        {/*Новости*/}
         <NavigationLink key={appLinks[2].name} link={appLinks[2]}   
           onClick={() => {
 
             //console.log(localStorage.getItem('subject'))
-            navigate(urls.courses)
+            navigate(urls.news)
           }}/>
         {/*Контакты*/}
         <NavigationLink key={appLinks[3].name} link={appLinks[3]} 

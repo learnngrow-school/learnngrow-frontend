@@ -11,8 +11,8 @@ export const appLinks: ILink[] = [
     name: 'Предметы',
   },
   {
-    path: urls.courses,
-    name: 'Курсы',
+    path: urls.news,
+    name: 'Новости',
   },
   {
     path: urls.contacts,

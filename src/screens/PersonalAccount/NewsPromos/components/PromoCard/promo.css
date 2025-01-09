@@ -1,0 +1,56 @@
+.promo-card-container{
+    display: flex;
+    flex-direction: column;
+    width: 860px;
+    height: fit-content;
+    border-radius: 10px;
+    border: 1px solid var(--green-grass);
+    box-shadow: var(--box-shadow-green);
+    padding: 25px;
+}
+
+.promo-title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+
+.promo-title-img{
+    margin-top: -7px;
+    width: 33px;
+    height: 33px;
+}
+
+.price-text{
+    padding: 25px 0px 0px 0px;
+}
+
+.price-btn-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.old-new-prices-block{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.old-price{
+    color: var(--grey-dark);
+    margin-top: 4px;
+    text-decoration: line-through;
+}
+
+.new-price{
+    color: var(--pink);
+}
+
+.get-promo-btn{
+    width: 221px;
+    height: 40px;
+}

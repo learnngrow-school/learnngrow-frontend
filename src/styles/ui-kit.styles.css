@@ -61,6 +61,15 @@ input:-webkit-autofill:active{
   margin: 0 0 5px 0;
 }
 
+@media (prefers-color-scheme: dark) {
+  .inputText:-webkit-autofill,
+  .inputText:-webkit-autofill:hover,
+  .inputText:-webkit-autofill:focus,
+  .inputText:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--black);
+  }
+}
+
 .inputText:focus {
   border-color: var(--pink);
   box-shadow: none;
@@ -202,20 +211,6 @@ hr {
   background-color: var(--white);
   color: var(--pink);
   border: 1px solid var(--pink);
-}
-
-.dropdown-menu[data-theme='white'] {
-  margin-top: 7px;
-  background-color: var(--white);
-  box-shadow: var(--box-shadow-pink);
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.dropdown-item:hover {
-  background-color: var(--white);
-  text-decoration: underline;
-  color: var(--grey);
 }
 
 .formError{
