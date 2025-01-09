@@ -14,7 +14,7 @@ import MyData from './screens/PersonalAccount/MyData';
 import MainPersonal from './screens/PersonalAccount/Main';
 import Homework from './screens/PersonalAccount/Homework';
 import Schedule from './screens/PersonalAccount/Schedule';
-import News from './screens/PersonalAccount/News';
+import NewsPromos from './screens/PersonalAccount/NewsPromos';
 import UserLayout from './screens/PersonalAccount/components/Layout';
 import { useEffect } from 'react';
 import Pupils from './screens/PersonalAccount/Pupils';
@@ -46,7 +46,7 @@ const App: React.FC = () => {
         <Routes>
             <Route path="/" element={<Layout/>}>
               <Route path={urls.main} element={<Main />} />
-              <Route path={urls.news} element={<News />} />
+              <Route path={urls.news} element={<NewsPromos />} />
               <Route path={urls.courses} element={<Courses />} />
               <Route path={`${urls.courses}/:id`} element={<CourseDetailNotAuthorized />} />
               <Route path={urls.contacts} element={<Contacts />} />

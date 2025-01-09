@@ -21,7 +21,7 @@ const DropDownButton = (props: IDropDownButtonProps) => {
     <div className="btn-group">
       <button 
         className={`button btn primary btn-sm dropdown-toggle ${props.className}`} 
-        type="button" data-bs-toggle="dropdown" aria-expanded="true"
+        type="button" data-bs-toggle="dropdown" aria-expanded="false"
         data-theme={props.theme ? props.theme : 'white'}
       >
         {props.text}

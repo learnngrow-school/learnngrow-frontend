@@ -11,7 +11,7 @@ const Auth = lazy(() => import('../screens/Auth'))
 const Registration = lazy(() => import('../screens/Registration'))
 const MainPersonal = lazy(() => import('../screens/PersonalAccount/Main/index.tsx'))
 const Schedule = lazy(() => import('../screens/PersonalAccount/Schedule/index.tsx'))
-const News = lazy(() => import('../screens/PersonalAccount/News/index.tsx'))
+const News = lazy(() => import('../screens/PersonalAccount/NewsPromos/index.tsx'))
 const Homework = lazy(() => import('../screens/PersonalAccount/Homework/index.tsx'))
 
 const appRoutes: IRoute[] = [
