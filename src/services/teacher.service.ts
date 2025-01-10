@@ -5,7 +5,7 @@ import {User} from "../types/user"
 export const getTeachers = async () : Promise<AxiosResponse | AxiosError> => {
     try {
         
-        const response = await publicApi.get('/teachers');
+        const response = await publicApi.get('/teachers/');
         return response;
     }
     catch (error : any){

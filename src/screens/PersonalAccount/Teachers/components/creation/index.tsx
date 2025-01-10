@@ -5,13 +5,17 @@ import {urls} from "../../../../../navigation/app.urls"
 import {useForm } from "react-hook-form"
 import { createTeacher } from "../../../../../services/teacher.service"
 import { User } from "../../../../../types/user"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TextError from "../../../../../shared/Errors/TextError"
 import { AxiosError } from "axios"
 import { ERROR_RUS } from "../../../../../shared/Errors/errorTypes"
 import Arrow from "../../../../../assets/icons/back-arrow.svg"
 import './creation.css'
 import AvatarInput from "../../../../../shared/Inputs/AvatarInput"
+import SubjectCreation from "../subjectCreation"
+import FormModal from "../../../../../shared/Modals/FormModal"
+import { getSubjects } from "../../../../../services/subject.service"
+import { Subject } from "../../../../../types/subject"
 
 interface ITeacher{
     firstName?: string,
@@ -28,6 +32,17 @@ const TeacherCreation = () => {
     const [error, setError] = useState<string | null>(null);
     const [avatar, setAvatar] = useState('');
     const { register, handleSubmit, formState: { errors }} = useForm<ITeacher | any>();
+    const [subjectFormVisible, setSubjectFormVisible] = useState(false);
+    const [subjects, setSubjects] = useState<Subject[]>([]);
+    const [subjectsLength, setSubjectsLength] = useState(0);
+
+    useEffect(() => {
+        getSubjects().then((response : any) => {
+            if (! (response instanceof AxiosError) && response.status === 200) {
+                setSubjects(response.data);
+                }
+            });
+    }, [subjectsLength])
 
     const onTeacherCreateClick = async (data: ITeacher) => {
         setLoading(true);
@@ -46,6 +61,14 @@ const TeacherCreation = () => {
 
     const onCancelClick = () => {
         navigate(urls.teachers)
+    }
+
+    const onSubjectAddClick = () => {
+        setSubjectFormVisible(true);
+    }
+
+    const onSubjectFormClose = () => {
+        setSubjectFormVisible(false);
     }
 
     const onAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,6 +102,18 @@ const TeacherCreation = () => {
                 <TextInput placeholder={"Введите отчество"} type="text" id={"middleName"} 
                     register={register('middleName')} containerClassName="teacher-info-input-container"/>
 
+                <div>
+                    <div className="text--blue text-body-s text-600 teacher-input-label">Предметы</div>
+                    {subjects.length > 0 ?
+                        subjects.map(subject => (
+                            <div key={subject.id} className="teacher-subject-item">{subject.title}</div>
+                        ))
+                        :
+                        <div className="teacher-subject-item">Предметов пока нет</div>
+                    }
+                    <BaseButton theme="white-primary" text="Добавить предмет" type='button' className="subject-add-btn" onClick={onSubjectAddClick}/>
+                </div>
+
                 <div className="text--blue text-body-s text-600 teacher-input-label">Номер телефона</div>
                 <TextInput placeholder={"Введите номер телефона"} type="phone" id={"phone"} 
                     register={register('phone', {required: "Введите номер телефона"})}
@@ -94,6 +129,14 @@ const TeacherCreation = () => {
             <div className="teacher-grid-second-column">
                 <AvatarInput avatar={avatar} onAvatarChange={onAvatarChange}/>
             </div>
+
+            <FormModal id="subjectCreationModal" 
+                content={
+                <SubjectCreation onClose={onSubjectFormClose} onSubjectAdd={setSubjectsLength}/>
+                } 
+                isOpen={subjectFormVisible} 
+                className="subject-creation-form"
+                />
         </div>
         </form>
     )
