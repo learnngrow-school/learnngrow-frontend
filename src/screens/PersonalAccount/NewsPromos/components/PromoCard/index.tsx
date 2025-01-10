@@ -34,7 +34,7 @@ const Promos = () => {
     ]
 
     const onGetPromoClick = () => {
-
+        window.open("https://skobelkin.ru/whatsapp/79122587798?text=Здравствуйте,+хочу+участвовать+в+акции");
     }
 
     return (
