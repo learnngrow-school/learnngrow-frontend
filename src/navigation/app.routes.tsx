@@ -13,6 +13,7 @@ const MainPersonal = lazy(() => import('../screens/PersonalAccount/Main/index.ts
 const Schedule = lazy(() => import('../screens/PersonalAccount/Schedule/index.tsx'))
 const News = lazy(() => import('../screens/PersonalAccount/News/index.tsx'))
 const Homework = lazy(() => import('../screens/PersonalAccount/Homework/index.tsx'))
+const CreateHomework = lazy(() => import('../screens/PersonalAccount/Homework/components/CreateHomework/index.tsx'))
 
 const appRoutes: IRoute[] = [
   {
@@ -55,6 +56,10 @@ const appRoutes: IRoute[] = [
     path: urls.homework,
     element: <Homework/>,
   },
+  {
+    path: urls.createHomework,
+    element: <CreateHomework/>
+  }
 ]
 
 export default appRoutes
