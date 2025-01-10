@@ -1,0 +1,47 @@
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .file-input-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .file-input-display:hover {
+    border-color: var(--pink);
+    transition: all 0.3s ease;
+  }
+  
+  .file-input-placeholder {
+    color: #6c757d;
+  }
+  
+  .file-input-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .file-input-hidden {
+    display: none;
+  }
+  
+  .file-input-error {
+    border-color: #dc3545;
+  }
+  
+  .file-input-error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

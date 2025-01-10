@@ -22,7 +22,7 @@ const Main: FC = () => {
         getReviews().then((response : any) => {
             if (! (response instanceof AxiosError) && response.status === 200) {
                 setReviews(response.data);
-                console.log(reviews);
+                //console.log(reviews);
             }
         });
         

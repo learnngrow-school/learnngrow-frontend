@@ -1,10 +1,6 @@
 import FormModal from "../../../shared/Modals/FormModal";
 import BaseButton from "../../../shared/Buttons/BaseButton"
 import { useState } from "react";
-import { AxiosError } from "axios";
-import { createLesson } from "../../../services/lesson.service";
-import { ERROR_RUS } from "../../../shared/Errors/errorTypes";
-import Lesson from "../../../types/lesson";
 import LessonCreation from "./LessonCreation";
 import "./schedule.css"
 
@@ -12,25 +8,27 @@ const Schedule = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const user = JSON.parse(localStorage.getItem('user') as string);
 
-    const onLessonCreateClick = async (lesson: Lesson) => {
-        //setLoading(true);
-        console.log(lesson.timestamp, typeof lesson.timestamp);
+    //const [loading, setLoading] = useState(false);
 
-        const date = new Date(lesson.timestamp);
-        lesson.timestamp = date.getTime();
-        console.log('Добавлен урок на ',new Date(lesson.timestamp));
+    // const onLessonCreateClick = async (lesson: Lesson) => {
+    //     setLoading(true);
+    //     console.log(lesson.timestamp, typeof lesson.timestamp);
         
-        const response = await createLesson(lesson);
+    //     //18000 - 5 часов, для устранения временного сдвига
+    //     const seconds = Math.floor(new Date(lesson.timestamp).getTime() / 1000) + 18000;
+    //     lesson.timestamp = seconds;
+    //     console.log('Добавлен урок на ',new Date(lesson.timestamp));
+        
+    //     const response = await createLesson(lesson);
 
-        if (!(response instanceof AxiosError)) {
-            hideModal();
-        }
-        else {
-            const errorRus = ERROR_RUS[response.message as string]
-            console.log(errorRus? errorRus : response.message);
-            //setError( errorRus? errorRus : 'Ошибка сети');
-        }
-    }
+    //     if (!(response instanceof AxiosError)) {
+    //         hideModal();
+    //     }
+    //     else {
+    //         const errorRus = ERROR_RUS[response.message as string]
+    //         console.log(errorRus? errorRus : response.message);
+    //     }
+    // }
 
     const showModal = () => {
         setModalVisible(true);
@@ -49,7 +47,7 @@ const Schedule = () => {
                     text="Добавить урок" onClick={showModal} theme="dark-blue-primary"/>
                 <FormModal id="creationModal" 
                     content={
-                    <LessonCreation onSubmit={onLessonCreateClick} onCancel={hideModal}/>
+                    <LessonCreation onClose={hideModal}/>
                     } 
                     isOpen={modalVisible} 
                 />

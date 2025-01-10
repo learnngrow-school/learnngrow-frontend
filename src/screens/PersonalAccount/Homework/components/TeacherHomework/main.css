@@ -1,0 +1,109 @@
+.search-container-homework{
+    display: flex;
+    flex-direction: column 2;
+    align-items: left;
+}
+
+.section-title--green {
+    background: var(--background-green-2);
+    background-color: var(--green-pale);
+    padding: 5px 40px;
+    border-radius: 8px;
+}
+
+.search-input-homework{
+    margin-left: 40px;
+    width: 620px;
+}
+
+.button-createtask-homework {
+    width: 215px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 25px;
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-createtask-homework img {
+    width: 17px;
+    height: 17px;
+}
+
+.button-createtask-homework:hover img {
+    color: var(--pink);
+}
+
+.task-container-homework {
+    margin-top: 20px;
+    padding-left: 40px;
+    border: 1px solid var(--grey-dark);
+    border-radius: 20px;
+}
+  
+.task-table {
+    width: 100%;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.task-table td {
+    color: var(--blue-dark);
+    border-top: 1px solid var(--grey-light);
+    border-bottom: 1px solid var(--grey-light);
+    text-align: left;
+    padding: 12px 8px 12px 8px;
+}
+
+.task-table th {
+    color: var(--blue-dark);
+    font-weight: 600;
+    font-size: 20px;
+    text-align: left;
+    padding: 8px 8px 12px 8px;
+}
+
+.task-table td a {
+    color: var(--blue-dark);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.link-homework {
+    text-decoration: none;
+    display: table-cell;
+    max-width: 200px;
+    overflow: hidden; /* Скрываем текст за пределами области */
+    white-space: nowrap; /* Текст в одну строку */
+    text-overflow: ellipsis;
+}
+
+.link-homework:hover {
+    text-decoration: underline;
+}
+
+.task-link {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.task-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.task-table th:first-child, .task-table td:first-child {
+    width: 242px; /* Ширина для нумерации */
+}
+
+.task-table th:nth-child(2), .task-table td:nth-child(2) {
+    width: 350px; /* Ширина для названия задания */
+}
+
+.task-table th:nth-child(3), .task-table td:nth-child(3) {
+    width: 268px; /* Ширина для ссылки */
+}
+  
+  

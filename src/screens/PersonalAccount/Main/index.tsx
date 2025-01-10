@@ -56,10 +56,10 @@ const MainPersonal = () => {
           <h2 className="section-title section-title--green">Ближайшие занятия</h2>
           {loading ? (
             <p>Загрузка...</p>
-          ) : error ? (
+          ) : error || lesson.length === 0 ? (
             <div className="error-container-pam">
               <img src={Sad} alt="sad" className="sad-icon-pam" />
-              <p className="text-error">{error}</p>
+              <p className="text-error">Данных пока нет...</p>
             </div>
           ) : (
             <div className="lessons-list">
@@ -84,10 +84,10 @@ const MainPersonal = () => {
           <h2 className="section-title section-title--pink">Прошедшие занятия</h2>
           {loading ? (
             <p>Загрузка...</p>
-          ) : error ? (
+          ) : error || lesson.length === 0 ? (
             <div className="error-container-pam">
               <img src={Sad} alt="sad" className="sad-icon-pam" />
-              <p className="text-error">{error}</p>
+              <p className="text-error">Данных пока нет...</p>
             </div>
           ) : (
             <div className="lessons-list">

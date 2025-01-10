@@ -105,8 +105,8 @@ const TeacherCreation = () => {
                 <div>
                     <div className="text--blue text-body-s text-600 teacher-input-label">Предметы</div>
                     {subjects.length > 0 ?
-                        subjects.map(subject => (
-                            <div key={subject.id} className="teacher-subject-item">{subject.title}</div>
+                        subjects.map((subject, index) => (
+                            <div key={index} className="teacher-subject-item">{subject.title}</div>
                         ))
                         :
                         <div className="teacher-subject-item">Предметов пока нет</div>

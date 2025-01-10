@@ -17,5 +17,6 @@ export const urls = {
   myCoursesDeatil: '/me/courses',
   teachers: '/me/teachers',
   teacherCreation: '/me/teachers/create',
-  reviews: '/me/reviews'
+  reviews: '/me/reviews',
+  createHomework: '/me/homework/create',
 }
