@@ -1,5 +1,17 @@
-const Homework = () => {
-    return <div>Тут будут ваши домашки</div>;
-}
+import TeacherHomework from "./components/TeacherHomework";
 
-export default Homework
+const Homework = () => {
+    const user = JSON.parse(localStorage.getItem('user') as string);
+
+    return (
+        <>
+            {user.isTeacher || user.isSuperuser 
+            ?
+                <TeacherHomework/>
+            : null
+                
+            }
+        </>
+    );
+};
+export default Homework;

@@ -1,0 +1,73 @@
+.container-create-homework{
+    width: 104.3%;
+}
+
+.back-to-homework {
+    margin: 0px 0px 25px 0px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--grey-dark);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header-create-homework {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    margin-bottom: 25px;
+}
+
+.field-create-homework {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.title-homework {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    margin-bottom: 5px;
+}
+
+.button-submit-homework {
+    margin-top: 30px;
+    width: 210px;
+    height: 40px;
+}
+
+.optional-text {
+    font-weight: 400;
+    color: var(--blue-dark);
+    font-size: 16px;
+}
+
+.uploaded-files {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 400px;
+    margin-top: 7px;
+  }
+  
+.uploaded-file-name {
+    color: var(--blue-dark);
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 120px;
+    height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: underline;
+}
+
+.container-line-homework {
+    display: flex;
+    align-items: left;
+}
+
+.uploaded-file-name img {
+    height: 20px;
+    margin-right: 5px;
+}
