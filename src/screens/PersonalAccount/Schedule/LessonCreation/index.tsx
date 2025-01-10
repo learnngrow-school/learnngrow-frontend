@@ -9,6 +9,7 @@ import { getTeachers } from "../../../../services/teacher.service";
 import { useEffect, useState } from "react";
 import { Teacher } from "../../../../types/teacher";
 import ListSelect from "../../../../shared/Inputs/ListSelect";
+//import DateTimePicker from "../../../../shared/Inputs/DateTimePicker";
 
 interface IProps {    
     onSubmit: (lesson: Lesson) => void
@@ -31,7 +32,10 @@ const LessonCreation = ({onSubmit, onCancel} : IProps) => {
         <form className="px-4 py-3 creation-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="text--heading3 text-600 text--blue title">Добавление урока</div>
             <DateTimeInput placeholder={"Выберите время урока"} 
-                register={{...register('timestamp',{required: "Выберите время урока"}) }}/>
+                register={{...register('timestamp',{required: "Выберите дату и время урока"}) }}/>
+
+            {/* <DateTimePicker register={{...register('timestamp',{required: "Выберите время урока"} )}}/> */}
+
             <TextError text={errors.timestamp?.message?.toString() || ''}/>
 
             <TextInput placeholder={"Добавьте домашнее задание"} type="text" id={"homework"} 

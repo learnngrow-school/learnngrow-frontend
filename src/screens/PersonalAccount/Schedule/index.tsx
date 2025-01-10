@@ -18,7 +18,7 @@ const Schedule = () => {
 
         const date = new Date(lesson.timestamp);
         lesson.timestamp = date.getTime();
-        console.log('Добавлен урок на ',new Date(lesson.timestamp));
+        console.log('Добавлен урок на ',new Date(lesson.timestamp).toLocaleString('ru-RU'));
         
         const response = await createLesson(lesson);
 

@@ -7,4 +7,6 @@
     align-self: center;
     justify-content: center;
     padding: 10px;
+    z-index: 1 !important;
+    position: relative;
 }

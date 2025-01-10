@@ -1,0 +1,7 @@
+.date-time-picker {
+    border-radius: 10px;
+    border: 2px solid var(--grey-medium);
+    margin: 15px 0px;
+    padding: 10px;
+    color: var(--grey-dark);
+}

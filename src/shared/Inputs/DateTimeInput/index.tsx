@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const DateTimeInput: React.FC<IProps> = ({register, minDate, placeholder, id}) => {
-  const [value, setValue] = useState<Date | null>(null);
+  const [value, setValue] = useState<Date| number | any>(undefined);
 
   return (
     <input
@@ -17,7 +17,7 @@ const DateTimeInput: React.FC<IProps> = ({register, minDate, placeholder, id}) =
       type="datetime-local"
       id={id}
       value={value} 
-      onChange={(e) => setValue(new Date(e.target.value))}
+      onChange={(e) => setValue(e.target.value)}
       min={minDate && minDate.setMinutes(0)}
       placeholder={placeholder}
       step={"60"}
