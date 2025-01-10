@@ -1,0 +1,40 @@
+.homework-card {
+    background:  var(--white);
+    border-radius: 10px;
+    padding: 20px 25px 10px 25px;
+    width: 260px;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--blue-dark);
+    box-shadow: 0 1px 10px -5px;
+}
+
+.homework-title-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+}
+
+.homework-date {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.homework-link{
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.link-hm {
+    color: var(--pink);
+}
+
+.ready-img {
+    margin-right: -10px;
+}
