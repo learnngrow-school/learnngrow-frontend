@@ -11,7 +11,7 @@ enum PupilPages {
 enum TeacherPages {
     MAIN = "Главная",
     SCHEDULE = "Расписание",
-    HOMEWORK = "Домашняя работа",
+    HOMEWORK = "Мои задания",
     COURSES ="Мои курсы",
     PUPILS =  "Мои ученики",
     MYDATA = "Мои данные",
@@ -20,7 +20,7 @@ enum TeacherPages {
 enum AdminPages {
     MAIN = "Главная",
     SCHEDULE = "Расписание",
-    HOMEWORK = "Домашняя работа",
+    HOMEWORK = "Мои задания",
     COURSES ="Курсы",
     PUPILS =  "Ученики",
     TEACHERS = "Преподаватели",
