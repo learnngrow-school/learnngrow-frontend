@@ -18,7 +18,7 @@ export const createLesson = async (lesson: Lesson) : Promise<AxiosResponse | Axi
 
 export const getLessons = async (): Promise<Lesson[] | AxiosError> => {
     try {
-        const response = await authApi.get('/lessons/');
+        const response = await authApi.get('/lessons/0');
         console.log('Fetched lessons:', response.data);
 
         // Преобразуем временные метки

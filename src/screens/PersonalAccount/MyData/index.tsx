@@ -16,8 +16,8 @@ import AvatarInput from '../../../shared/Inputs/AvatarInput';
 
 const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
-    const [editDisabled, setEditDisabled] = useState(true);
-    const [editText, setEditText] = useState('Изменить данные');
+    // const [editDisabled, setEditDisabled] = useState(true);
+    // const [editText, setEditText] = useState('Изменить данные');
     const navigate = useNavigate();
     const [avatar, setAvatar] = useState('');
 
@@ -80,18 +80,18 @@ const MyData = () => {
         setAcceptModalVisible(false);
     }
 
-    const onEditModeChange = () => {
-        if(editDisabled)
-        {
-            setEditText('Отменить изменения');
-            setEditDisabled(false);
-        } 
-        else 
-        {
-            setEditText('Изменить данные');
-            setEditDisabled(true);
-        }
-    }
+    // const onEditModeChange = () => {
+    //     if(editDisabled)
+    //     {
+    //         setEditText('Отменить изменения');
+    //         setEditDisabled(false);
+    //     } 
+    //     else 
+    //     {
+    //         setEditText('Изменить данные');
+    //         setEditDisabled(true);
+    //     }
+    // }
 
     const parsedUser = JSON.parse(localStorage.getItem('user') || '') as User;
 
@@ -105,34 +105,34 @@ const MyData = () => {
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Фамилия</div>
                             <TextInput defaultValue={parsedUser.lastName} 
-                                disabled={editDisabled} 
+                                disabled={true} 
                                 type='text' id='lastName' placeholder='Фамилия'/>
                         </div>
 
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Имя</div>
                             <TextInput defaultValue={parsedUser.firstName} 
-                                disabled={editDisabled} 
+                                disabled={true} 
                                 type='text' id='firstName' placeholder='Имя'/>
                         </div>
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Отчество (если есть)</div>
                             <TextInput defaultValue={parsedUser.middleName || '-'} 
-                                disabled={editDisabled} 
+                                disabled={true} 
                                 type='text' id='middleName' placeholder='Отчество'/>
                         </div>
                         <div className="input-container">
                             <div className='text--body-s text--blue text-600'>Номер телефона</div>
                             <TextInput defaultValue={parsedUser.phone || '-'} 
-                                disabled={editDisabled} 
+                                disabled={true} 
                                 type='text' id='phone' placeholder='Почта'/>
                         </div>
                     </div>
 
                     <div className='buttons-container'>
-                        <BaseButton
+                        {/* <BaseButton
                             theme="pink-primary" text={editText}
-                            onClick={onEditModeChange}/>
+                            onClick={onEditModeChange}/> */}
                         <BaseButton data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
                             theme="white-secondary" text="Выйти из аккаунта" className="text--body-s" 
                             onClick={showAcceptModal}/>
