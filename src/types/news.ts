@@ -3,4 +3,5 @@ export type News = {
     title: string;
     details: string | any;
     picturePath?: string;
+    vkUrl?: string;
 }
