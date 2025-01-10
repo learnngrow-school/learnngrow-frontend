@@ -1,9 +1,9 @@
 import { AxiosResponse, AxiosError } from "axios";
-import { authApi } from "./api";
+import { authApi, publicApi } from "./api";
 
 export const createSubject = async (subject: any) : Promise<AxiosResponse | AxiosError> => {
     try{
-        const response = await authApi.post('/admin/subject', subject);
+        const response = await authApi.post('/admin/subjects', subject);
             
         console.log('Subject creation status:', response);
         
@@ -18,7 +18,7 @@ export const createSubject = async (subject: any) : Promise<AxiosResponse | Axio
 export const getSubjects = async () : Promise<AxiosResponse | AxiosError> => {
     try {
         
-        const response = await authApi.get('/admin/subject');
+        const response = await publicApi.get('/admin/subjects');
         return response;
     }
     catch (error : any){

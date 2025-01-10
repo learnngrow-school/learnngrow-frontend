@@ -1,8 +1,8 @@
-export const DEV_API = 'http://localhost:8080/api/v1';
+export const API = import.meta.env.RELEASE_API || 'http://localhost:8000/api/v1';
 import axios from "axios";
 
 export const authApi = axios.create({
-    baseURL: DEV_API,
+    baseURL: API,
     headers: {
       'accept': 'application/json',
       'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export const authApi = axios.create({
 });
 
 export const publicApi = axios.create({
-    baseURL: DEV_API,
+    baseURL: API,
     headers: {
       'accept': 'application/json',
       'Content-Type': 'application/json',
