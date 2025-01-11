@@ -31,7 +31,7 @@ export const RadioGroup = ({data, register}: IProps) => {
         {data.map((item, index) => (
             <div key={index} onClick={() => onClick(item.name)}>
                 <input type="radio" className="btn-check" name="options-base" id={`option${item.name}`} 
-                    autoComplete="off" checked={selectedItem === item.name} {...register} />
+                    autoComplete="off" checked={selectedItem === item.name} {...register} onChange={() => onClick(item.name)}/>
                 <label className="radio-label btn" htmlFor={`option${item.name}`}>{item.name}</label>
             </div>
         ))}
