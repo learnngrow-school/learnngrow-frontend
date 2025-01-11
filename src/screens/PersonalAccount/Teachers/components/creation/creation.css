@@ -49,3 +49,25 @@
 .subject-creation-form{
     margin-top: 200px !important;
 }
+
+.teacher-subjects-row{
+    width: 820px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.teacher-subjects-row::after{
+    align-items: right;
+}
+
+.subject-block{
+    height: 40px !important;
+    width: fit-content;
+}
+
+.subject-add-btn{
+    height: 40px;
+    width: fit-content;
+}

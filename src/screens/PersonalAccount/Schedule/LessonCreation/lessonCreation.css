@@ -5,7 +5,8 @@
 
 .title {
     text-align: center;
-    margin: 0;
+    margin: 0px;
+    padding-bottom: -20px;
 }
 
 .row-block{
@@ -23,4 +24,17 @@
 
 .cancel-btn{
     width: 140px;
+}
+
+.lesson-input-label{
+    padding: 20px 0px 10px 0px;
+}
+
+.lesson-input-field{
+    margin-bottom: -10px !important;
+    padding-bottom: -10px !important;
+}
+
+.lesson-input-label-1{
+    padding: 5px 0px 10px 0px;
 }

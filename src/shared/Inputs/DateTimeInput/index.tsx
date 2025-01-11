@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const DateTimeInput: React.FC<IProps> = ({register, minDate, placeholder, id}) => {
-  const [value, setValue] = useState<Date | null>(null);
+  const [value, setValue] = useState<Date | any>(undefined);
 
   return (
     <input

@@ -213,6 +213,12 @@ hr {
   border: 1px solid var(--pink);
 }
 
+.button[data-theme='green-big-shadow'] {
+  color: var(--blue-dark);
+  background-color: var(--white);
+  box-shadow: var(--box-shadow-green-big);
+}
+
 .formError{
   display: flex;
   justify-content: center;

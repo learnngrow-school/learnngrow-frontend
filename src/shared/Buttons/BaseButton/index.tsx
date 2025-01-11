@@ -15,6 +15,7 @@ export interface IButtonProps {
     | 'pink-primary'
     | 'pink-secondary'
     | 'green'
+    | 'green-big-shadow'
     className?: string,
     iconFirst?: boolean,
     iconPath?: string,

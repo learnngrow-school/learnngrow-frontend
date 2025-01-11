@@ -17,6 +17,7 @@
   --box-inner-shadow-black: inset 0 0 2px rgba(0, 0, 0, 0.25);
   --box-shadow-pink: 1px 1px 5px var(--pink);
   --box-shadow-green: 1px 1px 5px var(--green-grass);
+  --box-shadow-green-big: 1px 1px 15px 0px var(--green-grass);
   --checkbox-shadow: 1px 1px 5px var(var(--grey));
 
   --background-pink: url("../assets/pictures/pink-background.png");
