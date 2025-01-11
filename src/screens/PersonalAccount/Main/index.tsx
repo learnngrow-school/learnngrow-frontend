@@ -24,7 +24,7 @@ const MainPersonal = () => {
         } else {
           throw new Error("Ошибка получения данных");
         }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
       } catch (error: any) {
         setError( "Данных пока нет..." );
       } finally {
@@ -65,17 +65,18 @@ const MainPersonal = () => {
           ) : (
             <div className="lessons-list">
                 {upcomingLessons.map((lessonData: Lesson, index) => {
-                    const { homework, timestamp } = lessonData;
-                    const isFirst = index === 0;
-                    return (
-                    <div style={{ cursor: "pointer" }}>
-                        <LessonCard
+                  const { homework, timestamp, duration } = lessonData;
+                  const isFirst = index === 0;
+                  return (
+                    <div style={{ cursor: "pointer" }} key={index}>
+                      <LessonCard
                         homework={homework || "Не указано"}
                         timestamp={timestamp || Date.now()}
+                        duration={duration || 0}
                         className={isFirst ? "" : "grey-text"}
-                        />
+                      />
                     </div>
-                    );
+                  );
                 })}
             </div>
           )}
@@ -92,16 +93,17 @@ const MainPersonal = () => {
             </div>
           ) : (
             <div className="lessons-list">
-              {(showAllPastLessons ? pastLessons : pastLessons.slice(0, 3)).map((lessonData: Lesson) => {
-                const { homework, teacherNotes, timestamp } = lessonData;
+              {(showAllPastLessons ? pastLessons : pastLessons.slice(0, 3)).map((lessonData: Lesson, index) => {
+                const { homework, teacherNotes, timestamp, duration } = lessonData;
                 return (
-                    <div style={{ cursor: "pointer" }}>
-                        <LessonCard
-                        homework={homework || "Не указано"}
-                        teacherNotes={teacherNotes || "Нет заметок"}
-                        timestamp={timestamp || Date.now()}
-                        />
-                    </div>
+                  <div style={{ cursor: "pointer" }} key={index}>
+                    <LessonCard
+                      homework={homework || "Не указано"}
+                      teacherNotes={teacherNotes || "Нет заметок"}
+                      timestamp={timestamp || Date.now()}
+                      duration={duration || 0}
+                    />
+                  </div>
                 );
               })}
             </div>

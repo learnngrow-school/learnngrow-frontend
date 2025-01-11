@@ -5,20 +5,28 @@ interface LessonCardProps {
   homework: string;
   teacherNotes?: string;
   timestamp: number | string | Date;
+  duration: number; // Добавлено
   className?: string;
 }
 
-const LessonCard: React.FC<LessonCardProps> = ({ homework, teacherNotes, timestamp, className }) => {
+const LessonCard: React.FC<LessonCardProps> = ({ homework, teacherNotes, timestamp, duration, className }) => {
   const dateObj = typeof timestamp === "number" || typeof timestamp === "string" 
     ? new Date(timestamp) 
     : timestamp;
+
+  const endDateObj = new Date(dateObj.getTime() + duration * 60000);
 
   const date = dateObj.toLocaleDateString("ru-RU", {
     month: "numeric",
     day: "numeric",
   });
 
-  const time = dateObj.toLocaleTimeString("ru-RU", {
+  const startTime = dateObj.toLocaleTimeString("ru-RU", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const endTime = endDateObj.toLocaleTimeString("ru-RU", {
     hour: "2-digit",
     minute: "2-digit",
   });
@@ -27,7 +35,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ homework, teacherNotes, timesta
     <div className={`lesson-card ${className}`}>
       <p className="lesson-title">{homework}</p>
       <p className="homework-date">Дата: {date}</p>
-      <p className="homework-time">Время: {time}</p>
+      <p className="homework-time">Время: {startTime} - {endTime}</p> {/* Добавлен интервал */}
       {teacherNotes && <p className="homework-notes">{teacherNotes}</p>}
     </div>
   );

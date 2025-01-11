@@ -10,13 +10,13 @@ interface IProps {
   error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
   containerClassName?: string;
   onFilesChange?: (files: File[]) => void;
+  fileList: File[]; // Добавили пропс для получения списка файлов
 }
 
 const MAX_FILES = 10;
 
-const FileInput: React.FC<IProps> = ({ placeholder, id, register, error, containerClassName, onFilesChange }) => {
+const FileInput: React.FC<IProps> = ({ placeholder, id, register, error, containerClassName, onFilesChange, fileList }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const [fileList, setFileList] = useState<File[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -29,7 +29,6 @@ const FileInput: React.FC<IProps> = ({ placeholder, id, register, error, contain
       }
 
       const updatedFiles = [...fileList, ...newFiles];
-      setFileList(updatedFiles);
       onFilesChange?.(updatedFiles);
     }
   };

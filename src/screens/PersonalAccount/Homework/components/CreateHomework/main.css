@@ -24,6 +24,12 @@
     margin-right: 10px;
 }
 
+.fieldlist-create-homework {
+    width: 300px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
 .title-homework {
     font-size: 16px;
     font-weight: 600;
@@ -60,6 +66,12 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     text-decoration: underline;
+    cursor:pointer;
+}
+
+.uploaded-file-name:hover {
+    color: #ff0000;
+    text-decoration:line-through;
 }
 
 .container-line-homework {
@@ -70,4 +82,10 @@
 .uploaded-file-name img {
     height: 20px;
     margin-right: 5px;
+    transition: 0.01s ease;
 }
+
+.uploaded-file-name:hover img {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(91%) saturate(7484%) hue-rotate(355deg) brightness(104%) contrast(105%);
+}
+
