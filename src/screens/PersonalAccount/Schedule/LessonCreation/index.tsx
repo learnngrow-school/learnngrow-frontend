@@ -14,6 +14,7 @@ import { AxiosError } from "axios";
 import { createLesson } from "../../../../services/lesson.service";
 import { ERROR_RUS } from "../../../../shared/Errors/errorTypes";
 import { getAllStudents } from "../../../../services/students.service";
+import RadioGroup from "../../../../shared/Buttons/RadioGroup";
 
 interface IProps {    
     onClose: () => void
@@ -43,6 +44,7 @@ const LessonCreation = ({onClose} : IProps) => {
     
     const onLessonCreateClick = async (lesson: Lesson) => {
         setLoading(true);
+        console.log(lesson.duration);
             
         //18000 - 5 часов, для устранения временного сдвига
         const seconds = Math.floor(new Date(lesson.timestamp).getTime() / 1000) + 18000;
@@ -70,6 +72,11 @@ const LessonCreation = ({onClose} : IProps) => {
                 register={{...register('timestamp',{required: "Выберите дату и время урока"}) }}/>
             <TextError text={errors.timestamp?.message?.toString() || ''}/>
 
+            <div className="text--body-s text-600 text--blue lesson-input-label">Выберите продолжительность урока</div>
+            <RadioGroup data={[{name: '1 час', isChecked: true},{name: '1.5 часа', isChecked: false}]} 
+                // register={{...register('duration', {required: "Выберите продолжительность урока"}) }}
+                />
+
            <div className="text--body-s text-600 text--blue lesson-input-label">Выберите ученика</div> 
            {students.length > 0 ? 
             <ListSelect data={students}
@@ -88,8 +95,8 @@ const LessonCreation = ({onClose} : IProps) => {
             <div>Загрузка данных...</div>
             }
 
-            <div className="text--body-s text-600 text--blue lesson-input-label">Добавьте домашнее задание</div>
-            <TextInput placeholder={"Домашнее задание"} type="text" id={"homework"}
+            <div className="text--body-s text-600 text--blue lesson-input-label">Добавьте название занятия</div>
+            <TextInput placeholder={"Название занятия"} type="text" id={"homework"}
                 register={{...register('homework') }} error={errors.homework}/>
             
             <div className="text--body-s text-600 text--blue lesson-input-label-1">Добавьте комментарий к занятию</div>

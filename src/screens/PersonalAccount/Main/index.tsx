@@ -24,8 +24,9 @@ const MainPersonal = () => {
         } else {
           throw new Error("Ошибка получения данных");
         }
-      } catch (err) {
-        setError("Данных пока нет...");
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error: any) {
+        setError( "Данных пока нет..." );
       } finally {
         setLoading(false);
       }

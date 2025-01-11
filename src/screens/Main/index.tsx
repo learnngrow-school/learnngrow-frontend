@@ -12,10 +12,13 @@ import { getTeachers } from "../../services/teacher.service";
 import { Review } from "../../types/review";
 import {Teacher} from "../../types/teacher";
 import { AxiosError } from "axios";
+import { Subject } from "../../types/subject";
+import { getSubjects } from "../../services/subject.service";
 
 const Main: FC = () => {
     const [reviews, setReviews] = useState<Review[]>()
     const [teachers, setTeachers] = useState<Teacher[]>([]);
+    const [subjects, setSubjects] = useState<Subject[]>([]);
 
     useEffect(() => {
 
@@ -32,6 +35,12 @@ const Main: FC = () => {
                 //console.log(teachers);
             }
         });
+
+        getSubjects().then((response : any) => {
+            if (! (response instanceof AxiosError) && response.status === 200) {
+                setSubjects(response.data);
+            }
+        });
     },[]);
 
     return (
@@ -41,9 +50,9 @@ const Main: FC = () => {
             <StudyTypes />
             <Steps />
         </div>
-        <Subjects />
+        <Subjects data={subjects}/>
         <div className="content">
-            {teachers.length > 0 && <Teachers  data={teachers}/>}
+            {teachers.length > 0 && <Teachers data={teachers}/>}
             <OrderLesson />
             {reviews && reviews.length > 0 && <Reviews data={reviews}/>}
          </div>

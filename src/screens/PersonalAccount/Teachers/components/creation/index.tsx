@@ -35,7 +35,7 @@ const TeacherCreation = () => {
     const { register, handleSubmit, formState: { errors }} = useForm<ITeacher | any>();
     const [subjectFormVisible, setSubjectFormVisible] = useState(false);
     const [subjects, setSubjects] = useState<Subject[]>([]);
-    const [subjectNames, setSubjectIds] = useState<string[]>([]);
+    const [subjectIds, setSubjectIds] = useState<number[]>([]);
     const [subjectsLength, setSubjectsLength] = useState(0);
 
     useEffect(() => {
@@ -76,16 +76,19 @@ const TeacherCreation = () => {
     }
 
     const onSubjectClick = (evt: any) => {
-        const subjectName = evt.target.innerText;
-
-        if (subjectNames.includes(subjectName)) {
-            const newNames = subjectNames.filter((title) => title !== subjectName);
-            setSubjectIds(newNames);
+        //const subjectName = evt.target.innerText;
+        const subjectId = Number(evt.target.id);
+        //console.log(subjectId);
+        
+        //const subjectId = subjects.find((subject: Subject) => subject.title === subjectName)?.id;
+        if (subjectIds.includes(subjectId )) {
+            const newIds = subjectIds.filter((id) => id !== subjectId);
+            setSubjectIds(newIds);
         }
         else {
-            const newNames = subjectNames.slice();
-            newNames.push(subjectName);
-            setSubjectIds(newNames);
+            const newIds = subjectIds.slice();
+            newIds.push(subjectId);
+            setSubjectIds(newIds);
         }
         
     }
@@ -126,8 +129,8 @@ const TeacherCreation = () => {
                 <div className="teacher-subjects-row">
                     {subjects.length > 0 ?
                         subjects.map((subject, index) => (
-                            <BaseButton key={index} text={subject.title} type='button'
-                                theme={subjectNames.includes(subject.title)? "green-big-shadow" : "white-primary"} 
+                            <BaseButton key={index} text={subject.title} type='button' id={subject.id}
+                                theme={subjectIds.includes(subject.id)? "green-big-shadow" : "white-primary"} 
                                 className="subject-block" onClick={onSubjectClick}/>
                         ))
                         :

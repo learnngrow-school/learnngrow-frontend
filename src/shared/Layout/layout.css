@@ -80,8 +80,13 @@
   color: var(--pink);
 }
 
+.navlinkContainer:hover > *:first-child {
+  color: var(--pink);
+}
+
 .navlinkContainerActive {
   box-shadow: var(--box-shadow-pink);
+  color: var(--pink);
 }
 
 .logoBlock{

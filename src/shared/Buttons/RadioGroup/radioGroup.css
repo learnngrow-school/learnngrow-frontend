@@ -1,0 +1,22 @@
+.radio-buttons-group{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.radio-group-btn{
+    padding: 10px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue-dark);
+}
+
+.radio-label:focus, .radio-label:hover, .radio-label:checked, .radio-label:active{
+    height: 40px;
+    border-color: var(--blue-dark) !important;
+    /* box-shadow: var(--box-shadow-pink); */
+    /* color: var(--pink) !important; */
+    /* border-radius: 10px; */
+}

@@ -72,6 +72,7 @@ h3 {
 
 .text--blue {
   color: var(--blue-dark);
+  cursor: pointer;
 }
 
 .text--error {
@@ -91,6 +92,7 @@ h3 {
 }
 
 .text--heading1 {
+  cursor: pointer;
   font-size: 40px;
   line-height: 40px;
   white-space: normal;
@@ -100,6 +102,7 @@ h3 {
 .text--heading2 {
   font-size: 24px;
   line-height: 29.26px;
+  cursor: pointer;
   /* padding-bottom: 20px; */
 }
 
@@ -107,36 +110,43 @@ h3 {
   font-size: 20px;
   line-height: 24.38px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .text--heading4 {
   font-size: 16px;
   line-height: 16px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .text--body-m {
   font-size: 20px;
   line-height: 24.38px;
+  cursor: pointer;
 }
 
 .text--body-l {
   font-size: 18px;
+  cursor: pointer;
 }
 
 .text--body-s {
   font-size: 16px;
   line-height: 19.5px;
+  cursor: pointer;
 }
 
 .text--body-xs {
   font-size: 14px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .text--regular-xs {
   font-size: 14px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 .text--caption {
