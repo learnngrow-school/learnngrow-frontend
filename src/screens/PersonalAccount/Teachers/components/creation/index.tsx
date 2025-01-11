@@ -24,6 +24,7 @@ interface ITeacher{
     phone?: string,
     password: string,
     isTeacher?: string | boolean
+    subjectIds?: number[]
 }
 
 const TeacherCreation = () => {
@@ -34,6 +35,7 @@ const TeacherCreation = () => {
     const { register, handleSubmit, formState: { errors }} = useForm<ITeacher | any>();
     const [subjectFormVisible, setSubjectFormVisible] = useState(false);
     const [subjects, setSubjects] = useState<Subject[]>([]);
+    const [subjectIds, setSubjectIds] = useState<number[]>([]);
     const [subjectsLength, setSubjectsLength] = useState(0);
 
     useEffect(() => {
@@ -45,10 +47,12 @@ const TeacherCreation = () => {
     }, [subjectsLength])
 
     const onTeacherCreateClick = async (data: ITeacher) => {
+        //data.subjectIds = subjectNames;
         setLoading(true);
         const response = await createTeacher(data as unknown as User);
         
         if (!(response instanceof AxiosError)) {
+            console.log(data.subjectIds);
             navigate(urls.teachers);
         }
         else {
@@ -69,6 +73,24 @@ const TeacherCreation = () => {
 
     const onSubjectFormClose = () => {
         setSubjectFormVisible(false);
+    }
+
+    const onSubjectClick = (evt: any) => {
+        //const subjectName = evt.target.innerText;
+        const subjectId = Number(evt.target.id);
+        //console.log(subjectId);
+        
+        //const subjectId = subjects.find((subject: Subject) => subject.title === subjectName)?.id;
+        if (subjectIds.includes(subjectId )) {
+            const newIds = subjectIds.filter((id) => id !== subjectId);
+            setSubjectIds(newIds);
+        }
+        else {
+            const newIds = subjectIds.slice();
+            newIds.push(subjectId);
+            setSubjectIds(newIds);
+        }
+        
     }
 
     const onAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,16 +124,19 @@ const TeacherCreation = () => {
                 <TextInput placeholder={"Введите отчество"} type="text" id={"middleName"} 
                     register={register('middleName')} containerClassName="teacher-info-input-container"/>
 
-                <div>
-                    <div className="text--blue text-body-s text-600 teacher-input-label">Предметы</div>
+                
+                <div className="text--blue text-body-s text-600 teacher-input-label">Предметы</div>
+                <div className="teacher-subjects-row">
                     {subjects.length > 0 ?
                         subjects.map((subject, index) => (
-                            <div key={index} className="teacher-subject-item">{subject.title}</div>
+                            <BaseButton key={index} text={subject.title} type='button' id={subject.id}
+                                theme={subjectIds.includes(subject.id)? "green-big-shadow" : "white-primary"} 
+                                className="subject-block" onClick={onSubjectClick}/>
                         ))
                         :
                         <div className="teacher-subject-item">Предметов пока нет</div>
                     }
-                    <BaseButton theme="white-primary" text="Добавить предмет" type='button' className="subject-add-btn" onClick={onSubjectAddClick}/>
+                    <BaseButton theme="pink-primary" text="Добавить предмет" type='button' className="subject-add-btn" onClick={onSubjectAddClick}/>
                 </div>
 
                 <div className="text--blue text-body-s text-600 teacher-input-label">Номер телефона</div>

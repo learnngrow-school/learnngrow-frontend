@@ -1,30 +1,28 @@
-import { FieldError, Merge, FieldErrorsImpl } from "react-hook-form"
-import { Teacher } from "../../../types/teacher"
+import { FieldError, Merge, FieldErrorsImpl } from "react-hook-form";
+import { User } from "../../../types/user";
 import "./listSelect.css"
 
 interface IProps {
-    placeholder: string
+    placeholder?: string
     data: any
     error?: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
     register?: any
 }
 
-const ListSelect = ({data, placeholder, register} :IProps) => {
-    //console.log(data);
+const ListSelect = ({data,  register} :IProps) => {
     return (
-        <div className="form-floating select-container">
-            <select className="form-select" id="floatingSelect">
-                {data.map((item: Teacher, index: any) => (
+        <div className="select-container ">
+            <select className="select-field form-select" id="floatingSelect">
+                {data.map((item: User, index: any) => (
                     <option 
-                    key={item.userData.slug}
-                    value={item.userData ? item.userData.slug : index}
+                    key={item.slug}
+                    value={item ? item.slug : index}
                     {...register}
                     >
-                    {item.userData.lastName} {item.userData.firstName} {item.userData.middleName}
+                    {item.lastName} {item.firstName} {item.middleName}
                     </option>
                 ))}
             </select>
-            <label htmlFor="floatingSelect">{placeholder}</label>
         </div>
     )
 }

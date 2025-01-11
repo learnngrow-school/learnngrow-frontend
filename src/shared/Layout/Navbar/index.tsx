@@ -10,10 +10,28 @@ import DarkUserLogo from '/src/assets/icons/userDark.svg'
 import '../../../styles/text.css'
 import DropDownButton from '../../Buttons/DropDownButton'
 import BaseButton from '../../Buttons/BaseButton'
+import { Subject } from '../../../types/subject'
+import { useEffect, useState } from 'react'
+import { getSubjects } from '../../../services/subject.service'
+import { AxiosError } from 'axios'
+import { fishSubjects } from '../../../screens/Main/components/subjects'
 
 const Navbar = () => {
   const navigate = useNavigate()
   const user = localStorage.getItem('user')
+  const [subjects, setSubjects] = useState<Subject[]>([])
+
+  useEffect(() => { 
+    getSubjects().then((response) => {
+    if (!(response instanceof AxiosError)) {
+      setSubjects(response.data)
+    }
+    else{
+      setSubjects(fishSubjects)
+    }
+  } )
+  }, [])
+
 
   const onSubjectClick = (evt: any) => {
     localStorage.setItem('subject', evt.target.innerText)
@@ -27,16 +45,13 @@ const Navbar = () => {
       </div>
       <div className='navLinksBlock'>
         <DropDownButton text='Предметы' 
-          items={[ 'История', 'Математика', 'Русский язык',
-            'Информатика' ]} 
+          items={subjects.map((s) => s.title)} 
           theme='white-primary'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
         {/*Новости*/}
         <NavigationLink key={appLinks[2].name} link={appLinks[2]}   
           onClick={() => {
-
-            //console.log(localStorage.getItem('subject'))
             navigate(urls.news)
           }}/>
         {/*Контакты*/}

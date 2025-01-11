@@ -1,4 +1,4 @@
 export type Subject = {
-    id?: number;
+    id: number;
     title: string;
 }

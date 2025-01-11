@@ -19,7 +19,7 @@ const Menu = () => {
         {title: AdminPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
         {title: AdminPages.HOMEWORK, onClick: () => navigate(urls.homework)},
         {title: AdminPages.COURSES, onClick: () => navigate(urls.myCourses)},
-        {title: AdminPages.PUPILS, onClick: () => navigate(urls.pupils)},
+        // {title: AdminPages.PUPILS, onClick: () => navigate(urls.pupils)},
         {title: AdminPages.TEACHERS, onClick: () => navigate(urls.teachers)},
         {title: AdminPages.REVIEWS, onClick: () => navigate(urls.reviews)},
         {title: AdminPages.MYDATA, onClick: () => navigate(urls.myData)},
@@ -31,7 +31,7 @@ const Menu = () => {
         {title: TeacherPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
         {title: TeacherPages.HOMEWORK, onClick: () => navigate(urls.homework)},
         {title: TeacherPages.COURSES, onClick: () => navigate(urls.myCourses)},
-        {title: TeacherPages.PUPILS, onClick: () => navigate(urls.pupils)},
+        // {title: TeacherPages.PUPILS, onClick: () => navigate(urls.pupils)},
         {title: TeacherPages.MYDATA, onClick: () => navigate(urls.myData)},
     ] 
     :

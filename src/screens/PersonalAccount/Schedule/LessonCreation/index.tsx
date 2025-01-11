@@ -8,31 +8,43 @@ import DateTimeInput from "../../../../shared/Inputs/DateTimeInput";
 import { getTeachers } from "../../../../services/teacher.service";
 import { useEffect, useState } from "react";
 import { Teacher } from "../../../../types/teacher";
+import { User } from "../../../../types/user";
 import ListSelect from "../../../../shared/Inputs/ListSelect";
 import { AxiosError } from "axios";
 import { createLesson } from "../../../../services/lesson.service";
 import { ERROR_RUS } from "../../../../shared/Errors/errorTypes";
+import { getAllStudents } from "../../../../services/students.service";
+import RadioGroup from "../../../../shared/Buttons/RadioGroup";
 
 interface IProps {    
-    // onSubmit: (lesson: Lesson) => void
-    // onCancel?: () => void
     onClose: () => void
 }
 
 const LessonCreation = ({onClose} : IProps) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [teachers, setTeachers] = useState<Teacher[]>([]);
+    const [teachers, setTeachers] = useState<User[]>([]);
+    const [students, setStudents] = useState<User[]>([]);
     const { register, handleSubmit, formState: { errors }} = useForm<Lesson | any>();
 
     useEffect(() => {
-       const data = getTeachers();
-       data.then((res: any) => setTeachers(res.data));
-    }, [])
+       getTeachers().then((res: any) => {
+        if (! (res instanceof AxiosError) && res.status === 200) {
+            const teachersAsUsers = res.data.map((t: Teacher) => t.userData);
+            setTeachers(teachersAsUsers);
+        }
+       });
+
+       getAllStudents().then((res: any) => {
+        if (! (res instanceof AxiosError) && res.status === 200)
+            setStudents(res.data);
+        });
+    },[])
 
     
     const onLessonCreateClick = async (lesson: Lesson) => {
         setLoading(true);
+        console.log(lesson.duration);
             
         //18000 - 5 часов, для устранения временного сдвига
         const seconds = Math.floor(new Date(lesson.timestamp).getTime() / 1000) + 18000;
@@ -53,25 +65,42 @@ const LessonCreation = ({onClose} : IProps) => {
 
     return (
         <form className="px-4 py-3 creation-form" onSubmit={handleSubmit(onLessonCreateClick)}>
-            <div className="text--heading3 text-600 text--blue title">Добавление урока</div>
+            <div className="text--heading3 text-600 text--blue title">Добавление занятия</div>
+
+            <div className="text--body-s text-600 text--blue lesson-input-label">Выберите дату и время</div>
             <DateTimeInput placeholder={"Выберите время урока"} 
-                register={{...register('timestamp',{required: "Выберите время урока"}) }}/>
+                register={{...register('timestamp',{required: "Выберите дату и время урока"}) }}/>
             <TextError text={errors.timestamp?.message?.toString() || ''}/>
 
-            <TextInput placeholder={"Добавьте домашнее задание"} type="text" id={"homework"} 
+            <div className="text--body-s text-600 text--blue lesson-input-label">Выберите продолжительность урока</div>
+            <RadioGroup data={[{name: '1 час', isChecked: true},{name: '1.5 часа', isChecked: false}]} 
+                // register={{...register('duration', {required: "Выберите продолжительность урока"}) }}
+                />
+
+           <div className="text--body-s text-600 text--blue lesson-input-label">Выберите ученика</div> 
+           {students.length > 0 ? 
+            <ListSelect data={students}
+                register={{...register('studentSlug',{required: "Выберите ученика"}) }}
+                error={errors.teacherSlug}/> 
+            :
+            <div>Загрузка данных...</div>    
+            }
+
+<           div className="text--body-s text-600 text--blue lesson-input-label">Выберите преподавателя</div>
+            {teachers.length > 0 ?
+            <ListSelect data={teachers}
+                register={{...register('teacherSlug',{required: "Выберите преподавателя"}) }}
+                error={errors.teacherSlug}/> 
+            :
+            <div>Загрузка данных...</div>
+            }
+
+            <div className="text--body-s text-600 text--blue lesson-input-label">Добавьте название занятия</div>
+            <TextInput placeholder={"Название занятия"} type="text" id={"homework"}
                 register={{...register('homework') }} error={errors.homework}/>
             
-            <TextInput placeholder={"Выберите ученика"} type="text" id={"studentSlug"} 
-                register={{...register('studentSlug')}}/>
-            {/* <TextInput placeholder={"Выберите преподавателя"} type="text" id={"teacherSlug"}
-                register={{...register('teacherSlug',{required: "Выберите преподавателя"}) }}
-                error={errors.teacherSlug}/> */}
-
-            {teachers.length > 0 && <ListSelect data={teachers} placeholder={"Выберите преподавателя"}  
-                register={{...register('teacherSlug',{required: "Выберите преподавателя"}) }}
-                error={errors.teacherSlug}/> }
-            
-            <TextInput placeholder={"Добавьте комментарий к заданию"} type="text" 
+            <div className="text--body-s text-600 text--blue lesson-input-label-1">Добавьте комментарий к занятию</div>
+            <TextInput placeholder={"Комментарий"} type="text"
                 id={"teacherNotes"} register={{...register('teacherNotes') }}
                 error={errors.teacherNotes}/>
 

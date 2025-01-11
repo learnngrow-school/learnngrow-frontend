@@ -1,6 +1,7 @@
 import { forwardRef, useState } from "react"
 
 export interface IButtonProps {
+    id?: number
     text: string
     onClick?: (arg: any) => void,
     type?:
@@ -15,6 +16,7 @@ export interface IButtonProps {
     | 'pink-primary'
     | 'pink-secondary'
     | 'green'
+    | 'green-big-shadow'
     className?: string,
     iconFirst?: boolean,
     iconPath?: string,
@@ -43,6 +45,7 @@ const BaseButton = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
 
     return (
         <button 
+            id = {props.id ? props.id.toString() : '123'}
             ref={ref}
             type={props.type? props.type : 'button'}
             data-theme={props.theme ? props.theme : 'white'} 

@@ -6,12 +6,12 @@ export const createLesson = async (lesson: Lesson) : Promise<AxiosResponse | Axi
     try{
         const response = await authApi.post('/lessons/', lesson);
             
-        console.log('Lesson creation status:', response);
+        //console.log('Lesson creation status:', response);
         
         return response;
     }
     catch(error : any){
-        console.error('Lesson creation error:', error);
+        //console.error('Lesson creation error:', error);
         return error as AxiosError;
     }
 };
@@ -19,7 +19,7 @@ export const createLesson = async (lesson: Lesson) : Promise<AxiosResponse | Axi
 export const getLessons = async (): Promise<Lesson[] | AxiosError> => {
     try {
         const response = await authApi.get('/lessons/0');
-        console.log('Fetched lessons:', response.data);
+        //console.log('Fetched lessons:', response.data);
 
         // Преобразуем временные метки
         if (Array.isArray(response.data)) {
