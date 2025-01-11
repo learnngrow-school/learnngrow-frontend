@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { FieldError, Merge, FieldErrorsImpl } from "react-hook-form";
 import "./fileInput.css";
 import plusIcon from "../../../assets/icons/plus-gray.svg";
