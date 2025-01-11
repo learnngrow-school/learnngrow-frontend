@@ -16,7 +16,7 @@ const Menu = () => {
     const items: IMenuProps[] = user.firstName == "Admin"?
     [
         {title: AdminPages.MAIN, onClick: () => navigate(urls.mainPersonal)},
-        // {title: AdminPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
+        {title: AdminPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
         {title: AdminPages.HOMEWORK, onClick: () => navigate(urls.homework)},
         {title: AdminPages.COURSES, onClick: () => navigate(urls.myCourses)},
         // {title: AdminPages.PUPILS, onClick: () => navigate(urls.pupils)},
@@ -28,7 +28,7 @@ const Menu = () => {
     user.isTeacher ? 
     [
         {title: TeacherPages.MAIN, onClick: () => navigate(urls.mainPersonal)},
-        // {title: TeacherPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
+        {title: TeacherPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
         {title: TeacherPages.HOMEWORK, onClick: () => navigate(urls.homework)},
         {title: TeacherPages.COURSES, onClick: () => navigate(urls.myCourses)},
         // {title: TeacherPages.PUPILS, onClick: () => navigate(urls.pupils)},
