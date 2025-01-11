@@ -14,20 +14,47 @@ import { Subject } from '../../../types/subject'
 import { useEffect, useState } from 'react'
 import { getSubjects } from '../../../services/subject.service'
 import { AxiosError } from 'axios'
-import { fishSubjects } from '../../../screens/Main/components/subjects'
 
 const Navbar = () => {
+
+  const fishSubjects: Subject[] = [
+      {
+          id: 1,
+          title: "Математика"
+      },
+      {
+          id: 2,
+          title: "Физика"
+      },
+      {
+          id: 3,
+          title: "Русский язык"
+      },
+      {
+          id: 4,
+          title: "Информатика"
+      },
+      {
+          id: 5,
+          title: "Литература"
+      },
+      {
+          id: 6,
+          title: "Английский язык"
+      },
+      {
+          id: 7,
+          title: "Обществознание"
+      }
+  ] 
   const navigate = useNavigate()
   const user = localStorage.getItem('user')
-  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [subjects, setSubjects] = useState<Subject[]>(fishSubjects)
 
   useEffect(() => { 
     getSubjects().then((response) => {
     if (!(response instanceof AxiosError)) {
       setSubjects(response.data)
-    }
-    else{
-      setSubjects(fishSubjects)
     }
   } )
   }, [])
@@ -45,7 +72,7 @@ const Navbar = () => {
       </div>
       <div className='navLinksBlock'>
         <DropDownButton text='Предметы' 
-          items={subjects.map((s) => s.title)} 
+          items={subjects.length > 0 ? subjects.map((s) => s.title) : fishSubjects.map((s) => s.title)} 
           theme='white-primary'
           className='subjectsContainer'
           onClick={onSubjectClick}/>
