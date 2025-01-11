@@ -1,3 +1,4 @@
+import StudentHomework from "./components/StudentHomework";
 import TeacherHomework from "./components/TeacherHomework";
 
 const Homework = () => {
@@ -8,8 +9,8 @@ const Homework = () => {
             {user.isTeacher || user.isSuperuser 
             ?
                 <TeacherHomework/>
-            : null
-                
+            : 
+                <StudentHomework/>
             }
         </>
     );
