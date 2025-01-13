@@ -23,6 +23,7 @@ interface IProps {
 const LessonCreation = ({onClose} : IProps) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [duration, setDuration] = useState(60);
     const [teachers, setTeachers] = useState<User[]>([]);
     const [students, setStudents] = useState<User[]>([]);
     const { register, handleSubmit, formState: { errors }} = useForm<Lesson | any>();
@@ -44,11 +45,12 @@ const LessonCreation = ({onClose} : IProps) => {
     
     const onLessonCreateClick = async (lesson: Lesson) => {
         setLoading(true);
-        console.log(lesson.duration);
             
-        //18000 - 5 часов, для устранения временного сдвига
-        const seconds = Math.floor(new Date(lesson.timestamp).getTime() / 1000) + 18000;
+        const seconds = Math.floor(new Date(lesson.timestamp).getTime() / 1000);
         lesson.timestamp = seconds;
+        lesson.duration = duration;
+        //заглушка
+        lesson.fileSlug = "123"
         console.log('Добавлен урок на ',new Date(lesson.timestamp));
             
         const response = await createLesson(lesson);
@@ -73,8 +75,14 @@ const LessonCreation = ({onClose} : IProps) => {
             <TextError text={errors.timestamp?.message?.toString() || ''}/>
 
             <div className="text--body-s text-600 text--blue lesson-input-label">Выберите продолжительность урока</div>
-            <RadioGroup data={[{name: '1 час', isChecked: true},{name: '1.5 часа', isChecked: false}]} 
-                // register={{...register('duration', {required: "Выберите продолжительность урока"}) }}
+            <RadioGroup data={
+                    [
+                        {name: '1 час', isChecked: true, value: 60},
+                        {name: '1.5 часа', isChecked: false, value: 90},
+                    ]
+                } 
+                setValue={setDuration}
+                register={{...register('duration', {required: "Выберите продолжительность урока"}) }}
                 />
 
            <div className="text--body-s text-600 text--blue lesson-input-label">Выберите ученика</div> 

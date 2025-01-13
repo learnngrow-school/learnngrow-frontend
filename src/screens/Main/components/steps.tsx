@@ -7,7 +7,7 @@ import Fourth from "../../../assets/icons/4.svg"
 const steps = [
     { icon: First, title: "Завести личный кабинет" },
     { icon: Second, title: "Пройти тестирование в ТГ боте"},
-    { icon: Third, title: "Приобрести подходящий курс" },
+    { icon: Third, title: "Связаться с администратором" },
     { icon: Fourth, title: "Начать обучение"}
 ]
 

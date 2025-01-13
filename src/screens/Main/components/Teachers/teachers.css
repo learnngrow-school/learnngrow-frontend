@@ -22,7 +22,7 @@
 
 .teacher-card:hover {
     cursor: pointer;
-    box-shadow: var(--box-shadow-pink);
+    /* box-shadow: var(--box-shadow-pink); */
 }
 
 .photo {
