@@ -41,7 +41,6 @@ const Menu = () => {
         {title: PupilPages.HOMEWORK, onClick: () => navigate(urls.homework)},
         {title: PupilPages.COURSES, onClick: () => navigate(urls.myCourses)},
         {title: PupilPages.SHOP, onClick: () => navigate(urls.shop)},
-        {title: PupilPages.NEWS, onClick: () => navigate(urls.news)},
         {title: PupilPages.MYDATA, onClick: () => navigate(urls.myData)},
     ] 
 
