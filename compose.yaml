@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`learnngrow.ru`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls.certresolver=myresolver"
+    networks:
+      - frontend_network
+
+networks:
+  frontend_network:
+    driver: bridge
