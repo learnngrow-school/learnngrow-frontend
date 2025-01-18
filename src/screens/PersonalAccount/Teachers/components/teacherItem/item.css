@@ -2,7 +2,21 @@
     padding: 0px;
 }
 
+.teacher-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
 .teacher-name{
+    align-items: center;
     padding: 5px 0px;
     cursor: pointer;
+}
+
+.teacher-delete-btn{
+    cursor: pointer;
+    color: var(--red);
+    height: 40px;
 }
