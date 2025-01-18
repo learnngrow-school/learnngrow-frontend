@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding-right: 20px;
 }
 
@@ -17,6 +18,5 @@
 
 .teacher-delete-btn{
     cursor: pointer;
-    color: var(--red);
     height: 40px;
 }
