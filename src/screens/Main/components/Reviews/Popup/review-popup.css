@@ -1,0 +1,46 @@
+.review-popup-container{
+    width: 360px !important;
+    align-self: center;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: calc((100% - 360px)/2) !important;
+    margin-top: 100px;
+}
+
+.review-popup-content{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 320px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-review-popup-close {
+    align-self: flex-end;
+    cursor: pointer;
+    color: var(--grey-dark);
+    border: 1px solid var(--grey-dark);
+    border-radius: 10px;
+    width: 28px;
+    height: 28px;
+    background-image: url("../../../../../assets/icons/cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--white);
+    margin: 0px;
+    padding: 0px;
+}
+
+.btn-review-popup-close:hover {
+    opacity: 0.7;
+}
+
+.review-text {
+    text-align: center;
+    color: var(--black);
+    padding-bottom: 20px;
+}
