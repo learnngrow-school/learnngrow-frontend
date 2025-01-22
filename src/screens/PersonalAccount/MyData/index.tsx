@@ -13,13 +13,14 @@ import TextInput from '../../../shared/Inputs/TextInput';
 import ToastPopup, { INotify } from '../../../shared/ToastPopup';
 import { ToastTypeEnum } from '../../../enums/popup';
 import AvatarInput from '../../../shared/Inputs/AvatarInput';
+import CatAvatar from "../../../assets/pictures/cat3.png"
 
 const MyData = () => {
     const [acceptModalVisible, setAcceptModalVisible] = useState(false);
     // const [editDisabled, setEditDisabled] = useState(true);
     // const [editText, setEditText] = useState('Изменить данные');
     const navigate = useNavigate();
-    const [avatar, setAvatar] = useState('');
+    const [avatar, setAvatar] = useState(CatAvatar);
 
     const toastRef = useRef<INotify>(null);
 

@@ -3,6 +3,8 @@ import { Teacher } from "../../../../../types/teacher";
 import BaseButton from "../../../../../shared/Buttons/BaseButton";
 import AcceptModal from "../../../../../shared/Modals/AcceptModal";
 import { useState } from "react";
+import { deleteTeacher } from "../../../../../services/teacher.service";
+import { AxiosError } from "axios";
 
 interface IProps {
     teacher: Teacher
@@ -12,7 +14,15 @@ interface IProps {
 const TeacherItem = ({teacher, index}: IProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const onDeleteClick = () => {
+    const onDeleteClick = async (slug: string) => {
+        deleteTeacher(slug).then((response : any) => {
+            if (! (response instanceof AxiosError) && response.status === 200) {
+                window.location.reload();
+            }
+            else {
+                console.log(response);
+            }
+        })
         setIsOpen(false);
     }
 
@@ -36,7 +46,7 @@ const TeacherItem = ({teacher, index}: IProps) => {
                 className="teacher-delete-btn"/>
             </div>
         </div>
-        <AcceptModal onCancel={onAcceptModalClose} onOk={onDeleteClick} isOpen={isOpen} 
+        <AcceptModal onCancel={onAcceptModalClose} onOk={() => onDeleteClick(teacher.userData.slug?.toString() || "")} isOpen={isOpen} 
             content="Вы действительно хотите удалить этого преподавателя?" okText="Удалить"/>
         </>
     )
