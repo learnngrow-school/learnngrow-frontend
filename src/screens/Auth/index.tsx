@@ -37,7 +37,8 @@ const Auth = () => {
             navigate(urls.myData);
         }
         else{
-            const errorRus = ERROR_RUS[response.message as string]
+            //console.log(response.request.responseText);
+            const errorRus = ERROR_RUS[response.request.responseText as string]
             setError(errorRus ? errorRus : 'Неизвестная ошибка');
 
             setLoading(false);
