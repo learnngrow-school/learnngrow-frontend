@@ -27,3 +27,12 @@ export const createTeacher = async (teacher: User) : Promise<AxiosResponse | Axi
     }
 }
 
+export const deleteTeacher = async (slug: string) : Promise<AxiosResponse | AxiosError> => {
+    try{
+        const response = await authApi.delete(`/teachers/${slug}`);    
+        return response;
+    }
+    catch(error : any){
+        return error as AxiosError;
+    }
+}
