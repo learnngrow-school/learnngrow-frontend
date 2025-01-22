@@ -22,11 +22,12 @@ const Contacts = () => {
         <div className="content">
 
             <div className="contactsContainer"> 
-                <div className="addressItem">
+                <div className="addressItem"
+                    onClick={() => window.open("https://yandex.ru/maps/54/yekaterinburg/house/naberezhnaya_rabochey_molodyozhi_1/YkkYcAdgT0QHQFtsfXRyeHlkZg==/?ll=60.600207%2C56.839639&z=18.39") }>
                     <img src={Address} alt="address" className="icon"/>
                     <div>
                         <div className="text--heading4 text-600 heading-4">Адрес: </div>
-                        <div className="text--body-s heading-4"> г. Екатеринбург, ул. Набережная рабочей молодежи, д.1</div>
+                        <div className="text--body-s heading-4 contactText"> г. Екатеринбург, ул. Набережная рабочей молодежи, д.1</div>
                     </div>
                 </div>
                 
