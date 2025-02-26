@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HomeworkCard from "../HomeworkCard/homework-card";
 import Sad from "../../../../../assets/icons/sad.svg";
 import Homework from "../../../../../types/homework";
-import { getTasks } from "../../../../../services/tasks.service"; // Подключаем нашу функцию
+import { getTasks } from "../../../../../services/tasks.service";
 import "./main.css";
 import BaseButton from "../../../../../shared/Buttons/BaseButton";
 
@@ -15,28 +15,27 @@ const StudentHomework = () => {
   useEffect(() => {
     const fetchHomeworks = async () => {
       try {
-        const tasks = await getTasks(); // Получаем задания с сервера
+        const tasks = await getTasks();
         if (Array.isArray(tasks)) {
-          // Преобразуем задачи типа Task в Homework
           const mappedHomeworks: Homework[] = tasks.map((task) => ({
-            fileSlug: task.fileSlug, // Берем из Task
-            title: task.title, // Берем из Task
-            teacherNotes: task.teacherNotes, // Берем из Task
+            fileSlug: task.fileSlug,
+            title: task.title,
+            teacherNotes: task.teacherNotes,
             deadline: new Date().getTime() + 86400000, // Пример: текущая дата + 1 день (могут быть другие правила)
             completed: false, // Можно временно установить все задания как невыполненные
           }));
-          setHomeworks(mappedHomeworks); // Обновляем состояние с заданиями
+          setHomeworks(mappedHomeworks);
         } else {
           setError('Не удалось загрузить задания');
         }
       } catch (error) {
         setError('Произошла ошибка при загрузке данных');
       } finally {
-        setLoading(false); // Завершаем загрузку данных
+        setLoading(false);
       }
     };
   
-    fetchHomeworks(); // Вызов функции получения данных
+    fetchHomeworks();
   }, []);
   
 
