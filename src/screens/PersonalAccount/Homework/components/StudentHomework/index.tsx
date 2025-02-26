@@ -2,25 +2,43 @@ import { useEffect, useState } from "react";
 import HomeworkCard from "../HomeworkCard/homework-card";
 import Sad from "../../../../../assets/icons/sad.svg";
 import Homework from "../../../../../types/homework";
+import { getTasks } from "../../../../../services/tasks.service"; // Подключаем нашу функцию
 import "./main.css";
 import BaseButton from "../../../../../shared/Buttons/BaseButton";
 
 const StudentHomework = () => {
   const [homeworks, setHomeworks] = useState<Homework[]>([]);
-  const [error] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [showAllCompletedHomeworks, setShowAllCompletedHomeworks] = useState(false);
 
   useEffect(() => {
-    const mockHomeworks = [
-      { homework: "Математика", deadline: new Date().getTime() + 86400000, link: "https://miro.com/fgasagfdgfdgdfg", completed: false },
-      { homework: "Русский язык", deadline: new Date().getTime() + 172800000, link: "https://miro.com/fgasaggfgfgfgfd", completed: false },
-      { homework: "Литература", deadline: new Date().getTime() - 86400000, link: "https://miro.com/fgasagfdgdfbbf", completed: true },
-    ];
-
-    setHomeworks(mockHomeworks);
-    setLoading(false);
+    const fetchHomeworks = async () => {
+      try {
+        const tasks = await getTasks(); // Получаем задания с сервера
+        if (Array.isArray(tasks)) {
+          // Преобразуем задачи типа Task в Homework
+          const mappedHomeworks: Homework[] = tasks.map((task) => ({
+            fileSlug: task.fileSlug, // Берем из Task
+            title: task.title, // Берем из Task
+            teacherNotes: task.teacherNotes, // Берем из Task
+            deadline: new Date().getTime() + 86400000, // Пример: текущая дата + 1 день (могут быть другие правила)
+            completed: false, // Можно временно установить все задания как невыполненные
+          }));
+          setHomeworks(mappedHomeworks); // Обновляем состояние с заданиями
+        } else {
+          setError('Не удалось загрузить задания');
+        }
+      } catch (error) {
+        setError('Произошла ошибка при загрузке данных');
+      } finally {
+        setLoading(false); // Завершаем загрузку данных
+      }
+    };
+  
+    fetchHomeworks(); // Вызов функции получения данных
   }, []);
+  
 
   const now = Date.now();
 
@@ -52,10 +70,10 @@ const StudentHomework = () => {
             <div className="homeworks-list">
               {upcomingHomeworks.map((homework) => (
                 <HomeworkCard
-                  key={homework.homework}
-                  homework={homework.homework}
+                  key={homework.title}
+                  homework={homework.title}
                   deadline={homework.deadline}
-                  link={homework.link}
+                  link={homework.teacherNotes}
                   completed={homework.completed}
                 />
               ))}
@@ -76,10 +94,10 @@ const StudentHomework = () => {
             <div className="homeworks-list">
               {(showAllCompletedHomeworks ? completedHomeworks : completedHomeworks.slice(0, 3)).map((homework) => (
                 <HomeworkCard
-                  key={homework.homework}
-                  homework={homework.homework}
+                  key={homework.title}
+                  homework={homework.title}
                   deadline={homework.deadline}
-                  link={homework.link}
+                  link={homework.teacherNotes}
                   completed={homework.completed}
                 />
               ))}

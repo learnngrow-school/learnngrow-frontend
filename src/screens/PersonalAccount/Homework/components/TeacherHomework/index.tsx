@@ -5,22 +5,45 @@ import PlusWhite from "../../../../../assets/icons/plus-white.svg";
 import PlusPink from "../../../../../assets/icons/plus-pink.svg";
 import Search from "../../../../../assets/icons/search.svg";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getTasks } from "../../../../../services/tasks.service";
+import { Task } from "../../../../../types/task";
 
 const TeacherHomework = () => {
   const navigate = useNavigate();
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Example data
-  const tasks = [
-    { id: 1, name: "Урок 1", link: "https://miro.com//fggfdghhhgfdgfdgfdgfdgdfgfd" },
-    { id: 2, name: "Урок 2", link: "https://miro.com//fggfdghhhgfdgfdgfdgfdgdfgfd" },
-    { id: 3, name: "Функции", link: "https://miro.com//fggfdghhhgfdgfdgfdgfdgdfgfd" },
-    { id: 4, name: "Урок урок", link: "https://miro.com//fggfdghhhgfdgfdgfdgfdgdfgfd" },
-  ];
+  // Получение заданий с сервера
+  useEffect(() => {
+      const fetchTasks = async () => {
+          setLoading(true);
+          const result = await getTasks();
+          if (Array.isArray(result)) {
+              setTasks(result);
+              console.log(result)
+          } else {
+              setError('Не удалось загрузить задания');
+          }
+          setLoading(false);
+      };
 
-  // Handle button click
+      fetchTasks();
+  }, []);
+
+
   const handleCreateHomeworkClick = () => {
     navigate("/me/homework/create");
   };
+
+  if (loading) {
+    return <div>Загрузка...</div>;
+  }
+
+  if (error) {
+      return <div>Ошибка: {error}</div>;
+  }
 
   return (
     <div className="lessons-page">
@@ -53,16 +76,16 @@ const TeacherHomework = () => {
               </thead>
               <tbody>
                 {tasks.map((task, index) => (
-                  <tr key={task.id}>
-                    <td>{index + 1}. {task.name}</td>
+                  <tr>
+                    <td>{index + 1}. {task.title}</td>
                     <td>
-                      <a className="link-homework" href={task.link} target="_blank" rel="noopener noreferrer">
-                        {task.link}
-                      </a>
+                      <p className="link-homework">
+                        {task.teacherNotes}
+                      </p>
                     </td>
                     <td>
                       <a
-                        href={task.link}
+                        href={task.teacherNotes}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="task-link"

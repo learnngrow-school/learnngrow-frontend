@@ -11,6 +11,8 @@ import ListSelect from "../../../../../shared/Inputs/ListSelect";
 import { getAllStudents } from "../../../../../services/students.service";
 import { AxiosError } from "axios";
 import { User } from "../../../../../types/user";
+import { createTask } from "../../../../../services/tasks.service";
+import { uploadFile } from "../../../../../services/files.service";
 
 interface ICreateHomeworkForm {
   title: string;
@@ -56,9 +58,26 @@ const CreateHomework = () => {
 
   const onSubmit = async (data: ICreateHomeworkForm) => {
     try {
-      const filesData = uploadedFiles.map((file) => file.name);
-      console.log("Задание успешно создано", { ...data, files: filesData });
-      navigate(-1);
+      // Сначала загружаем файлы и получаем их slugs
+      const fileSlugs = await Promise.all(
+        uploadedFiles.map(async (file) => {
+          const slug = await uploadFile(file);
+          if (slug instanceof Error) {
+            throw new Error(`Ошибка при загрузке файла: ${file.name}`);
+          }
+          return slug;
+        })
+      );
+
+      // Отправляем задание с полученными slugs файлов
+      const response = await createTask(data.title, fileSlugs, data.comments);
+
+      if (response instanceof AxiosError) {
+        console.error("Ошибка при создании задания:", response.message);
+      } else {
+        console.log("Задание успешно создано:", response.data);
+        navigate(-1); // Переход к предыдущей странице
+      }
     } catch (error) {
       console.error("Ошибка при создании задания:", error);
     }

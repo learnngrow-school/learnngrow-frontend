@@ -1,5 +1,6 @@
 import { FC } from "react";
 import "./course-card.css";
+import CourseImg from "../../../../assets/pictures/course_default.png";
 
 interface CourseCardProps {
     title: string;
@@ -11,7 +12,8 @@ interface CourseCardProps {
 const CourseCard: FC<CourseCardProps> = ({ title, subject, price, progress }) => {
     return (
             <div className="course-card">
-                <div className="course-image"> {/*изображение*/ }
+                <div className="course-image">
+                <img src={CourseImg}></img>
                     {progress !== undefined && (
                         <div className="course-progress-bar">
                             <div className="course-progress" style={{ width: `${progress}%` }}>

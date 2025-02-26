@@ -73,16 +73,11 @@
 }
 
 .link-homework {
-    text-decoration: none;
     display: table-cell;
     max-width: 200px;
-    overflow: hidden; /* Скрываем текст за пределами области */
-    white-space: nowrap; /* Текст в одну строку */
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-.link-homework:hover {
-    text-decoration: underline;
 }
 
 .task-link {

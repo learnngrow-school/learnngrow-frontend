@@ -1,7 +1,8 @@
 export type Homework = {
-    homework: string;
+    fileSlug: string;
+    title: string;
+    teacherNotes: string;
     deadline: number | string | Date;
-    link: string;
     completed: boolean;
 }
 
