@@ -1,0 +1,49 @@
+.subjects-slider {
+    display:flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.slider-button-schedule {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.slider-button-schedule img {
+    width: 24px;
+    height: 24px;
+}
+
+.slider-button-schedule:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.subjects-container-schedule {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 40px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    justify-content: center;
+}
+
+.subjects-container::-webkit-scrollbar {
+    display: none;
+}
+
+.add-lesson-btn-schedule-slider {
+    white-space: nowrap;
+    flex-grow: 0;
+    font-size: 16px !important;
+    width: 160px;
+    height: 40px;
+}

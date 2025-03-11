@@ -1,0 +1,112 @@
+.container-schadule-table {
+    position: relative;
+    margin-top: 20px;
+    width: 104%;
+}
+
+.schadule-table td {
+    border-top: 1px solid var(--grey-light);
+    border-bottom: 1px solid var(--grey-light);
+    border-left: 1px solid var(--grey-light);
+}
+
+.schadule-table td:first-child {
+    border-left: none;
+    width: 58px;
+    text-align: center;
+    padding-bottom: 35px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.schadule-table th {
+    color: var(--gray-dark);
+    border-top: 1px solid var(--grey-light);
+    border-bottom: 1px solid var(--grey-light);
+    border-left: 1px solid var(--grey-light);
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px 9px;
+}
+
+.schadule-table td {
+    width: 120px;
+    height: 74px;
+}
+
+.schadule-table th{
+    width: 120px;
+    height: 41px;
+}
+
+.schadule-table th:first-child {
+    border-left: none;
+    width: 58px;
+}
+
+.lesson-box-sch {
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.schedule-container {
+    position: relative;
+    margin-top: 20px;
+    width: 104%;
+}
+
+.container-schadule-table {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.schadule-table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+}
+
+.schedule-cell {
+    position: relative;
+    height: 60px;
+    border: 1px solid #ccc;
+    min-width: 100px;
+}
+
+.lesson-block {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: var(--blue-light);
+    color: var(--blue-dark);
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 8px 0px 0px 8px;
+    font-weight: 400;
+    text-align: left;
+    overflow: hidden; 
+    border: 1px solid var(--blue);
+}
+
+
+.lesson-title-sch {
+    font-size: 13px;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4em;
+    font-weight: 400;
+
+}
+
+
+.lesson-time-sch {
+    margin-bottom: 5px;
+    font-size: 13px;
+}

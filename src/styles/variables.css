@@ -1,6 +1,8 @@
 :root {
   --black: #000000;
   --blue-dark: rgba(3, 37, 77, 1);
+  --blue-light: rgba(212, 236, 255, 1);
+  --blue: rgba(127, 199, 255, 1);
   --pink: rgba(241, 120, 182, 1);
   --error: red;
   --white: rgba(255, 255, 255, 1);

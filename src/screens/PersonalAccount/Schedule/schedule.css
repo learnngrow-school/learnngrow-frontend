@@ -1,3 +1,19 @@
-.add-lesson-btn{
-    margin-top: 30px;
+.container-schedule-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.filter-roll-subject-container {
+    width: 78%;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.add-lesson-btn-schedule {
+    white-space: nowrap;
+    flex-grow: 0;
+    height: 40px;
+    width: 200px;
 }

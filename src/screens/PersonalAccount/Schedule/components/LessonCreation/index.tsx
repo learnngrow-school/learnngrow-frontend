@@ -1,20 +1,20 @@
-import TextError from "../../../../shared/Errors/TextError"
-import TextInput from "../../../../shared/Inputs/TextInput"
+import TextError from "../../../../../shared/Errors/TextError"
+import TextInput from "../../../../../shared/Inputs/TextInput"
 import { useForm } from "react-hook-form";
-import Lesson from "../../../../types/lesson";
-import BaseButton from "../../../../shared/Buttons/BaseButton";
+import Lesson from "../../../../../types/lesson";
+import BaseButton from "../../../../../shared/Buttons/BaseButton";
 import './lessonCreation.css'
-import DateTimeInput from "../../../../shared/Inputs/DateTimeInput";
-import { getTeachers } from "../../../../services/teacher.service";
+import DateTimeInput from "../../../../../shared/Inputs/DateTimeInput";
+import { getTeachers } from "../../../../../services/teacher.service";
 import { useEffect, useState } from "react";
-import { Teacher } from "../../../../types/teacher";
-import { User } from "../../../../types/user";
-import ListSelect from "../../../../shared/Inputs/ListSelect";
+import { Teacher } from "../../../../../types/teacher";
+import { User } from "../../../../../types/user";
+import ListSelect from "../../../../../shared/Inputs/ListSelect";
 import { AxiosError } from "axios";
-import { createLesson } from "../../../../services/lesson.service";
-import { ERROR_RUS } from "../../../../shared/Errors/errorTypes";
-import { getAllStudents } from "../../../../services/students.service";
-import RadioGroup from "../../../../shared/Buttons/RadioGroup";
+import { createLesson } from "../../../../../services/lesson.service";
+import { ERROR_RUS } from "../../../../../shared/Errors/errorTypes";
+import { getAllStudents } from "../../../../../services/students.service";
+import RadioGroup from "../../../../../shared/Buttons/RadioGroup";
 
 interface IProps {    
     onClose: () => void
@@ -57,6 +57,7 @@ const LessonCreation = ({onClose} : IProps) => {
     
         if (!(response instanceof AxiosError)) {
             onClose();
+            window.location.reload();
         }
         else {
             const errorRus = ERROR_RUS[response.message as string]

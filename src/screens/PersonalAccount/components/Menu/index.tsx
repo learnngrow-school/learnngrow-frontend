@@ -37,7 +37,7 @@ const Menu = () => {
     :
     [
         {title: PupilPages.MAIN, onClick: () => navigate(urls.mainPersonal)},
-        // {title: PupilPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
+        {title: PupilPages.SCHEDULE, onClick: () => navigate(urls.schedule)},
         {title: PupilPages.HOMEWORK, onClick: () => navigate(urls.homework)},
         {title: PupilPages.COURSES, onClick: () => navigate(urls.myCourses)},
         {title: PupilPages.SHOP, onClick: () => navigate(urls.shop)},
