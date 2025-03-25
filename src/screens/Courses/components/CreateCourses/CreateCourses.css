@@ -1,0 +1,63 @@
+.container-create-courses{
+    width: 104.3%;
+}
+
+.first-block-create-courses {
+    display: flex;
+}
+
+.image-block-create-courses {
+    margin-left: auto;
+    justify-items: center;
+}
+
+.addtext-image-create-courses {
+    margin-top: 10px;
+    color: var(--grey-dark);
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.image-create-courses {
+    background-color: var(--grey-light);
+    height: 230px;
+    width: 360px;
+    border-radius: 10px;
+}
+
+.header-create-courses {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    margin-bottom: 25px;
+}
+
+.text-btn-create-courses-last {
+    display: flex;
+}
+
+.title-create-courses {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    margin-bottom: 5px;
+}
+
+.field-create-courses {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.fieldlist-create-courses {
+    width: 200px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.button-submit-next-create-courses {
+    width: 210px;
+    height: 40px;
+    margin-left: auto;
+}

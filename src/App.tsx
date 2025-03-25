@@ -26,6 +26,7 @@ import Teachers from './screens/PersonalAccount/Teachers';
 import TeacherCreation from "./screens/PersonalAccount/Teachers/components/creation";
 import Reviews from './screens/PersonalAccount/Reviews';
 import CreateHomework from './screens/PersonalAccount/Homework/components/CreateHomework';
+import CreateCourses from './screens/Courses/components/CreateCourses/CreateCourses';
 
 const store = createStore({
   reducer: {
@@ -69,6 +70,7 @@ const App: React.FC = () => {
                 <Route path={urls.teachers} element={<Teachers/>}/>
                 <Route path={urls.teacherCreation} element={<TeacherCreation/>}/>
                 <Route path={urls.createHomework} element={<CreateHomework/>}/>
+                <Route path={urls.createCourses} element={<CreateCourses/>}/>
               </Route>
             </Route>
         </Routes>

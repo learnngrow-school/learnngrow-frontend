@@ -19,4 +19,5 @@ export const urls = {
   teacherCreation: '/me/teachers/create',
   reviews: '/me/reviews',
   createHomework: '/me/homework/create',
+  createCourses: '/me/courses/create',
 }

@@ -1,0 +1,8 @@
+.week-selector-schedule {
+    display: flex;
+    align-items: center;
+}
+
+.btn-week-selector-schedule {
+    padding: 0px 10px 0px 0px;
+}

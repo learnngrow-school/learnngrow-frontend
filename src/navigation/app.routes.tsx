@@ -14,6 +14,7 @@ const Schedule = lazy(() => import('../screens/PersonalAccount/Schedule/index.ts
 const News = lazy(() => import('../screens/PersonalAccount/NewsPromos/index.tsx'))
 const Homework = lazy(() => import('../screens/PersonalAccount/Homework/index.tsx'))
 const CreateHomework = lazy(() => import('../screens/PersonalAccount/Homework/components/CreateHomework/index.tsx'))
+const CreateCourses = lazy(() => import('../screens/Courses/components/CreateCourses/CreateCourses.tsx'))
 
 const appRoutes: IRoute[] = [
   {
@@ -59,6 +60,10 @@ const appRoutes: IRoute[] = [
   {
     path: urls.createHomework,
     element: <CreateHomework/>
+  },
+  {
+    path: urls.createCourses,
+    element: <CreateCourses/>
   }
 ]
 

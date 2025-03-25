@@ -4,6 +4,10 @@
     width: 104%;
 }
 
+.th-schedule {
+    white-space: pre-line;
+}
+
 .schadule-table td {
     border-top: 1px solid var(--grey-light);
     border-bottom: 1px solid var(--grey-light);

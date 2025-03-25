@@ -1,22 +1,43 @@
 import { useEffect, useState } from "react";
-import "./main.css"
+import "./main.css";
 import { getLessons } from "../../../../../services/lesson.service";
 
-const ScheduleTable = () => {
+interface ScheduleTableProps {
+    weekOffset: number;
+}
+
+const ScheduleTable = ({ weekOffset }: ScheduleTableProps) => {
     const [lessons, setLessons] = useState<any[]>([]);
+    const [weekDays, setWeekDays] = useState<string[]>([]);
 
     useEffect(() => {
         const fetchLessons = async () => {
-            const data = await getLessons();
+            const data = await getLessons(weekOffset);
             if (Array.isArray(data)) {
                 setLessons(data);
+                generateWeekDays(data);
             }
         };
         fetchLessons();
-    }, []);
+    }, [weekOffset]);
 
-    const timeSlots = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`); // От 8 до 21
-    const weekDays = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+    const generateWeekDays = (lessons: any[]) => {
+        if (lessons.length === 0) return;
+
+        const firstLessonDate = new Date(lessons[0].timestamp);
+        const monday = new Date(firstLessonDate);
+        monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+
+        const days = Array.from({ length: 7 }, (_, i) => {
+            const date = new Date(monday);
+            date.setDate(monday.getDate() + i);
+            return `${["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"][i]} \n ${date.getDate()}.${(date.getMonth() + 1).toString().padStart(2, "0")}`;
+        });
+
+        setWeekDays(days);
+    };
+
+    const timeSlots = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
 
     return (
         <div className="container-schadule-table">
@@ -25,7 +46,7 @@ const ScheduleTable = () => {
                     <tr>
                         <th></th>
                         {weekDays.map((day, i) => (
-                            <th key={i}>{day}</th>
+                            <th key={i} className="th-schedule">{day}</th>
                         ))}
                     </tr>
                 </thead>
@@ -37,18 +58,11 @@ const ScheduleTable = () => {
                                 <td key={j}>
                                     <div className="lesson-box-sch">
                                         {lessons.map((lesson, index) => {
-                                            const dateObj =
-                                                typeof lesson.timestamp === "number" || typeof lesson.timestamp === "string"
-                                                    ? new Date(lesson.timestamp)
-                                                    : lesson.timestamp;
-
+                                            const dateObj = new Date(lesson.timestamp);
                                             const endDateObj = new Date(dateObj.getTime() + lesson.duration * 60000);
-
                                             const startHour = dateObj.getHours();
-                                            const startMinutes = dateObj.getMinutes();            
-
+                                            const startMinutes = dateObj.getMinutes();
                                             const startSlot = (startHour - 8) * 60 + startMinutes;
-                                            
                                             const dayIndex = (dateObj.getDay() + 6) % 7;
 
                                             if (j === dayIndex && startSlot >= i * 60 && startSlot < (i + 1) * 60) {
@@ -82,64 +96,3 @@ const ScheduleTable = () => {
 };
 
 export default ScheduleTable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className="lessons-overlay">
-                {lessons.map((lesson, index) => {
-                    const dateObj = typeof lesson.timestamp === "number" || typeof lesson.timestamp === "string" 
-                    ? new Date(lesson.timestamp) 
-                    : lesson.timestamp;
-                    const DateObj = new Date(dateObj.getTime() + 60000);
-
-                    const startTime = dateObj.toLocaleTimeString("ru-RU", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    });
-
-                    const endDateObj = new Date(dateObj.getTime() + lesson.duration * 60000);
-
-                    const endTime = endDateObj.toLocaleTimeString("ru-RU", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                    });
-
-                    const startHours = dateObj.getHours();
-                    const startMinutes = dateObj.getMinutes();
-                    
-                    const dayIndex = dateObj.getDay()
-
-                    const totalMinutesStart = startHours * 60 + startMinutes; // Переводим всё в минуты
-                    const top = (totalMinutesStart - 9 * 60) * 74.1 / 60; // 80px на каждый час, и делим на 60 для минут
-                    const height = (lesson.duration / 60) * 80 - 7; // Высота пропорциональна длительности
-                    const left = dayIndex * 120 - 62; // ширина одного столбца
-                    console.log(DateObj, "day - ", dayIndex, left, height, "top - ", top)
-
-                    return (
-                        <div
-                            key={index}
-                            className="lesson-block"
-                            style={{
-                                top: `${top}px`,
-                                height: `${height}px`,
-                                left: `${left}px`,
-                            }}
-                        >
-                            <p className="lesson-time-sch">{startTime} - {endTime}</p>
-                            <p className="lesson-title-sch">{lesson.homework}</p>
-                        </div>
-                    );
-                })}
-            </div> */}
