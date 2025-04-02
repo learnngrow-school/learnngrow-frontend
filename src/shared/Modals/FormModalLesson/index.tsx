@@ -1,4 +1,4 @@
-import "./form-modal.css"
+import "./main.css"
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 
@@ -10,16 +10,17 @@ interface ModalProps {
     className?: string;
     centered?: boolean;
     size?: any;
+    dialogClassName?: string;
 }
 
-const FormModal: React.FC<ModalProps> = (
-    { isOpen, title, content, className, centered, size}) => {
+const FormModalLesson: React.FC<ModalProps> = (
+    { isOpen, title, content, className, centered, size, dialogClassName}) => {
     
     const modalRef = React.useRef(null);
 
     return (
         <Modal show={isOpen} ref={modalRef} className={className ? className : ""}
-        keyboard={false} backdrop='static' enforceFocus={false} centered={centered ? centered : false} size={size}>
+        keyboard={false} backdrop='static' enforceFocus={false} centered={centered ? centered : false} size={size} dialogClassName={dialogClassName}>
             <div className="mod-content">
                 <div className="mod-text text--body-m text-600 text--blue">
                     {title}
@@ -30,4 +31,4 @@ const FormModal: React.FC<ModalProps> = (
   );
 };
 
-export default FormModal;
+export default FormModalLesson;

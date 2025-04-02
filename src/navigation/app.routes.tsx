@@ -2,6 +2,7 @@
 import { IRoute } from '../navigation/navigation.types.ts'
 import { urls } from '../navigation/app.urls.ts'
 import { lazy } from 'react'
+import CreateCoursesContent from '../screens/Courses/components/CreateCoursesContent/CreateCoursesContent.tsx'
 
 const Main = lazy(() => import('../screens/Main'))
 const Courses = lazy(() => import('../screens/Courses'))
@@ -64,6 +65,10 @@ const appRoutes: IRoute[] = [
   {
     path: urls.createCourses,
     element: <CreateCourses/>
+  },
+  {
+    path: urls.createCoursesContent,
+    element: <CreateCoursesContent/>
   }
 ]
 

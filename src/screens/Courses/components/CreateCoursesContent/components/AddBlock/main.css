@@ -1,0 +1,46 @@
+.add-block-card{
+    background-color: white;
+    width: 90%;
+    height: 165px;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 1px;
+}
+
+.add-block-card .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.add-block-card .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.field-add-block-input {
+    width: 80%;
+}
+
+.add-block-card .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-add-block {
+    width: 80%;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.add-block-card-position-form {
+    position: absolute;
+    top: -5%;
+}

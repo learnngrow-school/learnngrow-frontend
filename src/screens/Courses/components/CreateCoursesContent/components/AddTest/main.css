@@ -1,0 +1,43 @@
+.container-lesson-add-test .title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    height: 40px;
+    gap: 20px;
+    padding: 0px;
+}
+
+.container-lesson-add-test .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    height: 40px;
+    margin-left: 20px;
+}
+
+.container-lesson-add-test .input {
+    height: 40px;
+    width: 60%;
+}
+
+.lesson-add-test-btn {
+    height: 40px;
+    width: 35%;
+}
+
+.lesson-add-test-btn-bb {
+    height: 40px;
+    font-size: 16px;
+    width: 100%;
+    padding: 0px;
+}
+
+.button-new-question {
+    margin: 20px;
+    height: 40px;
+    width: 30%;
+}

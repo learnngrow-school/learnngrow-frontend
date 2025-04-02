@@ -1,0 +1,44 @@
+.container-create-form-add-lesson-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -30px;
+    width: 100%;
+}
+
+.container-create-form-add-lesson-name .header {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--blue-dark);
+    margin-bottom: 20px;
+}
+
+.container-create-form-add-lesson-name .close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.container-create-form-add-lesson-name .close .icon{
+    height: 28px;
+}
+
+.container-create-form-add-lesson-name .input {
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.container-create-form-add-lesson-name .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-bottom: 15px;
+}
+
+.add-lesson-name-btn {
+    width: 100%;
+    height: 40px;
+}
