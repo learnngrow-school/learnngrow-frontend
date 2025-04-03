@@ -7,15 +7,15 @@ import { useState } from 'react';
 interface IProps {
     onClose: () => void;
     onSubmit: (name: string) => void;
-    lessonType: string;
+    typeTask: string;
 }
 
-const AddLessonName = ({ onClose, onSubmit, lessonType}: IProps) => {
-    const [contentName, setContentName] = useState("");
+const AddLessonName = ({ onClose, onSubmit, typeTask}: IProps) => {
+    const [nameTask, setContentName] = useState("");
 
     const handleNext = () => {
-        if (contentName) {
-            onSubmit(contentName);
+        if (nameTask) {
+            onSubmit(nameTask);
             onClose();
         }
     };
@@ -26,12 +26,11 @@ const AddLessonName = ({ onClose, onSubmit, lessonType}: IProps) => {
                 <img className="icon" src={Close} alt="Закрыть"/>
             </div>
 
-            <div className="header">Введите название {lessonType}</div>
+            <div className="header">Введите название {typeTask}</div>
 
             <div className='input'>
                 <TextInput 
                     placeholder="Тест 1" 
-                    defaultValue={contentName}
                     type="text" 
                     id="lesson-name" 
                     register={{ onChange: (e: any) => setContentName(e.target.value) }}

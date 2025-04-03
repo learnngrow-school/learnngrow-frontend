@@ -8,13 +8,13 @@ import Close from "../../../../../../assets/icons/close.svg";
 
 interface IProps {
     onClose: () => void;
-    onSelectLessonType: (lessonType: string) => void;
+    onSelectTypeTask: (typeTask: string) => void;
 }
 
-const AddLesson = ({ onClose, onSelectLessonType }: IProps) => {
+const AddLesson = ({ onClose, onSelectTypeTask }: IProps) => {
 
-    const handleSelect = (lessonType: string) => {
-        onSelectLessonType(lessonType); // Передаем тип урока в AddBlock
+    const handleSelect = (typeTask: string) => {
+        onSelectTypeTask(typeTask); // Передаем тип урока в AddBlock
         onClose();
     };
 

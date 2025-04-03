@@ -7,15 +7,14 @@ import FormModalLesson from "../../../../../../shared/Modals/FormModalLesson";
 import AddLessonName from "../AddLessonName";
 
 interface IProps {
-    onLessonSubmit: (lesson: string, content: string, type: string) => void;
+    onLessonSubmit: (nameLesson: string, nameTask: string, typeTask: string) => void;
 }
 
 const AddBlock = ({ onLessonSubmit }: IProps) => {
     const [isAddLessonOpen, setIsAddLessonOpen] = useState(false);
     const [isAddLessonNameOpen, setIsAddLessonNameOpen] = useState(false);
-    const [lessonTitle, setLessonTitle] = useState<string>(""); // Название урока
-    // const [selectedContentName, setSelectedContentName] = useState<string | null>(null); // Название теста/задания
-    const [lessonType, setLessonType] = useState<string | null>(null);
+    const [nameLesson, setLessonTitle] = useState<string>(""); // Название урока
+    const [typeTask, setLessonType] = useState<string | null>(null);
 
     const showAddLesson = () => {
         setIsAddLessonOpen(true);
@@ -25,20 +24,15 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
         setIsAddLessonOpen(false);
     };
 
-    const showAddLessonName = (type: string) => {
-        setLessonType(type); // Сохраняем выбранный тип
+    const showAddLessonName = (typeTask: string) => {
+        setLessonType(typeTask); // Сохраняем выбранный тип
         setIsAddLessonOpen(false);
         setIsAddLessonNameOpen(true);
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLessonTitle(e.target.value);
-    };
-
-    const handleLessonNameSubmit = (contentName: string) => {
-        // setSelectedContentName(contentName);
+    const handleLessonNameSubmit = (nameTask: string) => {
         setIsAddLessonNameOpen(false);
-        onLessonSubmit(lessonTitle, contentName, lessonType || ''); // Передаем оба названия
+        onLessonSubmit(nameLesson, nameTask, typeTask || ''); // Сохраняем выбраннное навзвание задания и Передаем все значения в CreateCoursesContent
     };
 
     return (
@@ -49,7 +43,7 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
                     placeholder="Урок 1"
                     type="text"
                     id="title"
-                    register={{ onChange: handleInputChange }}
+                    register={{ onChange: (e: any) => setLessonTitle(e.target.value) } }
                 />
             </div>
             <div className="btns">
@@ -62,7 +56,7 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
             </div>
 
             <FormModalLesson
-                content={<AddLesson onClose={hideAddLesson} onSelectLessonType={showAddLessonName} />}
+                content={<AddLesson onClose={hideAddLesson} onSelectTypeTask={showAddLessonName} />}
                 isOpen={isAddLessonOpen}
                 size="lg"
                 centered
@@ -70,7 +64,7 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
             />
 
             <FormModalLesson
-                content={<AddLessonName onClose={() => setIsAddLessonNameOpen(false)} onSubmit={handleLessonNameSubmit} lessonType={lessonType || ''} />}
+                content={<AddLessonName onClose={() => setIsAddLessonNameOpen(false)} onSubmit={handleLessonNameSubmit} typeTask={typeTask || ''} />}
                 isOpen={isAddLessonNameOpen}
                 size="lg"
                 centered

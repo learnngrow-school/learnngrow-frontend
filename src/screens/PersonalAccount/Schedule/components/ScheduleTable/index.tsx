@@ -15,27 +15,32 @@ const ScheduleTable = ({ weekOffset }: ScheduleTableProps) => {
             const data = await getLessons(weekOffset);
             if (Array.isArray(data)) {
                 setLessons(data);
-                generateWeekDays(data);
+                generateWeekDays();
             }
         };
         fetchLessons();
     }, [weekOffset]);
 
-    const generateWeekDays = (lessons: any[]) => {
-        if (lessons.length === 0) return;
-
-        const firstLessonDate = new Date(lessons[0].timestamp);
-        const monday = new Date(firstLessonDate);
-        monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
-
+    const generateWeekDays = () => {
+        const today = new Date();
+        
+        // Определяем начало текущей недели (понедельник)
+        const monday = new Date(today);
+        monday.setDate(monday.getDate() - ((today.getDay() + 6) % 7));
+        
+        // Учитываем смещение недель
+        monday.setDate(monday.getDate() + weekOffset * 7);
+    
+        // Генерируем дни недели с учётом weekOffset
         const days = Array.from({ length: 7 }, (_, i) => {
             const date = new Date(monday);
             date.setDate(monday.getDate() + i);
             return `${["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"][i]} \n ${date.getDate()}.${(date.getMonth() + 1).toString().padStart(2, "0")}`;
         });
-
+    
         setWeekDays(days);
     };
+    
 
     const timeSlots = Array.from({ length: 14 }, (_, i) => `${i + 8}:00`);
 

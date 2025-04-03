@@ -12,24 +12,25 @@ import Programm from "./components/Programm";
 
 const CreateCoursesContent = () => {
     const navigate = useNavigate();
-    const [lessonName, setLessonName] = useState<string | null>(null);
-    const [lessonContentName, setLessonContentName] = useState<string | null>(null); // Доп. материал (тест, задание)
-    const [lessonType, setLessonType] = useState<string | null>(null);
+    const [nameLesson, setLessonName] = useState<string | null>(null);
+    const [nameTask, setLessonContentName] = useState<string | null>(null); // Доп. материал (тест, задание)
+    const [typeTask, setLessonType] = useState<string | null>(null);
 
     const handleBackClick = () => {
         navigate(`${urls.myCourses}`);
     };
 
-    const handleLessonSubmit = (lesson: string, content: string, type: string) => {
-        setLessonName(lesson);
-        setLessonContentName(content);
-        setLessonType(type);
+    // Принемаем все занчения
+    const handleLessonSubmit = (nameLesson: string, nameTask: string, typeTask: string) => {
+        setLessonName(nameLesson);
+        setLessonContentName(nameTask);
+        setLessonType(typeTask);
     };
 
     const renderLessonComponent = () => {
-        switch (lessonType) {
+        switch (typeTask) {
             case "теста":
-                return <AddTest lessonName={lessonContentName} />;
+                return <AddTest lessonName={nameTask} />;
             default:
                 return null;
         }
@@ -47,10 +48,10 @@ const CreateCoursesContent = () => {
                     <div className="header">Курс "Функции"</div>
 
                     {/* Меняем контент в зависимости от наличия lessonName */}
-                    {lessonName ? (
+                    {nameLesson ? (
                         <Programm 
-                            lessonName={lessonName}
-                            lessonContentName={lessonContentName}
+                            lessonName={nameLesson}
+                            lessonContentName={nameTask}
                         />
                     ) : (
                         <div className="second-header">Учебная программа</div>
