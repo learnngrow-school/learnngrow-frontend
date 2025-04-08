@@ -1,3 +1,5 @@
+@import './schedule.media.css';
+
 .container-schedule-buttons {
     display: flex;
     justify-content: space-between;

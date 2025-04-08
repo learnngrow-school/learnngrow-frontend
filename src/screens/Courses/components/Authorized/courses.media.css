@@ -1,0 +1,26 @@
+@media (max-width: 1024px) {
+    .courses-page {
+      max-width: 72%;
+      flex-direction: column;
+      padding: 0 0px;
+    }
+  
+    .courses-section {
+      max-width: 100%;
+    }
+  
+    .sections {
+      margin-top: 0;
+    }
+  
+    .course-list-s {
+      padding-left: 40px;
+      gap: 25px 59px;
+    }
+
+    .container-schedule-buttons-courses {
+        padding-left: 40px;
+        padding-right: 0px;
+        justify-content: space-between;
+    }
+  }

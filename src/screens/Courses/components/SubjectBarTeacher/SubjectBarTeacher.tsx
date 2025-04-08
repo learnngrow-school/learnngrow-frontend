@@ -1,14 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BaseButton from "../../../../shared/Buttons/BaseButton";
 import "./SubjectBarTeacher.css";
 import { getSubjects } from "../../../../services/subject.service";
 import SubjectsSlider from "../../../PersonalAccount/Schedule/components/SubjectsSlider/SubjectsSlider";
 import PlusWhite from "../../../../assets/icons/plus-white.svg";
 import { useNavigate } from "react-router-dom";
+import useWindowSize from "../WindowSize/useWindowSize";
+import FilterDropdown from "../FilterDropdown/filter-dropdown";
 
 const SubjectBarTeacher = () => {
     const navigate = useNavigate();
     const [subjects, setSubjects] = useState<string[]>([]);
+    const { width } = useWindowSize();  // Получаем ширину экрана
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const filterButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         getSubjects().then((res: any) => {
@@ -25,7 +30,25 @@ const SubjectBarTeacher = () => {
     return (
         <div className="container-schedule-buttons-courses">
             <div className="filter-roll-subject-container">
-                <SubjectsSlider subjects={subjects} />
+                {width <= 1024 ? (
+                    <>
+                    <BaseButton
+                        text="Фильтр"
+                        theme="white-secondary"
+                        className="btn-filter"
+                        onClick={() => setIsFilterOpen(!isFilterOpen)}
+                        ref={filterButtonRef}
+                    />
+                    <FilterDropdown
+                        isOpen={isFilterOpen}
+                        buttonRef={filterButtonRef}
+                        onClose={() => setIsFilterOpen(false)}
+                        onFilterChange={() => {}}
+                    />
+                </>
+                ) : (
+                    <SubjectsSlider subjects={subjects} />
+                )}
             </div>
 
             <div className="add-lesson-container">

@@ -1,0 +1,9 @@
+@media (max-width: 1024px) {
+    .logoBlock{
+        margin-right: 10px;
+    }
+
+    .navbar {
+        width: 930px !important;
+    }
+  }

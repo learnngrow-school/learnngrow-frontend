@@ -1,9 +1,12 @@
+@import '../Authorized/courses.media.css';
+
 .container-schedule-buttons-courses {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 40px;
     margin-top: 20px;
+    max-width: 100%;
 }
 
 .filter-roll-subject-container {

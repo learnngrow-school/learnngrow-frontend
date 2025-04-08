@@ -1,11 +1,10 @@
-export type Course = {
+export type CourseWithoutData = {
     categoryId: number;
     description: string;
     grade: number;
     price: number;
-    string: string;
     subjectId: number;
     title: string;
 }
 
-export default Course
+export default CourseWithoutData

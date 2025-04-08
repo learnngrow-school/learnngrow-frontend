@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useCourseDetails } from "../../../services/course-details.service";
 import "./course-detail-a.css"
 import BaseButton from "../../../shared/Buttons/BaseButton";
-import BackArrow from "../../../assets/icons/back-arrow.svg"
+import BackArrow from "../../../assets/icons/back-arrow.svg";
+import CourseImg from "../../../assets/pictures/course_default.png";
 
 const CourseDetailAuthorized: FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -56,7 +57,7 @@ const CourseDetailAuthorized: FC = () => {
                     </div>
                 </div>
                 <div className={`course-image-info-detail ${isCoursePurchased ? 'purchased' : 'not-purchased'}`}>
-                    {/* Изображение курса */}
+                    <img src={CourseImg}></img>
                     {isCoursePurchased && progress !== undefined && (
                         <div className="course-progress-bar-detail">
                             <div className="course-progress-detail" style={{ width: `${progress}%` }}>

@@ -1,3 +1,5 @@
+@import './userLayout-media.css';
+
 .layout-user{
   position: relative;
   display: flex; 

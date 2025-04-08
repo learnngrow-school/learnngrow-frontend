@@ -19,7 +19,7 @@ const Authorized: FC = () => {
 
     return (
         <div className="courses-page">
-            <section className="sections">
+            <section className="sections-courses-page">
                 <section className="courses-section">
                     <h2 className="section-title section-title--green">Мои курсы</h2>
                     {user.isTeacher || user.isSuperuser ? (
@@ -30,18 +30,18 @@ const Authorized: FC = () => {
                             <img src={Sad} alt="sad" className="sad-icon"/>
                             <p className="text-error">Данных пока нет...</p>
                         </div>
-                    ) : (<div className="course-list">
+                    ) : (<div className="course-list-s">
                         {courses.map((courseData) => {
-                            const { title, price, string } = courseData.course || {};
+                            const { title, price, slug } = courseData.course || {};
                             const subject = courseData.subject?.title || "Предмет не указан";
                             return (
                                 <div
-                                    key={string}
-                                    onClick={() => handleCourseClick(string)}
+                                    key={slug}
+                                    onClick={() => handleCourseClick(slug)}
                                     style={{ cursor: "pointer" }}
                                 >
                                     <CourseCard
-                                        key={string}
+                                        key={slug}
                                         title={title || "Не указано"}
                                         subject={subject}
                                         price={price != null ? price.toString() : "0"}
@@ -50,7 +50,7 @@ const Authorized: FC = () => {
                                 </div>
                             );
                         })}
-                    </div>
+                        </div>
                 )}
                 </section>
 

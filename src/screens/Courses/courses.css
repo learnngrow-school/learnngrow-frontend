@@ -1,24 +1,25 @@
+@import './components//Authorized/courses.media.css';
+
 .courses-page {
     position: relative;
-    /* width: 1160px; */
     display: flex;
     margin-bottom: 50px;
-    /* margin-top: -35px; */
+    max-width: 100%;
 }
 
-.sections {
+.sections-courses-page {
     margin-top: -20px;
-    /* margin-left: auto; */
 }
 
 .courses-section {
-    width: 900px;
+    max-width: 100%;
     position: relative;
 }
 
 .section-title {
     font-size: 1.5em;
     margin: 20px 0;
+    max-width: 100%;
 }
 
 .section-title--green {
@@ -26,6 +27,7 @@
     background-color: var(--green-pale);
     padding: 5px 40px;
     border-radius: 8px;
+    max-width: 100%;
 }
 
 .section-title--pink {
@@ -33,19 +35,23 @@
     background-color: var(--pink-pale);
     padding: 5px 40px;
     border-radius: 8px;
+    max-width: 100%;
 }
 
-.course-list {
+.course-list-s {
     display: flex;
     gap: 25px 40px;
     flex-wrap: wrap;
-    margin: 25px 0px 26px 40px;
+    max-width: 100%;
+    margin: 25px 0px 26px 0px;
+    padding-left: 40px;
 }
 
 .course-list-fullpage {
     display: flex;
     gap: 25px 40px;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .search-and-filter-container {

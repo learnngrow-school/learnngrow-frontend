@@ -28,19 +28,17 @@ const CreateCourses = () => {
 
   const onSubmit = async (data: CourseFormData) => {
     const courseData = {
-      title: data.title,
+      categoryId: 1, // Заглушка
       description: data.description,
-      price: Number(data.price),
-      subjectId: 1, // Заглушка
-      categoryId: 2, // Заглушка
-      string: "string",
       grade: 10, // Заглушка
+      price: Number(data.price),
+      subjectId: 2, // Заглушка
+      title: data.title,
     };
 
     try {
       const response = await createCourse(courseData);
-      console.log('Курс до', courseData);
-      console.log('Курс успешно создан', response);
+      console.log('Курс', response);
       navigate(`${urls.createCoursesContent}`);
     } catch (error) {
       console.error('Ошибка при создании курса', error);

@@ -11,30 +11,29 @@ const MainPersonal = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [showAllPastLessons, setShowAllPastLessons] = useState(false);
+  const [weekOffset] = useState<number>(0);
 
   useEffect(() => {
     const fetchLessons = async () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await getLessons();
+        const response = await getLessons(weekOffset);
         if (Array.isArray(response)) {
           setLesson(response);
           console.log('Lessons fetched:', response);
         } else {
           throw new Error("Ошибка получения данных");
         }
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error: any) {
-        setError( "Данных пока нет..." );
+        setError("Данных пока нет...");
       } finally {
         setLoading(false);
       }
     };
 
     fetchLessons();
-  }, []);
+  }, [weekOffset]);
 
   const now = Date.now();
 
