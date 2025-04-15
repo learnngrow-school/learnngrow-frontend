@@ -6,6 +6,8 @@ export type Lesson = {
     duration: number | any;
     timestamp: number | string | Date;
     fileSlug: string;
+    subjectId: number;
+    subject: string;
 }
 
 export default Lesson

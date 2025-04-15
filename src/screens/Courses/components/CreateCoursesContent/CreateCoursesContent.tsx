@@ -49,10 +49,12 @@ const CreateCoursesContent = () => {
 
                     {/* Меняем контент в зависимости от наличия lessonName */}
                     {nameLesson ? (
-                        <Programm 
-                            lessonName={nameLesson}
-                            lessonContentName={nameTask}
-                        />
+                        <div className="programm-block-course-content">
+                            <Programm 
+                                lessonName={nameLesson}
+                                lessonContentName={nameTask}
+                            />
+                        </div>
                     ) : (
                         <div className="second-header">Учебная программа</div>
                     )}

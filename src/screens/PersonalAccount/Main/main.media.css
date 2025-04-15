@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+    .lessons-page {
+        width: 100%;
+    }
+
+    .sections {
+        width: 100%;
+    }
+
+    .lessons-section {
+        max-width: 600px;
+        width: 106% !important;
+    }
+}

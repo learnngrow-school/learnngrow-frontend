@@ -32,7 +32,7 @@ const ListSelectSubjects = ({ data, register, onSelectChange }: IProps) => {
             >
                 <option value="" className="text-select-subject-list">Выберите предмет</option>
                 {data.map((subject) => (
-                    <option key={subject.id} value={subject.id}>
+                    <option key={subject.id} value={subject.id.toString()}>
                         {subject.title}
                     </option>
                 ))}

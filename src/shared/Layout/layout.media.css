@@ -7,3 +7,9 @@
         width: 930px !important;
     }
   }
+
+  @media (max-width: 767px) {
+    .logoBlock{
+        margin-right: 10px;
+    }
+  }

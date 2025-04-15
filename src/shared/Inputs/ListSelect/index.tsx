@@ -27,7 +27,7 @@ const ListSelect = ({ data, register, onSelectChange }: IProps) => {
                 onChange={handleChange}
             >
                 {data.map((item: User) => (
-                    <option key={item.slug} value={item.slug}>
+                    <option key={item.slug} value={item.lastName}>
                         {item.lastName} {item.firstName} {item.middleName}
                     </option>
                 ))}

@@ -21,3 +21,16 @@
     height: 40px;
     width: 200px;
 }
+
+.add-lesson-btn-schedule-compact {
+    white-space: nowrap;
+    flex-grow: 0;
+    height: 40px;
+    width: 40px;
+}
+
+.btn-menu-drop {
+    white-space: nowrap;
+    height: 40px;
+    width: 40px;
+}

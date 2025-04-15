@@ -41,3 +41,72 @@
     height: 40px;
     width: 30%;
 }
+
+.content-new-question {
+    margin-top: 20px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.content-new-question .type {
+    height: 146px;
+    border: solid 1px var(--blue-dark);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.content-new-question .header {
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--blue-dark);
+}
+
+
+.content-new-question .radio-btn-types {
+    margin-top: 16px;
+    margin-left: 16px;
+}
+
+.content-new-question .question {
+    height: 146px;
+    border: solid 1px var(--blue-dark);
+    border-radius: 10px;
+    height: 100%;
+}
+
+.type-text-question-btn {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+}
+
+.btn-text {
+    height: 50px;
+    width: 30px;
+    margin: 10px;
+}
+
+.btn-math {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 30px;
+}
+
+.icon-btn-math {
+    height: 30px;
+    width: 30px;
+}
+
+.icon-btn-text {
+    height: 30px;
+    width: 30px;
+}
+
+.type-text-question-field {
+    margin-left: 10px;
+    margin-right: 10px;
+}

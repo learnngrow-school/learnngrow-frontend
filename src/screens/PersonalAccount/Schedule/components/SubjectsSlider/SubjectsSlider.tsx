@@ -6,9 +6,10 @@ import BaseButton from "../../../../../shared/Buttons/BaseButton";
 
 interface IProps {
     subjects: string[];
+    onSubjectSelect?: (subject: string) => void;
 }
 
-const SubjectsSlider = ({ subjects }: IProps) => {
+const SubjectsSlider = ({ subjects, onSubjectSelect }: IProps) => {
     const BLOCK_LENGTH = 3;
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(BLOCK_LENGTH);
@@ -54,6 +55,7 @@ const SubjectsSlider = ({ subjects }: IProps) => {
                         className="add-lesson-btn-schedule-slider"
                         text={subject}
                         theme="white-secondary"
+                        onClick={() => onSubjectSelect?.(subject)}
                     />
                 ))}
             </div>

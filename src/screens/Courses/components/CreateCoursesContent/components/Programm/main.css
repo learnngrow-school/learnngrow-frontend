@@ -1,10 +1,38 @@
 .training-program {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 90%;
     min-height: 236px;
     border-radius: 10px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    color: var(--blue-dark);
+}
+
+.training-program .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.training-program .lesson-name{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.training-program .lesson-content-name{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-top: 0px;
+    margin-left: 40px;
+    cursor: pointer;
 }

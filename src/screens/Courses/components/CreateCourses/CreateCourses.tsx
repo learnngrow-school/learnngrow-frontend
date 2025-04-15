@@ -7,6 +7,10 @@ import { urls } from "../../../../navigation/app.urls";
 import ListSelect from "../../../../shared/Inputs/ListSelect";
 import BaseButton from "../../../../shared/Buttons/BaseButton";
 import { createCourse } from "../../../../services/courses.service"
+import { useEffect, useState } from 'react';
+import { getSubjects } from '../../../../services/subject.service';
+import { AxiosError } from 'axios';
+import ListSelectSubjects from '../../../../shared/Inputs/ListSelectSubjects';
 
 
 interface CourseFormData {
@@ -14,25 +18,34 @@ interface CourseFormData {
   grade: number;
   description: string;
   price: string;
+  subjectId: number;
 }
 
 const CreateCourses = () => {
   const navigate = useNavigate();
-  
-
   const { register, handleSubmit, formState: { errors } } = useForm<CourseFormData>();
-  
+  const [subjects, setSubjects] = useState<{ id: number; title: string }[]>([]);
+   
   const handleBackClick = () => {
     navigate(`${urls.myCourses}`);
   };
+
+      useEffect(() => {
+          getSubjects().then((res: any) => {
+              if (!(res instanceof AxiosError) && res.status === 200) {
+                  console.log("Полученные предметы:", res.data);
+                  setSubjects(res.data);
+              }
+          });
+      }, []);
 
   const onSubmit = async (data: CourseFormData) => {
     const courseData = {
       categoryId: 1, // Заглушка
       description: data.description,
-      grade: 10, // Заглушка
+      grade: Number(data.grade),
       price: Number(data.price),
-      subjectId: 2, // Заглушка
+      subjectId: Number(data.subjectId),
       title: data.title,
     };
 
@@ -45,7 +58,7 @@ const CreateCourses = () => {
     }
   };
 
-  const prob = ['Не выбран', 'first', 'second', 'third'];
+  const prob = ['Не выбран', '5', '6', '7', '8', '9', '10', '11'];
 
   const formattedData = prob.map((item, index) => ({
     slug: `slug-${index}`,
@@ -53,6 +66,8 @@ const CreateCourses = () => {
     firstName: "",
     middleName: ""
   }));
+
+  console.log(formattedData)
 
   return (
     <div className="container-create-courses">
@@ -78,18 +93,17 @@ const CreateCourses = () => {
             </div>
 
             <div className="container-input-courses">
-              <label className="title-create-courses">Выберите уровень</label>
+              <label className="title-create-courses">Выберите предмет</label>
               <div className="fieldlist-create-courses">
-                {formattedData.length > 0 ? (
-                  <ListSelect
-                    placeholder="Не выбран"
-                    data={formattedData}
-                    register={{ ...register('grade') }}
-                    error={errors.grade}
+                {subjects.length > 0 ? (
+                  <ListSelectSubjects 
+                  data={subjects} 
+                  register={{ ...register('subjectId', { required: "Выберите предмет" }) }} 
+                  error={errors.subjectId}
                   />
-                ) : (
+              ) : (
                   <div>Загрузка данных...</div>
-                )}
+              )}
               </div>
             </div>
 
@@ -100,7 +114,7 @@ const CreateCourses = () => {
                   <ListSelect
                     placeholder="Не выбран"
                     data={formattedData}
-                    register={{ ...register('grade') }}
+                    register={{ ...register('grade', { required: "Выберите класс" }) }}
                     error={errors.grade}
                   />
                 ) : (

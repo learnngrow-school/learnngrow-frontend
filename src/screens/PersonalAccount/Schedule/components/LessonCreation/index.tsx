@@ -48,8 +48,8 @@ const LessonCreation = ({ onClose }: IProps) => {
 
         getSubjects().then((res: any) => {
             if (!(res instanceof AxiosError) && res.status === 200) {
-                console.log("Полученные предметы:", res.data); // Логируем данные
-                setSubjects(res.data); // Сохраняем предметы в состояние
+                console.log("Полученные предметы:", res.data);
+                setSubjects(res.data);
             }
         });
     }, []);
@@ -61,6 +61,8 @@ const LessonCreation = ({ onClose }: IProps) => {
         lesson.timestamp = seconds;
         lesson.duration = duration;
         lesson.fileSlug = "123"; // Заглушка
+        lesson.subjectId = Number(lesson.subjectId);
+
         console.log('Добавлен урок на ', new Date(lesson.timestamp));
 
         const lessonsToCreate = [lesson];
@@ -114,6 +116,7 @@ const LessonCreation = ({ onClose }: IProps) => {
                 <ListSelectSubjects 
                 data={subjects} 
                 register={{ ...register('subjectId', { required: "Выберите предмет" }) }} 
+                error={errors.subjectId}
                 />
             ) : (
                 <div>Загрузка данных...</div>

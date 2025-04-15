@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+    .task-table {
+        margin: 20px -30px !important;
+    }
+
+    .task-table th {
+        padding: 8px 20px 12px 8px !important;
+    }
+
+    .task-table th, .task-table td {
+        font-size: 14px !important; /* Меньший размер шрифта на мобильных устройствах */
+        padding: 10px 7px !important; /* Подправляем отступы */
+        max-width: 100px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        border-top: 1px solid var(--grey-light);
+        border-bottom: 1px solid var(--grey-light);
+    }
+
+    .task-table td:nth-child(2), .task-table th:nth-child(2) {
+        max-width: 50% !important; /* Для небольших экранов делаем ширину названия более гибкой */
+        overflow: hidden !important; /* Скрывает текст, выходящий за пределы */
+        text-overflow: ellipsis !important; /* Добавляет многоточие для обрезанного текста */
+        white-space: nowrap !important; /* Запрещает перенос текста */
+    }
+
+    .task-table td:nth-child(3), .task-table th:nth-child(3) {
+        max-width: 50% !important; /* То же для ссылок */
+        overflow: hidden !important; /* Скрывает текст, выходящий за пределы */
+        text-overflow: ellipsis !important; /* Добавляет многоточие для обрезанного текста */
+        white-space: nowrap !important; /* Запрещает перенос текста */
+    }
+
+    .link-homework {
+        max-width: 150px !important;
+    }
+}

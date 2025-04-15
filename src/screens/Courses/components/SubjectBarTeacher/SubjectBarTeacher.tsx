@@ -7,8 +7,15 @@ import PlusWhite from "../../../../assets/icons/plus-white.svg";
 import { useNavigate } from "react-router-dom";
 import useWindowSize from "../WindowSize/useWindowSize";
 import FilterDropdown from "../FilterDropdown/filter-dropdown";
+import DropDownButton from "../../../../shared/Buttons/DropDownButton";
+import MenuDrop from '../../../../assets/icons/menuDrop.svg'
 
-const SubjectBarTeacher = () => {
+interface SubjectBarTeacherProps {
+    selectedSubject: string;
+    onSubjectChange: (subject: string) => void;
+}
+
+const SubjectBarTeacher = ({onSubjectChange }: SubjectBarTeacherProps) => {
     const navigate = useNavigate();
     const [subjects, setSubjects] = useState<string[]>([]);
     const { width } = useWindowSize();  // Получаем ширину экрана
@@ -30,29 +37,51 @@ const SubjectBarTeacher = () => {
     return (
         <div className="container-schedule-buttons-courses">
             <div className="filter-roll-subject-container">
-                {width <= 1024 ? (
+                {width <= 767 ? (
                     <>
-                    <BaseButton
+                        <DropDownButton 
+                        items={[]} 
+                        text={''} 
+                        theme={'white-primary'}
+                        iconPath={MenuDrop}
+                        withToggleIcon={false}
+                        className='btn-menu-drop'
+                        />
+                    </>
+                ) : width <= 1024 ? (
+                    <>
+                        <BaseButton
                         text="Фильтр"
                         theme="white-secondary"
                         className="btn-filter"
                         onClick={() => setIsFilterOpen(!isFilterOpen)}
                         ref={filterButtonRef}
-                    />
-                    <FilterDropdown
+                        />
+                        <FilterDropdown
                         isOpen={isFilterOpen}
                         buttonRef={filterButtonRef}
                         onClose={() => setIsFilterOpen(false)}
                         onFilterChange={() => {}}
-                    />
-                </>
+                        />
+                    </>
                 ) : (
-                    <SubjectsSlider subjects={subjects} />
+                    <SubjectsSlider subjects={subjects} onSubjectSelect={onSubjectChange} />
                 )}
             </div>
 
             <div className="add-lesson-container">
-                <BaseButton
+            {width <= 767 ? (
+                    <BaseButton
+                    data-bs-toggle="modal"
+                    data-bs-target="#creationModal"
+                    className="add-lesson-btn-schedule-compact"
+                    text=""
+                    onClick={handleCreateHomeworkClick}
+                    theme="pink-primary"
+                    iconPath={PlusWhite}
+                    />
+                ) : (
+                    <BaseButton
                     data-bs-toggle="modal"
                     data-bs-target="#creationModal"
                     className="add-lesson-btn-schedule"
@@ -60,7 +89,9 @@ const SubjectBarTeacher = () => {
                     onClick={handleCreateHomeworkClick}
                     theme="pink-primary"
                     iconPath={PlusWhite}
-                />
+                    />
+                )}
+                
             </div>
         </div> 
     );

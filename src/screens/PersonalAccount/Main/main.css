@@ -1,3 +1,5 @@
+@import './main.media.css';
+
 .lessons-page {
     position: relative;
     display: flex;

@@ -10,8 +10,9 @@ const Programm: FC<ProgramProps> = ({ lessonName, lessonContentName }) => {
 
     return (
         <div className="training-program">
-            <div>{lessonName}</div>
-            <div>{lessonContentName}</div>
+            <div className="header">Учебная программа</div>
+            <div className="lesson-name">{lessonName}</div>
+            <div className="lesson-content-name">1. {lessonContentName}</div>
         </div>
     );
 };

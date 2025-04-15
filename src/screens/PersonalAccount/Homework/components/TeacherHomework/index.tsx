@@ -8,29 +8,54 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTasks } from "../../../../../services/tasks.service";
 import { Task } from "../../../../../types/task";
+import useWindowSize from "../../../../Courses/components/WindowSize/useWindowSize";
+
+const tasksData: Task[] = [
+  {
+    title: "Функции",
+    teacherNotes: "http://example.com/task1",
+    fileSlug: ""
+  },
+  {
+    title: "Глаголы",
+    teacherNotes: "http://example.com/task2",
+    fileSlug: ""
+  },
+  {
+    title: "Уравнения",
+    teacherNotes: "http://example.com/task3",
+    fileSlug: ""
+  }
+];
 
 const TeacherHomework = () => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    setLoading(false);
+    setTasks(tasksData);
+  }, []);
 
   // Получение заданий с сервера
-  useEffect(() => {
-      const fetchTasks = async () => {
-          setLoading(true);
-          const result = await getTasks();
-          if (Array.isArray(result)) {
-              setTasks(result);
-              console.log(result)
-          } else {
-              setError('Не удалось загрузить задания');
-          }
-          setLoading(false);
-      };
+  // useEffect(() => {
+  //     const fetchTasks = async () => {
+  //         setLoading(true);
+  //         const result = await getTasks();
+  //         if (Array.isArray(result)) {
+  //             setTasks(result);
+  //             console.log(result)
+  //         } else {
+  //             setError('Не удалось загрузить задания');
+  //         }
+  //         setLoading(false);
+  //     };
 
-      fetchTasks();
-  }, []);
+  //     fetchTasks();
+  // }, []);
 
 
   const handleCreateHomeworkClick = () => {
@@ -51,19 +76,47 @@ const TeacherHomework = () => {
         <section className="lessons-section">
           <h2 className="section-title section-title--green">Мои задания</h2>
           <section className="search-container-homework">
-            <SearchInput
-              containerClassName="search-input-homework"
-              placeholder="Найти задание"
-              iconPath={Search}
-            />
-            <BaseButton
-              theme="pink-secondary"
-              text="Создать задание"
-              className="button-createtask-homework"
-              iconPath={PlusWhite}
-              iconPathHover={PlusPink}
-              onClick={handleCreateHomeworkClick}
-            />
+                  {width <= 767 ? (
+                    <div className="btn-srch-add-task">
+                      <BaseButton
+                        theme="white-secondary"
+                        text=""
+                        className="button-search-homework-sm"
+                        iconPath={Search}
+                        iconPathHover={Search}
+                        iconClassName="icon-sm-search"
+                        onClick={handleCreateHomeworkClick}
+                      />
+                      <BaseButton
+                        theme="pink-secondary"
+                        text=""
+                        className="button-createtask-homework-sm"
+                        iconPath={PlusWhite}
+                        iconPathHover={PlusPink}
+                        onClick={handleCreateHomeworkClick}
+                      />
+                    </div>
+                ) : width <= 1024 ? (
+                    <>
+                        
+                    </>
+                ) : (
+                  <>
+                    <SearchInput
+                      containerClassName="search-input-homework"
+                      placeholder="Найти задание"
+                      iconPath={Search}
+                    />
+                    <BaseButton
+                      theme="pink-secondary"
+                      text="Создать задание"
+                      className="button-createtask-homework"
+                      iconPath={PlusWhite}
+                      iconPathHover={PlusPink}
+                      onClick={handleCreateHomeworkClick}
+                    />
+                  </>
+                )}
           </section>
           <section className="task-container-homework">
             <table className="task-table">
@@ -84,7 +137,12 @@ const TeacherHomework = () => {
                       </p>
                     </td>
                     <td>
-                      <a
+                    {width <= 767 ? (
+                        <>
+                        </>
+                    ) : (
+                      <>
+                        <a
                         href={task.teacherNotes}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -92,6 +150,8 @@ const TeacherHomework = () => {
                       >
                         Перейти к работе
                       </a>
+                      </>
+                    )}
                     </td>
                   </tr>
                 ))}

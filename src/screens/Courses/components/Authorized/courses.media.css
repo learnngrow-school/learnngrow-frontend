@@ -1,6 +1,6 @@
 @media (max-width: 1024px) {
     .courses-page {
-      max-width: 72%;
+      max-width: 76%;
       flex-direction: column;
       padding: 0 0px;
     }
@@ -22,5 +22,51 @@
         padding-left: 40px;
         padding-right: 0px;
         justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .courses-page {
+      max-width: 100%;
+      flex-direction: column;
+      padding: 0px;
+    }
+  
+    .courses-section {
+      max-width: 100%;
+    }
+  
+    .sections {
+      margin-top: 0;
+    }
+  
+    .course-list-s {
+      padding-left: 40px;
+      gap: 25px 5%;
+    }
+
+    .container-schedule-buttons-courses {
+        padding-left: 0px;
+        padding-right: 0px;
+        justify-content: flex-end !important;
+    }
+
+    .filter-roll-subject-container {
+      width: 0% !important;
+      height: 100%;
+      margin-right: 50px !important;
+  }
+
+    .add-lesson-btn-schedule-compact {
+      white-space: nowrap;
+      flex-grow: 0;
+      height: 40px;
+      width: 40px;
+    }
+
+    .btn-menu-drop {
+      white-space: nowrap;
+      height: 40px;
+      width: 40px;
     }
   }

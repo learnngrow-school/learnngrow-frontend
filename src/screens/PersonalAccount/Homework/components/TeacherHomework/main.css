@@ -1,3 +1,5 @@
+@import './main.media.css';
+
 .search-container-homework{
     display: flex;
     flex-direction: column 2;
@@ -99,6 +101,29 @@
 
 .task-table th:nth-child(3), .task-table td:nth-child(3) {
     width: 268px; /* Ширина для ссылки */
+}
+
+.button-createtask-homework-sm {
+    width: 30px;
+    height: 40px;
+}
+
+.button-search-homework-sm {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.icon-sm-search {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-srch-add-task {
+    display: flex;
+    flex-direction: column 2;
+    justify-content: end;
+    width: 100%;
 }
   
   

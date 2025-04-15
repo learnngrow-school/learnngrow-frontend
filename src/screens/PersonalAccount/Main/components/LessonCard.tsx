@@ -5,7 +5,7 @@ interface LessonCardProps {
   homework: string;
   teacherNotes?: string;
   timestamp: number | string | Date;
-  duration: number; // Добавлено
+  duration: number;
   className?: string;
 }
 

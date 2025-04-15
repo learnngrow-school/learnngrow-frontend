@@ -3,18 +3,27 @@ import './layout.css'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { Suspense } from 'react'
+import useWindowSize from '../../screens/Courses/components/WindowSize/useWindowSize'
+import NavButton from './NavButton'
 
 interface ILayoutProps {
   children?: React.ReactNode
 }
 
 const Layout = ({ children }: ILayoutProps = {}) => {
+  const { width } = useWindowSize();
 
   return (
       <>
       <div className="main">
         <div className="top">
-          <Navbar/>
+          {width <= 767 ? (
+            <>
+                <NavButton/>
+            </>
+            ) : (
+                <Navbar/>
+            )}
         </div>
         <div className="pageContent">
           <Suspense fallback={<div>Загрузка...</div>}>

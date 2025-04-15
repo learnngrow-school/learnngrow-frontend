@@ -1,0 +1,31 @@
+@media (max-width: 767px) {
+    .course-card {
+        background:  var(--grey-light);
+        border-radius: 10px;
+        padding: 12px !important;
+        width: 210px !important;
+        height: 235px !important;
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: var(--blue-dark);
+    }
+
+    .course-image{
+        height: 130px !important;
+        margin-bottom: 10px !important;
+        object-fit: cover !important;
+    }
+
+    .course-subject {
+        font-size: 14px !important;
+    }
+
+    .course-title {
+        font-size: 14px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .course-price {
+        font-size: 14px !important;
+    }
+  }
