@@ -1,0 +1,6 @@
+@media (max-width: 767px) { 
+    .news-promos-body{
+        margin-top: -40px;
+        width: 113% !important;
+    }
+}

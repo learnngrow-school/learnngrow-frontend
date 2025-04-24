@@ -1,3 +1,5 @@
+@import './slider.media.css';
+
 .slider-points-container {
     display: flex;
     flex-direction: row;
@@ -42,3 +44,20 @@
     cursor: pointer;
     opacity: 0.6;
 } */
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    width: 100%;
+    padding-left: 41%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin-bottom: -70px;
+}
+  
+.scroll-container > * {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+}

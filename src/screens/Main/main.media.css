@@ -1,0 +1,114 @@
+@media (max-width: 767px) {
+    .content {
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .title-container{
+        display: flex;
+        flex-direction: column;
+        height: 276px;
+        width: 85% !important;
+        padding: 25px !important;
+    }
+
+    .heading-1{
+        font-size: 32px;
+    }
+
+    .heading-2{
+        font-size: 20px;
+        width: 80%;
+        margin-left: -60px;
+    }
+
+    .button-text-container{
+        display: flex;
+        flex-direction: column !important;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 30px;
+        margin-top: -25px;
+    }
+
+    .button-start-study{
+        margin-top: 30px;
+        width: 100% !important;
+        height: 46px !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+    }
+
+    .grid-4{
+        justify-content: center;
+        grid-template-columns: repeat(2, 40%) !important;
+        grid-column-gap: 20px !important;
+        grid-row-gap: 20px !important;
+    }
+
+    .grid-4-second{
+        grid-template-columns: repeat(1, 360px) !important;
+        grid-row-gap: 40px;
+      }
+    
+    .study-type-card{
+        font-size: 16px !important;
+        padding: 0px 20px 0px 20px !important;
+    }
+
+    .step-card{
+        flex-direction: column !important;
+    }
+
+    .step-text {
+        text-align: center !important;
+    }
+
+    .title-2{
+        padding: 0px 0px 20px 0px;
+        font-size: 24px !important;
+        font-weight: 600 !important;
+        width: 80%;
+    }
+
+    .subjects-cards{
+        width: 100% !important;
+    }
+
+    .subjects-container{
+        max-height: 600px !important;
+        height: 100% !important;
+        padding-bottom: 20px;
+    }
+
+    .about-test {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .order-lesson-block {
+        background: var(--background-green-big) !important;
+        background-color: var(--green-pale) !important;
+        height: 216px !important;
+        width: 80% !important;
+        flex-direction: column !important;
+        gap: 20px;
+        padding: 20px 20px 20px 20px !important;
+    }
+      
+    .order-lesson-button {
+        width: 186px;
+        height: 40px !important;
+        margin-left: 40%;
+    }
+
+    .order-text {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .order-head {
+        font-size: 20px;
+        font-weight: 600;
+    }
+  }

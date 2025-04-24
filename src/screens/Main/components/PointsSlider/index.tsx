@@ -6,6 +6,7 @@ import "./slider.css"
 import ReviewCard from "../Reviews/review-card";
 import TeacherCard from "../Teachers/teacher-card";
 import ProgressPoint from "../../../../shared/Buttons/Slider/ProgressPoint";
+import useWindowSize from "../../../Courses/components/WindowSize/useWindowSize";
 
 interface IProps {
     data: any[]
@@ -20,7 +21,8 @@ interface IProps {
 const PointsSlider = (
     {data, dataType, dataClassName, oddBlockLength, evenBlockLength } : IProps) => 
 {
-
+    const { width } = useWindowSize();
+    const isMobile = width <= 767;
     const BLOCK_LENGTH = data.length % 2 == 0 ? evenBlockLength : oddBlockLength;
     const STEP = Math.floor(BLOCK_LENGTH / 2);
 
@@ -57,7 +59,7 @@ const PointsSlider = (
 
     return (
         <>
-        <div className={dataClassName}>
+        <div className={`${dataClassName} ${isMobile ? "scroll-container" : ""}`}>
         { dataType == 'reviews' ?
             smallList.map((review) => (
                 <ReviewCard key={review.id} author={review.authorName} text={review.details}/>
@@ -72,20 +74,23 @@ const PointsSlider = (
             }
         </div>
         <div className="slider-points-container">
-            <Slider imagePath={ArrowLeft} onClick={onLeftClick} 
+            {!isMobile && (
+                <>
+                <Slider imagePath={ArrowLeft} onClick={onLeftClick} 
                 disabled={start <= 0} imgClassName="slider-button"/>
-            <div className="points">
-                {data.map((item, index) => (
-                    <ProgressPoint key={item.id} 
-                    isActive={Number(index) >= start && Number(index) < end}/>))
-                }
-            </div>
-            <Slider imagePath={ArrowRight} onClick={onRightClick} 
-                disabled={end >= data.length} imgClassName="slider-button"/>
-            </div>
+                <div className="points">
+                    {data.map((item, index) => (
+                        <ProgressPoint key={item.id} 
+                        isActive={Number(index) >= start && Number(index) < end}/>))
+                    }
+                </div>
+                <Slider imagePath={ArrowRight} onClick={onRightClick} 
+                    disabled={end >= data.length} imgClassName="slider-button"/>
+                </>
+            )} 
+        </div>
         </>
         )
-    
 }
 
 export default PointsSlider

@@ -1,3 +1,5 @@
+@import './main.media.css';
+
 .main-content{
   display: flex;
   flex-direction: column;
@@ -55,6 +57,15 @@
 }
 
 .grid-4{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 260px);
+  grid-column-gap: 40px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.grid-4-second{
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 260px);

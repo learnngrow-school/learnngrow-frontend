@@ -9,8 +9,8 @@ const OrderLesson = () => {
     return (
         <div className="order-lesson-block">
             <div>
-                <div className="text--heading3 text-600">Хочу заниматься с преподавателем!</div>
-                <div className="text--body-s text-400">Запишись на бесплатный пробный урок</div>
+                <div className="text--heading3 text-600 order-head">Хочу заниматься с преподавателем!</div>
+                <div className="text--body-s text-400 order-text">Запишись на бесплатный пробный урок</div>
             </div>
             <BaseButton text="Оставить заявку" theme="pink-secondary" 
                 className="order-lesson-button text-400 text--body-s" 

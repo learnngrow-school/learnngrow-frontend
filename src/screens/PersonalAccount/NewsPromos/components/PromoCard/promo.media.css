@@ -1,0 +1,22 @@
+@media (max-width: 767px) { 
+    .promo-card-container{
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        height: fit-content;
+        border-radius: 10px;
+        border: 1px solid var(--green-grass);
+        box-shadow: var(--box-shadow-green);
+        padding: 25px;
+    }
+
+    .get-promo-btn{
+        margin-top: 15px;
+        width: 321px !important;
+        height: 40px  !important;
+    }
+
+    .price-btn-block{
+        flex-direction: column !important;
+    }
+}

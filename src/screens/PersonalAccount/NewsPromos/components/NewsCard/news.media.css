@@ -1,0 +1,24 @@
+@media (max-width: 767px) { 
+    .news-card{
+        display: flex !important;
+        grid-template-columns: 100% 100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        gap: 25px !important;
+    }
+
+    .news-details{
+        height: 150px !important;
+        margin-bottom: 20px;
+    }
+
+    .news-img-container {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .news-img{
+        height: 200px !important;
+        border-radius: 10px;
+    }
+}

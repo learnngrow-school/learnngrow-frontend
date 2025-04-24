@@ -1,3 +1,5 @@
+@import './promo.media.css';
+
 .promo-card-container{
     display: flex;
     flex-direction: column;

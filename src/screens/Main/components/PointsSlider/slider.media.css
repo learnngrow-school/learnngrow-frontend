@@ -1,0 +1,5 @@
+@media (max-width: 767px) {
+    .teachers-cards {
+        justify-content: left !important;
+    }
+}

@@ -1,0 +1,19 @@
+@media (max-width: 767px) {
+    .teacher-card {
+        width: 200px !important;
+        height: 335px !important;
+    }
+
+    .teacher-card:first-child {
+        margin-left: -135px;
+    }
+
+    .teacher-card:last-child {
+        margin-right: 45px;
+    }
+
+    .photo {
+        height: 193px !important;
+        border-radius: 7px;
+    }
+}
