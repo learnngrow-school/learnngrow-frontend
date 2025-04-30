@@ -11,10 +11,10 @@ import Pencil from '../../../../../../assets/icons/pencil.svg';
 import { MathKeyboard } from '../../../../../../shared/Inputs/MathKeyboard';
 
 interface IProps {
-    lessonName: string | null;
+    nameTask: string | null;
 }
 
-const AddTest = ({ lessonName }: IProps) => {
+const AddTest = ({ nameTask }: IProps) => {
     const [isQuestionVisible, setIsQuestionVisible] = useState(false);
     const [selected, setSelected] = React.useState<string>('Отдельный выбор');
     
@@ -45,7 +45,7 @@ const AddTest = ({ lessonName }: IProps) => {
                 <div className='input'>
                     <TextInput 
                         placeholder='Название теста'
-                        defaultValue={lessonName || ''}
+                        defaultValue={nameTask || ''}
                         type='text' 
                         id={''}        
                     />

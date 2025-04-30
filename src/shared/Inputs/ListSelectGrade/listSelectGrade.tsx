@@ -1,6 +1,5 @@
 import { FieldError, Merge, FieldErrorsImpl } from "react-hook-form";
 import { User } from "../../../types/user";
-import "./listSelect.css";
 
 interface IProps {
     placeholder?: string;
@@ -10,7 +9,7 @@ interface IProps {
     onSelectChange?: (value: string) => void;
 }
 
-const ListSelect = ({ data, register, onSelectChange }: IProps) => {
+const ListSelectGrade = ({ data, register, onSelectChange }: IProps) => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedSlug = e.target.value;
         if (onSelectChange) {
@@ -27,7 +26,7 @@ const ListSelect = ({ data, register, onSelectChange }: IProps) => {
                 onChange={handleChange}
             >
                 {data.map((item: User) => (
-                    <option key={item.slug} value={item.slug}>
+                    <option key={item.slug} value={item.lastName}>
                         {item.lastName} {item.firstName} {item.middleName}
                     </option>
                 ))}
@@ -36,4 +35,4 @@ const ListSelect = ({ data, register, onSelectChange }: IProps) => {
     );
 };
 
-export default ListSelect;
+export default ListSelectGrade;

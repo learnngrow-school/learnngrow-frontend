@@ -63,8 +63,6 @@ const LessonCreation = ({ onClose }: IProps) => {
         lesson.fileSlug = "123"; // Заглушка
         lesson.subjectId = Number(lesson.subjectId);
 
-        console.log('Добавлен урок на ', new Date(lesson.timestamp));
-
         const lessonsToCreate = [lesson];
 
         if (repeatLesson) {

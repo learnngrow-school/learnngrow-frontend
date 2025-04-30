@@ -74,7 +74,7 @@ const App: React.FC = () => {
                 <Route path={urls.createCourses} element={<CreateCourses/>}/>
               </Route>
 
-              <Route path={urls.createCoursesContent} element={<CreateCoursesContent/>}/>
+              <Route path={`${urls.createCoursesContent}/:slug`} element={<CreateCoursesContent/>}/>
               
             </Route>
         </Routes>

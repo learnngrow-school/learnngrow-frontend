@@ -1,5 +1,5 @@
 export type Task = {
-    fileSlug: string;
+    fileSlug: string[];
     title: string;
     teacherNotes: string;
 }

@@ -7,7 +7,7 @@ import FormModalLesson from "../../../../../../shared/Modals/FormModalLesson";
 import AddLessonName from "../AddLessonName";
 
 interface IProps {
-    onLessonSubmit: (nameLesson: string, nameTask: string, typeTask: string) => void;
+    onLessonSubmit: (nameLesson: string, nameTask: string, typeTask: string, typeTaskBool: boolean) => void;
 }
 
 const AddBlock = ({ onLessonSubmit }: IProps) => {
@@ -15,6 +15,7 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
     const [isAddLessonNameOpen, setIsAddLessonNameOpen] = useState(false);
     const [nameLesson, setLessonTitle] = useState<string>(""); // Название урока
     const [typeTask, setLessonType] = useState<string | null>(null);
+    const [typeTaskBool, setLessonTypeBool] = useState<boolean | false>(false);
 
     const showAddLesson = () => {
         setIsAddLessonOpen(true);
@@ -22,6 +23,10 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
 
     const hideAddLesson = () => {
         setIsAddLessonOpen(false);
+    };
+
+    const addTypeBool = (typeTaskBool: boolean) => {
+        setLessonTypeBool(typeTaskBool);
     };
 
     const showAddLessonName = (typeTask: string) => {
@@ -32,7 +37,7 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
 
     const handleLessonNameSubmit = (nameTask: string) => {
         setIsAddLessonNameOpen(false);
-        onLessonSubmit(nameLesson, nameTask, typeTask || ''); // Сохраняем выбраннное навзвание задания и Передаем все значения в CreateCoursesContent
+        onLessonSubmit(nameLesson, nameTask, typeTask || '', typeTaskBool); // Сохраняем выбраннное навзвание задания и Передаем все значения в CreateCoursesContent
     };
 
     return (
@@ -56,7 +61,7 @@ const AddBlock = ({ onLessonSubmit }: IProps) => {
             </div>
 
             <FormModalLesson
-                content={<AddLesson onClose={hideAddLesson} onSelectTypeTask={showAddLessonName} />}
+                content={<AddLesson onClose={hideAddLesson} onSelectTypeTask={showAddLessonName} onSelectTypeTaskBool={addTypeBool} />}
                 isOpen={isAddLessonOpen}
                 size="lg"
                 centered

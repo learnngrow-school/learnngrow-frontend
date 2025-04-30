@@ -9,9 +9,14 @@ import Close from "../../../../../../assets/icons/close.svg";
 interface IProps {
     onClose: () => void;
     onSelectTypeTask: (typeTask: string) => void;
+    onSelectTypeTaskBool: (typeBool: boolean) => void;
 }
 
-const AddLesson = ({ onClose, onSelectTypeTask }: IProps) => {
+const AddLesson = ({ onClose, onSelectTypeTask, onSelectTypeTaskBool}: IProps) => {
+
+    const handleSelectSecond = (typeBool: boolean) => {
+        onSelectTypeTaskBool(typeBool); // Передаем тип урока в AddBlock
+    };
 
     const handleSelect = (typeTask: string) => {
         onSelectTypeTask(typeTask); // Передаем тип урока в AddBlock
@@ -30,16 +35,16 @@ const AddLesson = ({ onClose, onSelectTypeTask }: IProps) => {
             <div className="classwork">
                 Классная работа
                 <div className="cards-create-form-add-lesson">
-                    <CardTypeLesson iconPath={TextLessonType} title="Текст урока" onClick={() => handleSelect("классной работы")} />
-                    <CardTypeLesson iconPath={VideoLessonType} title="Видео урок" onClick={() => handleSelect("классной работы")} />
+                    <CardTypeLesson iconPath={TextLessonType} title="Текст урока" onClick={() => {handleSelect("классной работы (Лекция)"); handleSelectSecond(false)}} />
+                    <CardTypeLesson iconPath={VideoLessonType} title="Видео урок" onClick={() => {handleSelect("классной работы (Видео-лекция)"); handleSelectSecond(false)}} />
                 </div>
             </div>
 
             <div className="homework">
                 Домашнее задание
                 <div className="cards-create-form-add-lesson">
-                    <CardTypeLesson iconPath={TestLessonType} title="Тест" onClick={() => handleSelect("теста")} />
-                    <CardTypeLesson iconPath={TaskLessonType} title="Задание" onClick={() => handleSelect("задания")} />
+                    <CardTypeLesson iconPath={TestLessonType} title="Тест" onClick={() => {handleSelect("теста"); handleSelectSecond(true)}} />
+                    <CardTypeLesson iconPath={TaskLessonType} title="Задание" onClick={() => {handleSelect("задания"); handleSelectSecond(false)}} />
                 </div>
             </div>
         </form>

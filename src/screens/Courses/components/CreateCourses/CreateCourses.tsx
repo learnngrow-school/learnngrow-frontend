@@ -4,13 +4,13 @@ import "./CreateCourses.css";
 import { useNavigate } from "react-router-dom";
 import BackArrow from "../../../../assets/icons/back-arrow.svg";
 import { urls } from "../../../../navigation/app.urls";
-import ListSelect from "../../../../shared/Inputs/ListSelect";
 import BaseButton from "../../../../shared/Buttons/BaseButton";
 import { createCourse } from "../../../../services/courses.service"
 import { useEffect, useState } from 'react';
 import { getSubjects } from '../../../../services/subject.service';
 import { AxiosError } from 'axios';
 import ListSelectSubjects from '../../../../shared/Inputs/ListSelectSubjects';
+import ListSelectGrade from '../../../../shared/Inputs/ListSelectGrade/listSelectGrade';
 
 
 interface CourseFormData {
@@ -52,7 +52,11 @@ const CreateCourses = () => {
     try {
       const response = await createCourse(courseData);
       console.log('Курс', response);
-      navigate(`${urls.createCoursesContent}`);
+      if ('data' in response) {
+        const slugCourse = response.data.slug;
+        console.log('Slug курса:', slugCourse);
+        navigate(`${urls.createCoursesContent}/${slugCourse}`);
+      }
     } catch (error) {
       console.error('Ошибка при создании курса', error);
     }
@@ -111,7 +115,7 @@ const CreateCourses = () => {
               <label className="title-create-courses">Выберите класс</label>
               <div className="fieldlist-create-courses">
                 {formattedData.length > 0 ? (
-                  <ListSelect
+                  <ListSelectGrade
                     placeholder="Не выбран"
                     data={formattedData}
                     register={{ ...register('grade', { required: "Выберите класс" }) }}

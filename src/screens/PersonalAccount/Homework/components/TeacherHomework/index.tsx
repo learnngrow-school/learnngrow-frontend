@@ -10,23 +10,23 @@ import { getTasks } from "../../../../../services/tasks.service";
 import { Task } from "../../../../../types/task";
 import useWindowSize from "../../../../Courses/components/WindowSize/useWindowSize";
 
-const tasksData: Task[] = [
-  {
-    title: "Функции",
-    teacherNotes: "http://example.com/task1",
-    fileSlug: ""
-  },
-  {
-    title: "Глаголы",
-    teacherNotes: "http://example.com/task2",
-    fileSlug: ""
-  },
-  {
-    title: "Уравнения",
-    teacherNotes: "http://example.com/task3",
-    fileSlug: ""
-  }
-];
+// const tasksData: Task[] = [
+//   {
+//     title: "Функции",
+//     teacherNotes: "http://example.com/task1",
+//     fileSlug: ""
+//   },
+//   {
+//     title: "Глаголы",
+//     teacherNotes: "http://example.com/task2",
+//     fileSlug: ""
+//   },
+//   {
+//     title: "Уравнения",
+//     teacherNotes: "http://example.com/task3",
+//     fileSlug: ""
+//   }
+// ];
 
 const TeacherHomework = () => {
   const navigate = useNavigate();
@@ -35,27 +35,27 @@ const TeacherHomework = () => {
   const [error, setError] = useState<string | null>(null);
   const { width } = useWindowSize();
 
-  useEffect(() => {
-    setLoading(false);
-    setTasks(tasksData);
-  }, []);
+  // useEffect(() => {
+  //   setLoading(false);
+  //   setTasks(tasksData);
+  // }, []);
 
   // Получение заданий с сервера
-  // useEffect(() => {
-  //     const fetchTasks = async () => {
-  //         setLoading(true);
-  //         const result = await getTasks();
-  //         if (Array.isArray(result)) {
-  //             setTasks(result);
-  //             console.log(result)
-  //         } else {
-  //             setError('Не удалось загрузить задания');
-  //         }
-  //         setLoading(false);
-  //     };
+  useEffect(() => {
+      const fetchTasks = async () => {
+          setLoading(true);
+          const result = await getTasks();
+          if (Array.isArray(result)) {
+              setTasks(result);
+              console.log(result)
+          } else {
+              setError('Не удалось загрузить задания');
+          }
+          setLoading(false);
+      };
 
-  //     fetchTasks();
-  // }, []);
+      fetchTasks();
+  }, []);
 
 
   const handleCreateHomeworkClick = () => {
