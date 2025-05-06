@@ -85,6 +85,17 @@
 
 .navbutton.expanded {
   height: 360px; /* Высота при расширении */
+  z-index: 10;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 30;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2); /* затемнение */
+  z-index: 9; /* ниже navbutton */
 }
 
 .navbutton .head-info {

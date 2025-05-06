@@ -5,6 +5,8 @@ import { getLessons } from "../../../services/lesson.service";
 import Lesson from "../../../types/lesson";
 import "./main.css";
 import BaseButton from "../../../shared/Buttons/BaseButton";
+import Books from "../../../assets/pictures/books.png";
+import useWindowSize from "../../Courses/components/WindowSize/useWindowSize";
 
 const MainPersonal = () => {
   const [lesson, setLesson] = useState<Lesson[]>([]);
@@ -12,6 +14,9 @@ const MainPersonal = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [showAllPastLessons, setShowAllPastLessons] = useState(false);
   const [weekOffset] = useState<number>(0);
+  const { width } = useWindowSize();
+
+  const showMobil = width <= 768;
 
   useEffect(() => {
     const fetchLessons = async () => {
@@ -65,15 +70,16 @@ const MainPersonal = () => {
           ) : (
             <div className="lessons-list">
                 {upcomingLessons.map((lessonData: Lesson, index) => {
-                  const { homework, timestamp, duration } = lessonData;
+                  const { subject, timestamp, duration } = lessonData;
                   const isFirst = index === 0;
                   return (
-                    <div style={{ cursor: "pointer" }} key={index}>
+                    <div style={{ width: showMobil ? '100%' : undefined, cursor: "pointer" }} key={index}>
                       <LessonCard
-                        homework={homework || "Не указано"}
+                        homework={subject || "Не указано"}
                         timestamp={timestamp || Date.now()}
                         duration={duration || 0}
                         className={isFirst ? "" : "grey-text"}
+                        icon={Books}
                       />
                     </div>
                   );
@@ -94,11 +100,11 @@ const MainPersonal = () => {
           ) : (
             <div className="lessons-list">
               {(showAllPastLessons ? pastLessons : pastLessons.slice(0, 3)).map((lessonData: Lesson, index) => {
-                const { homework, teacherNotes, timestamp, duration } = lessonData;
+                const { subject, teacherNotes, timestamp, duration } = lessonData;
                 return (
-                  <div style={{ cursor: "pointer" }} key={index}>
+                  <div style={{ width: showMobil ? '100%' : undefined, cursor: "pointer" }} key={index}>
                     <LessonCard
-                      homework={homework || "Не указано"}
+                      homework={subject || "Не указано"}
                       teacherNotes={teacherNotes || "Нет заметок"}
                       timestamp={timestamp || Date.now()}
                       duration={duration || 0}
@@ -113,7 +119,7 @@ const MainPersonal = () => {
         <BaseButton
           theme="pink-secondary"
           text={showAllPastLessons ? "Свернуть" : "Все прошедшие занятия"}
-          className="button-container"
+          className="button-containers"
           onClick={handleAllPastLessonsClick}
         />
       </section>

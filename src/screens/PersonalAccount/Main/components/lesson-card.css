@@ -1,3 +1,5 @@
+@import './lesson-card.media.css';
+
 .lesson-card {
     background:  var(--white);
     border-radius: 10px;
@@ -12,6 +14,7 @@
 
 .grey-text {
     color: var(--grey-dark) !important;
+    filter: grayscale(100%);
 }
 
 /* .lesson-card:hover {
@@ -40,4 +43,18 @@
     margin-top: 10px;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.icon-lesson-card-column {
+    width: 28%;
+    
+}
+
+.info-lesson-card-column {
+    width: 72%;
+}
+
+.icon-lesson-card-column .icon {
+    height: 79px;
+    width: 79px;
 }

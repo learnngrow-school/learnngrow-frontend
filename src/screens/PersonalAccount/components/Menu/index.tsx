@@ -3,7 +3,6 @@ import { urls} from "../../../../navigation/app.urls"
 import BaseButton from "../../../../shared/Buttons/BaseButton"
 import { useNavigate } from "react-router-dom"
 import "./menu.css"
-import useWindowSize from "../../../Courses/components/WindowSize/useWindowSize"
 import Main from '../../../../assets/icons/main-home.svg'
 import Schedule from '../../../../assets/icons/schedule.svg'
 import Task from '../../../../assets/icons/task.svg'
@@ -11,6 +10,7 @@ import Course from '../../../../assets/icons/course.svg'
 import Teacher from '../../../../assets/icons/teacher.svg'
 import Reviews from '../../../../assets/icons/reviews.svg'
 import MyData from '../../../../assets/icons/mydata.svg'
+import useWindowSize from "../../../Courses/components/WindowSize/useWindowSize"
 
 interface IMenuProps {
     title: string;
@@ -52,22 +52,54 @@ const Menu = () => {
         {title: PupilPages.COURSES, onClick: () => navigate(urls.myCourses), iconPath: Course},
         // {title: PupilPages.SHOP, onClick: () => navigate(urls.shop), iconPath: Main},
         {title: PupilPages.MYDATA, onClick: () => navigate(urls.myData), iconPath: MyData},
-    ] 
+    ]
 
-    const showIconsOnly = width <= 768;
+    const lastItem = items[items.length - 1];
+    const columnItems = items.slice(0, items.length - 1);
+    const leftColumn = columnItems.filter((_, i) => i % 2 === 0);
+    const rightColumn = columnItems.filter((_, i) => i % 2 !== 0);
+
+    const showMobil = width <= 768;
 
     return (
-        <div className="menu-container">
-            {items.map((item, index) => (
-                <BaseButton theme="white-without-shadow" 
-                    key={index} 
-                    className="menu-button" 
-                    onClick={item.onClick} 
-                    text={showIconsOnly ? "" : item.title}
-                    iconPath={showIconsOnly ? item.iconPath : undefined}
-                />
-            ))}
-        </div>
+        <>
+            {!showMobil ? (
+                <div className="menu-container">
+                    {items.map((item, index) => (
+                        <BaseButton theme="white-without-shadow" 
+                            key={index} 
+                            className="menu-button" 
+                            onClick={item.onClick} 
+                            // text={showIconsOnly ? "" : item.title}
+                            // iconPath={showIconsOnly ? item.iconPath : undefined}
+                            text={item.title}
+                        />
+                    ))}
+                </div>
+            )
+            :
+            (
+            <div className="menu-container">
+                <div className="menu-columns">
+                    <div className="menu-column">
+                        {leftColumn.map((item, index) => (
+                        <BaseButton key={index} className="menu-button" theme="white-without-shadow" onClick={item.onClick} text={item.title} />
+                        ))}
+                    </div>
+                    <div className="menu-column">
+                        {rightColumn.map((item, index) => (
+                        <BaseButton key={index} className="menu-button" theme="white-without-shadow" onClick={item.onClick} text={item.title} />
+                        ))}
+                    </div>
+                </div>
+
+                <div className="menu-full-width">
+                    <BaseButton className="menu-button" theme="white-without-shadow" onClick={lastItem.onClick} text={lastItem.title} />
+                </div>
+            </div>
+            )
+            }
+        </>
     )
 }
 

@@ -1,8 +1,36 @@
+@import './main.media.css';
+
 .week-selector-schedule {
     display: flex;
     align-items: center;
 }
 
 .btn-week-selector-schedule {
-    padding: 0px 10px 0px 0px;
+    padding: 0px 5px 0px 0px;
+}
+
+.week-range-text {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark);
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px 0px 10px;
+    line-height: 1;
+    text-align: center;
+}
+
+.slider-button-lesson {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark);
+    cursor: pointer;
+    background-color: var(--white);
+    align-items: center;
+    justify-content: center;
+    padding: 1px 15px 2px 15px;
 }

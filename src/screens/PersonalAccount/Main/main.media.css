@@ -9,6 +9,31 @@
 
     .lessons-section {
         max-width: 600px;
-        width: 106% !important;
+        width: 100% !important;
+    }
+
+    .sections .button-containers {
+        left: 45% !important;
+    }
+
+    .lessons-list {
+        gap: 15px !important;
+        margin: 25px 0px 26px 0px !important;
+    }
+
+    .section-title--green {
+        background: var(--background-green-mobile) !important;
+        background-color: var(--green-pale) !important;
+        padding: 5px 0px !important;
+        text-align: center;
+        font-weight: 600;
+    }
+    
+    .section-title--pink {
+        background: var(--background-pink-mobile) !important;
+        background-color: var(--pink-pale) !important;
+        padding: 5px 0px !important;
+        text-align: center;
+        font-weight: 600;
     }
 }

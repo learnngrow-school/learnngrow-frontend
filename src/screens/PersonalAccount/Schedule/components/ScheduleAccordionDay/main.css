@@ -1,0 +1,49 @@
+.accordion-day {
+    box-shadow: 0 1px 8px -5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.accordion-header {
+    padding: 12px 25px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    height: 54px;
+}
+
+.accordion-body {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lesson-card-mobile {
+    background:  var(--blue-light);
+    border-radius: 5px;
+    width: 85%;
+    height: 100%;
+    max-height: 105px;
+    text-align: left;
+    color: var(--blue-dark);
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--blue);
+}
+
+.lesson-card-mobile p {
+    margin: 2px 0px 10px 5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.no-lessons {
+    font-style: italic;
+    color: #999;
+    padding-left: 25px;
+}

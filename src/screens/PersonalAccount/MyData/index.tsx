@@ -99,7 +99,7 @@ const MyData = () => {
     return (
         <div>
             <ToastPopup ref={toastRef} />
-            <h1 className='text--heading2 text--blue text-600'>Мои данные</h1>
+            <h1 className='text--heading2 text--blue text-600 heading-mydata'>Мои данные</h1>
                 <div className='my-data-content'>
                     <AvatarInput avatar={avatar} onAvatarChange={onAvatarChange} />
                     <div className='inputs-container'>

@@ -1,0 +1,7 @@
+@media (max-width: 767px) {
+    .week-selector-schedule {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -2,4 +2,18 @@
     .add-lesson-btn-schedule {
         width: 260px !important;
     }
-  }
+}
+
+@media (max-width: 767px) {
+    .add-lesson-container {
+        width: 100%;
+    }
+    
+    .add-lesson-btn-schedule {
+        width: 100% !important;
+    }
+
+    .container-schedule-buttons {
+        margin-top: -20px;
+    }
+}

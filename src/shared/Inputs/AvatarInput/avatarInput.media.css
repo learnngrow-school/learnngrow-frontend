@@ -1,0 +1,11 @@
+@media (max-width: 767px) {
+    .avatar {
+        width: 230px !important;
+        height: 230px !important;
+    }
+
+    .avatar-img{
+        width: 230px !important;
+        height: 231px !important;
+    }
+}

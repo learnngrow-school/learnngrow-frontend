@@ -1,3 +1,5 @@
+@import './myData.media.css';
+
 .my-data-content {
     padding-top: 20px;
     display: grid;

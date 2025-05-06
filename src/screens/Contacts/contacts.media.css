@@ -1,0 +1,18 @@
+@media (max-width: 767px) {
+    .contactsContainer {
+        width: 130% !important;
+    }
+
+    .addressItem {
+        padding-left: 30px !important;
+    }
+
+    .gridItem {
+        padding-left: 30px !important;
+    }
+
+    .navBack {
+        top: -30px !important;
+        padding-left: 30px;
+    }
+}

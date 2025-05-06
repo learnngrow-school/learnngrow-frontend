@@ -1,0 +1,15 @@
+
+@media (max-width: 767px) {
+    .lesson-card {
+        display: flex !important;
+        flex-direction: column 2 !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 25px 10px 25px !important;
+        width: 100% !important;
+    }
+
+    .homework-notes{
+        margin-bottom: 5px;
+    }
+}

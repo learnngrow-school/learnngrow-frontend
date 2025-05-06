@@ -72,9 +72,10 @@ const NavButton = () => {
 
   return (
     <div className='nav-wrappers'>
+      {expanded && <div className="nav-overlay" onClick={() => setExpanded(false)}></div>}
       <div className={`navbutton ${expanded ? 'expanded' : ''}`} >
         <div className='head-info'>
-            <div className="logoBlock" onClick={() => {navigate(urls.main), setExpanded(!expanded)}}>
+            <div className="logoBlock" onClick={() => {navigate(urls.main)}}>
                 <img src={DarkLogo} alt="logo lng" className='logoImg'/>
             </div>
             <div className='drop-down-button'>

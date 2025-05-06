@@ -106,11 +106,14 @@
     text-overflow: ellipsis;
     line-height: 1.4em;
     font-weight: 400;
-
 }
 
 
 .lesson-time-sch {
     margin-bottom: 5px;
     font-size: 13px;
+}
+
+.list-days-lessons {
+    margin-top: 20px;
 }
