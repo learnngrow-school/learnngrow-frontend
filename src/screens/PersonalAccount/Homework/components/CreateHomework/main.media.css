@@ -1,0 +1,23 @@
+@media (max-width: 767px) {
+    .container-create-homework{
+        width: 100% !important;
+        margin-top: -15px !important;
+    }
+
+    .field-create-homework {
+        width: 100% !important;
+        margin-right: 0px !important;
+    }
+
+    .uploaded-files {
+        margin-left: 10px !important;
+    }
+
+    .fieldlist-create-homework {
+        width: 100% !important;
+    }
+
+    .button-submit-homework {
+        width: 100% !important;
+    }
+}

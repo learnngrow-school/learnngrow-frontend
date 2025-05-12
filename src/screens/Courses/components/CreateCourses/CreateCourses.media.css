@@ -1,0 +1,32 @@
+@media (max-width: 767px) {
+    .container-create-courses{
+        width: 100% !important;
+    }
+
+    .first-block-create-courses {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-block-create-courses {
+        margin-left: 0px !important;
+        margin-bottom: 20px;
+    }
+
+    .field-create-courses {
+        width: 100% !important;
+    }
+
+    .fieldlist-create-courses {
+        width: 100% !important;
+    }
+
+    .text-btn-create-courses-last {
+        flex-direction: column !important;
+    }
+
+    .button-submit-next-create-courses {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+}

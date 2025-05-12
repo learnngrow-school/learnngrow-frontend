@@ -35,4 +35,22 @@
     .link-homework {
         max-width: 150px !important;
     }
+
+    .btn-srch-add-task {
+        display: flex;
+        flex-direction: column !important;
+        gap: 10px;
+        justify-content: space-between !important;
+        width: 100%;
+    }
+
+    .search-input-homework{
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+
+    .button-createtask-homework {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
 }

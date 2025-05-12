@@ -74,23 +74,19 @@ const TeacherHomework = () => {
     <div className="lessons-page">
       <section className="sections">
         <section className="lessons-section">
-          <h2 className="section-title section-title--green">Мои задания</h2>
+          <h2 className="section-title section-title--green section-green-header-courses">Мои задания</h2>
           <section className="search-container-homework">
                   {width <= 767 ? (
                     <div className="btn-srch-add-task">
-                      <BaseButton
-                        theme="white-secondary"
-                        text=""
-                        className="button-search-homework-sm"
+                      <SearchInput
+                        containerClassName="search-input-homework"
+                        placeholder="Найти задание"
                         iconPath={Search}
-                        iconPathHover={Search}
-                        iconClassName="icon-sm-search"
-                        onClick={handleCreateHomeworkClick}
                       />
                       <BaseButton
                         theme="pink-secondary"
-                        text=""
-                        className="button-createtask-homework-sm"
+                        text="Создать задание"
+                        className="button-createtask-homework"
                         iconPath={PlusWhite}
                         iconPathHover={PlusPink}
                         onClick={handleCreateHomeworkClick}

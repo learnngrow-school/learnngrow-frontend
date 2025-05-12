@@ -35,6 +35,18 @@ const CourseDetailAuthorized: FC = () => {
                 Все курсы
             </div>
             <div className="container-info-detail">
+                <div className="container-img-info-courses">
+                    <div className={`course-image-info-detail ${isCoursePurchased ? 'purchased' : 'not-purchased'}`}>
+                        <img src={CourseImg}></img>
+                        {isCoursePurchased && progress !== undefined && (
+                            <div className="course-progress-bar-detail">
+                                <div className="course-progress-detail" style={{ width: `${progress}%` }}>
+                                    <span className="course-progress-text-detail">Прогресс: {progress}%</span>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
                 <div className="info-course">
                     <p className="title-info-detail">{courseData.course.title}</p>
                     <p className="subject-info-detail">{courseData.subject.title}. {courseData.course.grade} класс</p>
@@ -55,16 +67,6 @@ const CourseDetailAuthorized: FC = () => {
                         />
                         {isCoursePurchased ? "":<p className="price">{courseData.course.price === 0 ? "Бесплатно" : `${courseData.course.price} р.`}</p>}
                     </div>
-                </div>
-                <div className={`course-image-info-detail ${isCoursePurchased ? 'purchased' : 'not-purchased'}`}>
-                    <img src={CourseImg}></img>
-                    {isCoursePurchased && progress !== undefined && (
-                        <div className="course-progress-bar-detail">
-                            <div className="course-progress-detail" style={{ width: `${progress}%` }}>
-                                <span className="course-progress-text-detail">Прогресс: {progress}%</span>
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
         </>

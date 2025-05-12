@@ -5,10 +5,8 @@ import { getSubjects } from "../../../../services/subject.service";
 import SubjectsSlider from "../../../PersonalAccount/Schedule/components/SubjectsSlider/SubjectsSlider";
 import PlusWhite from "../../../../assets/icons/plus-white.svg";
 import { useNavigate } from "react-router-dom";
-import useWindowSize from "../WindowSize/useWindowSize";
 import FilterDropdown from "../FilterDropdown/filter-dropdown";
-import DropDownButton from "../../../../shared/Buttons/DropDownButton";
-import MenuDrop from '../../../../assets/icons/menuDrop.svg'
+import useWindowSize from "../WindowSize/useWindowSize";
 
 interface SubjectBarTeacherProps {
     selectedSubject: string;
@@ -18,9 +16,11 @@ interface SubjectBarTeacherProps {
 const SubjectBarTeacher = ({onSubjectChange }: SubjectBarTeacherProps) => {
     const navigate = useNavigate();
     const [subjects, setSubjects] = useState<string[]>([]);
-    const { width } = useWindowSize();  // Получаем ширину экрана
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const filterButtonRef = useRef<HTMLButtonElement>(null);
+
+    const { width } = useWindowSize();
+    const showMobil = width <= 768;
 
     useEffect(() => {
         getSubjects().then((res: any) => {
@@ -37,51 +37,30 @@ const SubjectBarTeacher = ({onSubjectChange }: SubjectBarTeacherProps) => {
     return (
         <div className="container-schedule-buttons-courses">
             <div className="filter-roll-subject-container">
-                {width <= 767 ? (
-                    <>
-                        <DropDownButton 
-                        items={[]} 
-                        text={''} 
-                        theme={'white-primary'}
-                        iconPath={MenuDrop}
-                        withToggleIcon={false}
-                        className='btn-menu-drop'
-                        />
-                    </>
-                ) : width <= 1024 ? (
-                    <>
-                        <BaseButton
-                        text="Фильтр"
-                        theme="white-secondary"
-                        className="btn-filter"
-                        onClick={() => setIsFilterOpen(!isFilterOpen)}
-                        ref={filterButtonRef}
-                        />
-                        <FilterDropdown
-                        isOpen={isFilterOpen}
-                        buttonRef={filterButtonRef}
-                        onClose={() => setIsFilterOpen(false)}
-                        onFilterChange={() => {}}
-                        />
-                    </>
-                ) : (
+                <BaseButton
+                    text="Фильтр"
+                    theme="white-secondary"
+                    className="btn-filter"
+                    onClick={() => setIsFilterOpen(!isFilterOpen)}
+                    ref={filterButtonRef}
+                />
+                    <FilterDropdown
+                    isOpen={isFilterOpen}
+                    buttonRef={filterButtonRef}
+                    onClose={() => setIsFilterOpen(false)}
+                    onFilterChange={() => {}}
+                />
+                {!showMobil ? ( 
                     <SubjectsSlider subjects={subjects} onSubjectSelect={onSubjectChange} />
-                )}
+                ) : (
+                    <></>
+                )
+                }
+                
             </div>
 
             <div className="add-lesson-container">
-            {width <= 767 ? (
-                    <BaseButton
-                    data-bs-toggle="modal"
-                    data-bs-target="#creationModal"
-                    className="add-lesson-btn-schedule-compact"
-                    text=""
-                    onClick={handleCreateHomeworkClick}
-                    theme="pink-primary"
-                    iconPath={PlusWhite}
-                    />
-                ) : (
-                    <BaseButton
+                <BaseButton
                     data-bs-toggle="modal"
                     data-bs-target="#creationModal"
                     className="add-lesson-btn-schedule"
@@ -89,9 +68,7 @@ const SubjectBarTeacher = ({onSubjectChange }: SubjectBarTeacherProps) => {
                     onClick={handleCreateHomeworkClick}
                     theme="pink-primary"
                     iconPath={PlusWhite}
-                    />
-                )}
-                
+                />     
             </div>
         </div> 
     );

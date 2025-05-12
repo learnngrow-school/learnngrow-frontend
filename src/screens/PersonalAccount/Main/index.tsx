@@ -59,7 +59,7 @@ const MainPersonal = () => {
     <div className="lessons-page">
       <section className="sections">
         <section className="lessons-section">
-          <h2 className="section-title section-title--green">Ближайшие занятия</h2>
+          <h2 className="section-title section-title--green section-green-header-courses">Ближайшие занятия</h2>
           {loading ? (
             <p>Загрузка...</p>
           ) : error || lesson.length === 0 ? (

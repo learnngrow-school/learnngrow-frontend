@@ -1,0 +1,10 @@
+@media (max-width: 767px) {
+    .select-container{
+        width: 100% !important;
+    }
+    
+    .select-field{
+        height: 40px !important;
+        border-radius: 10px !important;
+    }
+}

@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+    .mod-footer{    
+        display: flex;
+        flex-direction: column !important;
+        float: right;
+        padding: 10px 20px 20px 20px;
+        justify-content: flex-end;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    
+    .mod-footer button{
+        width: 100% !important;
+        height: 40px;
+    }
+}

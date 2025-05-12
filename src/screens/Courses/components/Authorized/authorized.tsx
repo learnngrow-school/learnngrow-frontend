@@ -27,7 +27,7 @@ const Authorized: FC = () => {
         <div className="courses-page">
             <section className="sections-courses-page">
                 <section className="courses-section">
-                    <h2 className="section-title section-title--green">Мои курсы</h2>
+                    <h2 className="section-title section-title--green section-green-header-courses">Мои курсы</h2>
                     {user.isTeacher || user.isSuperuser ? (
                         <SubjectBarTeacher
                             selectedSubject={selectedSubject}

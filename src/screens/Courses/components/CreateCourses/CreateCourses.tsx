@@ -83,6 +83,14 @@ const CreateCourses = () => {
       <h2 className="header-create-courses">Создать курс</h2>
       <form className="form-container-create-courses" onSubmit={handleSubmit(onSubmit)}>
         <div className="first-block-create-courses">
+
+          <div className="image-block-create-courses">
+            <div className="image-create-courses"></div>
+            <div className="addtext-image-create-courses">
+              Добавьте фотографию курса
+            </div>
+          </div>
+
           <div className="first-three-field-create-courses">
             <div className="container-input-courses">
               <label className="title-create-courses">Введите название курса</label>
@@ -125,13 +133,6 @@ const CreateCourses = () => {
                   <div>Загрузка данных...</div>
                 )}
               </div>
-            </div>
-          </div>
-
-          <div className="image-block-create-courses">
-            <div className="image-create-courses"></div>
-            <div className="addtext-image-create-courses">
-              Добавьте фотографию курса
             </div>
           </div>
         </div>
