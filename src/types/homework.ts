@@ -1,5 +1,5 @@
 export type Homework = {
-    fileSlug: string;
+    fileSlug: string [];
     title: string;
     teacherNotes: string;
     deadline: number | string | Date;

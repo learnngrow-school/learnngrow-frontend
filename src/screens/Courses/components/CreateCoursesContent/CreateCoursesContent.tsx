@@ -9,7 +9,6 @@ import Plus from "../../../../assets/icons/plus-pink.svg";
 import PlusBlue from "../../../../assets/icons/plus-blue.svg";
 import AddTest from "./components/AddTest";
 import Programm from "./components/Programm";
-import { CourseContent } from "../../../../types/course-content";
 import { createCourseContent } from "../../../../services/course-content.service";
 import AddLectureText from "./components/AddLectureText";
 
