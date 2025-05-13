@@ -1,11 +1,14 @@
+@import './main.media.css';
+
 .homeworks-page {
     position: relative;
     display: flex;
     margin-bottom: 50px;
 }
 
-.sections {
+.sections-page-tasks {
     margin-top: -20px;
+    width: 100%;
 }
 
 .homeworks-section {

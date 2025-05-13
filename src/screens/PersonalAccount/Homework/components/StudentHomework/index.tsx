@@ -55,7 +55,7 @@ const StudentHomework = () => {
 
   return (
     <div className="homeworks-page">
-      <section className="sections">
+      <section className="sections-page-tasks">
         <section className="homeworks-section">
           <h2 className="section-title section-title--green">Нужно выполнить</h2>
           {loading ? (
@@ -103,13 +103,14 @@ const StudentHomework = () => {
             </div>
           )}
         </section>
-
-        <BaseButton
-          theme="pink-secondary"
-          text={showAllCompletedHomeworks ? "Свернуть" : "Все выполненные задания"}
-          className="button-container"
-          onClick={handleAllCompletedHomeworksClick}
-        />
+        <div className="btn-all-all-tasks">
+          <BaseButton
+            theme="pink-secondary"
+            text={showAllCompletedHomeworks ? "Свернуть" : "Все выполненные задания"}
+            className="button-container"
+            onClick={handleAllCompletedHomeworksClick}
+          />
+        </div>
       </section>
     </div>
   );

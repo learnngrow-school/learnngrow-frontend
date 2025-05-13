@@ -1,0 +1,13 @@
+@media (max-width: 767px) {    
+    .homeworks-section {
+        width: 100% !important;
+        position: relative;
+    }
+
+    .btn-all-all-tasks {
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+        height: 40px !important;
+    }
+}
