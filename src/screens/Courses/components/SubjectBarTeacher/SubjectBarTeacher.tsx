@@ -37,23 +37,25 @@ const SubjectBarTeacher = ({onSubjectChange }: SubjectBarTeacherProps) => {
     return (
         <div className="container-schedule-buttons-courses">
             <div className="filter-roll-subject-container">
-                <BaseButton
-                    text="Фильтр"
-                    theme="white-secondary"
-                    className="btn-filter"
-                    onClick={() => setIsFilterOpen(!isFilterOpen)}
-                    ref={filterButtonRef}
-                />
-                    <FilterDropdown
-                    isOpen={isFilterOpen}
-                    buttonRef={filterButtonRef}
-                    onClose={() => setIsFilterOpen(false)}
-                    onFilterChange={() => {}}
-                />
+                
                 {!showMobil ? ( 
                     <SubjectsSlider subjects={subjects} onSubjectSelect={onSubjectChange} />
                 ) : (
-                    <></>
+                <>
+                    <BaseButton
+                        text="Фильтр"
+                        theme="white-secondary"
+                        className="btn-filter"
+                        onClick={() => setIsFilterOpen(!isFilterOpen)}
+                        ref={filterButtonRef}
+                    />
+                        <FilterDropdown
+                        isOpen={isFilterOpen}
+                        buttonRef={filterButtonRef}
+                        onClose={() => setIsFilterOpen(false)}
+                        onFilterChange={() => {}}
+                    />
+                </>
                 )
                 }
                 
