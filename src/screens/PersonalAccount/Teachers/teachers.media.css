@@ -1,0 +1,12 @@
+@media (max-width: 767px) {
+    .title-teachers-container{
+        display: flex;
+        width: 100% !important;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--background-green-2);
+        background-color: var(--green-pale);
+        align-items: center;
+        padding-left: 40px;
+    }
+}

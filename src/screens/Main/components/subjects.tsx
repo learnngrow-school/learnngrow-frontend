@@ -10,32 +10,8 @@ const Subjects = ({data} : IProps) => {
     const fishSubjects: Subject[] = [
         {
             id: 1,
-            title: "Математика"
+            title: "default_subject"
         },
-        {
-            id: 2,
-            title: "Физика"
-        },
-        {
-            id: 3,
-            title: "Русский язык"
-        },
-        {
-            id: 4,
-            title: "Информатика"
-        },
-        {
-            id: 5,
-            title: "Литература"
-        },
-        {
-            id: 6,
-            title: "Английский язык"
-        },
-        {
-            id: 7,
-            title: "Обществознание"
-        }
     ]
     const onTestClick = () => {
         window.open("https://t.me/LearnnGrowBot");
