@@ -77,9 +77,13 @@ const Authorized: FC = () => {
                             <p className="text-error">Данных пока нет...</p>
                         </div>
                     ) : (
-                    <div className="course-list">
-                        <CourseCard title="Математика" subject="Профильный уровень ЕГЭ" price="4000" />
-                        <CourseCard title="Математика" subject="Профильный уровень ЕГЭ" price="0" />
+                    // <div className="course-list">
+                    //     {/* <CourseCard title="Математика" subject="Профильный уровень ЕГЭ" price="4000" />
+                    //     <CourseCard title="Математика" subject="Профильный уровень ЕГЭ" price="0" /> */}
+                    // </div>
+                    <div className="error-container">
+                        <img src={Sad} alt="sad" className="sad-icon"/>
+                        <p className="text-error">Данных пока нет...</p>
                     </div>
                     )}
                     </section>
